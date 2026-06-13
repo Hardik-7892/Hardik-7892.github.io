@@ -15,6 +15,7 @@
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-display-title: "Honk", system-ui;
 
   --nav-h: 64px;
   --max-w: 1100px;
@@ -175,7 +176,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 1.5rem;
 }
 .hero-name {
-  font-family: var(--font-display);
+  font-family: var(--font-display-title);
   font-weight: 800;
   font-size: clamp(4rem, 12vw, 9rem);
   line-height: 0.9;
