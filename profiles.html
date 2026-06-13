@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profiles — Hardik Pandey</title>
+  <meta name="description" content="Other platforms where Hardik Pandey shows up — Google Cloud Skills Boost, Vercel, itch.io, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="profiles">
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">hp.</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"    class="nav-link" data-page="home">Home</a></li>
+          <li><a href="about.html"    class="nav-link" data-page="about">About</a></li>
+          <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
+          <li><a href="profiles.html" class="nav-link" data-page="profiles">Profiles</a></li>
+          <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="container">
+        <p class="section-label fade-in">the trophy case</p>
+        <h1 class="section-title fade-in" style="margin-bottom: 0.5rem;">Profiles</h1>
+        <p class="page-header-sub fade-in">
+          Badges, deployments, and other places I show up online.
+        </p>
+      </div>
+    </div>
+
+    <!-- PROFILE CARDS -->
+    <div class="section">
+      <div class="container">
+        <div class="projects-grid">
+
+          <!-- Google Cloud Skills Boost -->
+          <a href="https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887"
+             target="_blank" rel="noopener"
+             class="card profile-card fade-in"
+             style="--card-color: var(--c-gcp)">
+            <div class="profile-card-top">
+              <p class="card-name">Google Cloud Skills Boost</p>
+              <img src="https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png"
+                   alt="Diamond League badge" class="profile-badge-icon" loading="lazy" />
+            </div>
+            <p class="card-desc">
+              50+ skill badges and Arcade achievements earned through hands-on labs
+              across Google Cloud — currently sitting in the Diamond league, the top
+              tier on the leaderboard.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Diamond League</span>
+                <span class="tag">34,595 pts</span>
+                <span class="tag">50+ badges</span>
+              </div>
+              <span class="card-link">View profile &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Vercel -->
+          <a href="https://vercel.com/hardiks-projects-9b7e5c43"
+             target="_blank" rel="noopener"
+             class="card profile-card fade-in"
+             style="--card-color: var(--c-vercel)">
+            <div class="profile-card-top">
+              <p class="card-name">Vercel</p>
+            </div>
+            <p class="card-desc">
+              Live deployments and previews for side projects and experiments —
+              shipped and hosted straight from GitHub.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Hosting</span>
+                <span class="tag">Deployments</span>
+              </div>
+              <span class="card-link">View profile &rarr;</span>
+            </div>
+          </a>
+
+          <!-- itch.io -->
+          <a href="https://hardik-7892.itch.io/"
+             target="_blank" rel="noopener"
+             class="card profile-card fade-in"
+             style="--card-color: var(--c-itch)">
+            <div class="profile-card-top">
+              <p class="card-name">itch.io</p>
+            </div>
+            <p class="card-desc">
+              Games and interactive builds, including 2D Shooter and other
+              experiments made in Unity.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Game Dev</span>
+                <span class="tag">Unity</span>
+              </div>
+              <span class="card-link">View profile &rarr;</span>
+            </div>
+          </a>
+
+          <!--
+            To add more profiles (LeetCode, Kaggle, Codeforces, etc.):
+            duplicate a card above, then update:
+              - href
+              - --card-color  (add a new --c-* token in css/style.css for a unique accent)
+              - card-name, card-desc
+              - tags in card-tags
+          -->
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">Hardik Pandey</p>
+        <div class="footer-links">
+          <a href="https://github.com/Hardik-7892" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+          <a href="https://linkedin.com/in/hp0"     target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

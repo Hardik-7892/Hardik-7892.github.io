@@ -26,6 +26,11 @@
   --c-csharp: #178600;
   --c-elk: #00BFB3;
   --c-other: #888;
+
+  /* External profile accent colors */
+  --c-gcp: #4285F4;
+  --c-vercel: #000000;
+  --c-itch: #FA5C5C;
 }
 
 /* ============================================================
@@ -356,6 +361,22 @@ img { max-width: 100%; display: block; }
 .card-more {
   margin-top: 2.25rem;
   text-align: center;
+}
+
+/* ============================================================
+   PROFILE CARDS (profiles.html) — extends .card
+   ============================================================ */
+.profile-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.profile-badge-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 /* ============================================================
