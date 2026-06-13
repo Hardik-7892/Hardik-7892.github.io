@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Hardik Pandey</title>
+  <meta name="description" content="A bit about Hardik Pandey — software engineer working across AI, security, Rust, and game dev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="about">
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">hp.</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"    class="nav-link" data-page="home">Home</a></li>
+          <li><a href="about.html"    class="nav-link" data-page="about">About</a></li>
+          <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
+          <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="container">
+        <p class="section-label fade-in">the person</p>
+        <h1 class="section-title fade-in" style="margin-bottom: 0.5rem;">About me</h1>
+        <p class="page-header-sub fade-in">
+          Software engineer, based in Europe. I build things I find genuinely interesting.
+        </p>
+      </div>
+    </div>
+
+    <!-- ABOUT CONTENT -->
+    <div class="section">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- SKILLS COLUMN -->
+          <div class="fade-in">
+
+            <div class="skills-group">
+              <p class="skills-group-label">Languages</p>
+              <ul class="skills-list">
+                <li class="pill">Python</li>
+                <li class="pill">Rust</li>
+                <li class="pill">C#</li>
+                <li class="pill">JavaScript</li>
+              </ul>
+            </div>
+
+            <div class="skills-group">
+              <p class="skills-group-label">AI / ML</p>
+              <ul class="skills-list">
+                <li class="pill">RAG pipelines</li>
+                <li class="pill">FAISS</li>
+                <li class="pill">SentenceTransformers</li>
+                <li class="pill">llama-cpp-python</li>
+                <li class="pill">AutoGluon</li>
+                <li class="pill">Streamlit</li>
+              </ul>
+            </div>
+
+            <div class="skills-group">
+              <p class="skills-group-label">Security</p>
+              <ul class="skills-list">
+                <li class="pill">ELK Stack</li>
+                <li class="pill">Elasticsearch</li>
+                <li class="pill">Logstash</li>
+                <li class="pill">Kibana</li>
+                <li class="pill">SIEM</li>
+              </ul>
+            </div>
+
+            <div class="skills-group">
+              <p class="skills-group-label">Tools & Other</p>
+              <ul class="skills-list">
+                <li class="pill">Git</li>
+                <li class="pill">Unity</li>
+                <li class="pill">Google Sheets API</li>
+                <li class="pill">Docker</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- BIO COLUMN -->
+          <div>
+
+            <p class="bio-para fade-in">
+              I'm a software engineer with a fairly wide range —
+              I've built <strong>AI systems</strong>, dug into <strong>security operations</strong>,
+              written a <strong>programming language in Rust</strong>, and shipped a
+              <strong>game in Unity</strong>. Not the typical career path, but that's sort of the point.
+            </p>
+
+            <p class="bio-para fade-in">
+              Most of my projects start with a question I can't shake.
+              <em>"Can I build an AI assistant that runs entirely on my laptop?"</em>
+              became AI-Companion. <em>"Are emojis actually valid syntax?"</em> became emojinterp.
+              Building something is usually the fastest way to understand it properly —
+              faster than reading about it, at least.
+            </p>
+
+            <p class="bio-para fade-in">
+              Right now I'm most interested in local AI — systems where your data never
+              leaves your machine. There's something more honest about that. No API keys,
+              no rate limits, no one storing your queries. Just a model running on your hardware.
+            </p>
+
+            <p class="bio-para fade-in">
+              I'm based in Europe and always open to interesting work or conversations.
+              If you're building something unusual, I'd like to hear about it.
+            </p>
+
+            <div class="currently-box fade-in">
+              <p class="currently-label">currently into</p>
+              <p class="currently-text">
+                Local LLM inference, GGUF quantization, semantic memory systems,
+                and figuring out what detection engineering actually looks like day-to-day.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">&copy; 2025 Hardik Pandey</p>
+        <div class="footer-links">
+          <a href="https://github.com/Hardik-7892" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+          <a href="https://linkedin.com/in/hp0"     target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

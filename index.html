@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardik Pandey — Software Engineer</title>
+  <meta name="description" content="Software engineer working on local AI systems, security tooling, Rust, and the occasional game." />
+  <meta property="og:title" content="Hardik Pandey — Software Engineer" />
+  <meta property="og:description" content="I pick things apart to understand them, then rebuild them better." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="home">
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">hp.</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"    class="nav-link" data-page="home">Home</a></li>
+          <li><a href="about.html"    class="nav-link" data-page="about">About</a></li>
+          <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
+          <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <div class="hero">
+      <p class="hero-eyebrow fade-in">software engineer</p>
+      <h1 class="hero-name fade-in">Hardik<br><span class="accent">Pandey</span></h1>
+      <p class="hero-role fade-in"><span class="typed-text"></span><span class="cursor"></span></p>
+      <p class="hero-bio fade-in">
+        I pick things apart to understand them, then rebuild them better.
+        Currently spending most of my time inside LLM pipelines, security labs,
+        and the Rust type system.
+      </p>
+      <div class="hero-ctas fade-in">
+        <a href="projects.html" class="btn btn-primary">my projects &rarr;</a>
+        <a href="about.html"    class="btn btn-ghost">about me</a>
+      </div>
+    </div>
+
+    <!-- FEATURED PROJECTS -->
+    <div class="section">
+      <div class="container">
+        <p class="section-label fade-in">featured work</p>
+        <h2 class="section-title fade-in">a few things i've built</h2>
+
+        <div class="projects-grid">
+
+          <a href="https://github.com/Hardik-7892/AI-Companion"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-python)">
+            <p class="card-name">AI-Companion</p>
+            <p class="card-desc">
+              A fully local AI assistant that actually remembers things. RAG pipeline
+              with FAISS + SentenceTransformers, runs GGUF models — no cloud, no
+              subscriptions, nothing leaves your machine.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">FAISS</span>
+                <span class="tag">llama.cpp</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Hardik-7892/emojinterp"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-rust)">
+            <p class="card-name">emojinterp</p>
+            <p class="card-desc">
+              A programming language where the entire syntax is emojis.
+              Brainfuck-inspired, full CLI interpreter written in Rust. It actually works.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Rust</span>
+                <span class="tag">CLI</span>
+                <span class="tag">interpreter</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Hardik-7892/SIEM-ELK"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-elk)">
+            <p class="card-name">SIEM-ELK</p>
+            <p class="card-desc">
+              A hands-on SOC analyst lab built around the ELK stack. Log ingestion,
+              dashboards, and alerts — all built from scratch to understand how
+              detection engineering actually works.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">ELK Stack</span>
+                <span class="tag">Security</span>
+                <span class="tag">SOC</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="card-more fade-in">
+          <a href="projects.html" class="btn btn-ghost">see all projects &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">&copy; 2025 Hardik Pandey</p>
+        <div class="footer-links">
+          <a href="https://github.com/Hardik-7892" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+          <a href="https://linkedin.com/in/hp0"     target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

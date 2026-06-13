@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Hardik Pandey</title>
+  <meta name="description" content="Things Hardik Pandey has built — AI, security, Rust, game dev, and research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="projects">
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">hp.</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"    class="nav-link" data-page="home">Home</a></li>
+          <li><a href="about.html"    class="nav-link" data-page="about">About</a></li>
+          <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
+          <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="container">
+        <p class="section-label fade-in">the work</p>
+        <h1 class="section-title fade-in" style="margin-bottom: 0.5rem;">Projects</h1>
+        <p class="page-header-sub fade-in">
+          Things I've built, mostly because I wanted to understand how they work.
+        </p>
+      </div>
+    </div>
+
+    <!-- ALL PROJECTS -->
+    <div class="section">
+      <div class="container">
+        <div class="projects-grid">
+
+          <!-- AI-Companion -->
+          <a href="https://github.com/Hardik-7892/AI-Companion"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-python)">
+            <p class="card-name">AI-Companion</p>
+            <p class="card-desc">
+              A modular, local AI assistant with long-term semantic memory.
+              Built a RAG pipeline using FAISS and SentenceTransformers so it actually
+              remembers what you've told it. Runs quantized GGUF models via llama-cpp-python —
+              entirely offline, entirely yours.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">FAISS</span>
+                <span class="tag">SentenceTransformers</span>
+                <span class="tag">llama.cpp</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+          <!-- SIEM-ELK -->
+          <a href="https://github.com/Hardik-7892/SIEM-ELK"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-elk)">
+            <p class="card-name">SIEM-ELK</p>
+            <p class="card-desc">
+              A SOC analyst lab built from scratch on the ELK stack. Set up log ingestion
+              with Logstash, built detection dashboards in Kibana, and wrote custom alert rules.
+              The goal was to understand what real detection engineering looks like, not just read about it.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Elasticsearch</span>
+                <span class="tag">Logstash</span>
+                <span class="tag">Kibana</span>
+                <span class="tag">SIEM</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+          <!-- auto-ml -->
+          <a href="https://github.com/Hardik-7892/auto-ml"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-python)">
+            <p class="card-name">auto-ml</p>
+            <p class="card-desc">
+              A Streamlit app that wraps AutoGluon to make training and evaluating ML models
+              genuinely painless. Upload a dataset, pick your target column, let it run.
+              Comes with example model outputs so you can see what to expect.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">AutoGluon</span>
+                <span class="tag">Streamlit</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+          <!-- emojinterp -->
+          <a href="https://github.com/Hardik-7892/emojinterp"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-rust)">
+            <p class="card-name">emojinterp</p>
+            <p class="card-desc">
+              A programming language where the syntax is entirely emojis. Brainfuck-inspired —
+              each emoji maps to an instruction. Full CLI interpreter written in Rust.
+              It does actually run programs.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Rust</span>
+                <span class="tag">CLI</span>
+                <span class="tag">interpreter</span>
+                <span class="tag">lang design</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Improving-Passwords-using-Emojis -->
+          <a href="https://github.com/Hardik-7892/Improving-Passwords-using-Emojis"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-python)">
+            <p class="card-name">Emoji Passwords</p>
+            <p class="card-desc">
+              Human-centred security research. Ran a user study comparing text-only,
+              emoji-only, and hybrid passwords — testing both security strength and
+              memorability. Tracked results via Google Sheets API.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Research</span>
+                <span class="tag">Google Sheets API</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+          <!-- 2D-Shooter -->
+          <a href="https://github.com/Hardik-7892/2D-Shooter"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-csharp)">
+            <p class="card-name">2D Shooter</p>
+            <p class="card-desc">
+              A 2D shooter game built in Unity. Started it to properly understand
+              how game loops, collision detection, and player physics actually work
+              under the hood — not just use them from a template.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">C#</span>
+                <span class="tag">Unity</span>
+                <span class="tag">Game Dev</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">&copy; 2025 Hardik Pandey</p>
+        <div class="footer-links">
+          <a href="https://github.com/Hardik-7892" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+          <a href="https://linkedin.com/in/hp0"     target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
