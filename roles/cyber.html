@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body data-page="cyber">
+<body data-page="cyber" style="--accent: #0EA5E9; --accent-hover: #0284C7;">
 
   <!-- NAV -->
   <header class="nav" id="nav">
@@ -33,6 +33,7 @@
           <li><a href="../projects.html" class="nav-link" data-page="projects">Projects</a></li>
           <li><a href="../profiles.html" class="nav-link" data-page="profiles">Profiles</a></li>
           <li><a href="../contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+          <li><button class="theme-btn" id="themeToggle" aria-label="Toggle theme">☾</button></li>
         </ul>
       </nav>
     </div>
@@ -135,48 +136,8 @@
         <p class="section-label fade-in">relevant work</p>
         <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Projects</h2>
 
-        <div class="projects-grid">
-
-          <a href="https://github.com/Hardik-7892/SIEM-ELK"
-             target="_blank" rel="noopener"
-             class="card fade-in"
-             style="--card-color: var(--c-elk)">
-            <p class="card-name">SIEM-ELK</p>
-            <p class="card-desc">
-              A SOC analyst lab built from scratch on the ELK stack. Log ingestion
-              with Logstash, detection dashboards in Kibana, custom alert rules.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Elasticsearch</span>
-                <span class="tag">Logstash</span>
-                <span class="tag">Kibana</span>
-                <span class="tag">SIEM</span>
-              </div>
-              <span class="card-link">GitHub &rarr;</span>
-            </div>
-          </a>
-
-          <a href="https://github.com/Hardik-7892/Improving-Passwords-using-Emojis"
-             target="_blank" rel="noopener"
-             class="card fade-in"
-             style="--card-color: var(--c-python)">
-            <p class="card-name">Emoji Passwords</p>
-            <p class="card-desc">
-              Human-centred security research comparing text-only, emoji-only, and
-              hybrid passwords — testing security strength and memorability.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Python</span>
-                <span class="tag">Research</span>
-                <span class="tag">Google Sheets API</span>
-              </div>
-              <span class="card-link">GitHub &rarr;</span>
-            </div>
-          </a>
-
-        </div>
+        <div class="projects-grid" id="cyberProjects"></div>
+        <script>renderProjects('cyberProjects', { role: 'cyber' })</script>
       </div>
     </div>
 
@@ -247,6 +208,8 @@
     </div>
   </footer>
 
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="../js/data.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

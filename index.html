@@ -37,6 +37,7 @@
           <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
           <li><a href="profiles.html" class="nav-link" data-page="profiles">Profiles</a></li>
           <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+          <li><button class="theme-btn" id="themeToggle" aria-label="Toggle theme">☾</button></li>
         </ul>
       </nav>
     </div>
@@ -58,6 +59,11 @@
         <a href="projects.html" class="btn btn-primary">my projects &rarr;</a>
         <a href="about.html"    class="btn btn-ghost">about me</a>
       </div>
+      <div class="hero-ctas-sub fade-in">
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); align-self: center;">roles:</span>
+        <a href="roles/cyber.html" class="btn btn-ghost">cyber security &rarr;</a>
+        <a href="roles/ml.html"    class="btn btn-ghost">machine learning &rarr;</a>
+      </div>
     </div>
 
     <!-- FEATURED PROJECTS -->
@@ -66,68 +72,8 @@
         <p class="section-label fade-in">featured work</p>
         <h2 class="section-title fade-in">a few things i've built</h2>
 
-        <div class="projects-grid">
-
-          <a href="https://github.com/Hardik-7892/AI-Companion"
-             target="_blank" rel="noopener"
-             class="card fade-in"
-             style="--card-color: var(--c-python)">
-            <p class="card-name">AI-Companion</p>
-            <p class="card-desc">
-              A fully local AI assistant that actually remembers things. RAG pipeline
-              with FAISS + SentenceTransformers, runs GGUF models — no cloud, no
-              subscriptions, nothing leaves your machine.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Python</span>
-                <span class="tag">FAISS</span>
-                <span class="tag">llama.cpp</span>
-              </div>
-              <span class="card-link">GitHub &rarr;</span>
-            </div>
-          </a>
-
-          <a href="https://github.com/Hardik-7892/emojinterp"
-             target="_blank" rel="noopener"
-             class="card fade-in"
-             style="--card-color: var(--c-rust)">
-            <p class="card-name">emojinterp</p>
-            <p class="card-desc">
-              A programming language where the entire syntax is emojis.
-              Brainfuck-inspired, full CLI interpreter written in Rust. It actually works.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Rust</span>
-                <span class="tag">CLI</span>
-                <span class="tag">interpreter</span>
-              </div>
-              <span class="card-link">GitHub &rarr;</span>
-            </div>
-          </a>
-
-          <a href="https://github.com/Hardik-7892/SIEM-ELK"
-             target="_blank" rel="noopener"
-             class="card fade-in"
-             style="--card-color: var(--c-elk)">
-            <p class="card-name">SIEM-ELK</p>
-            <p class="card-desc">
-              A hands-on SOC analyst lab built around the ELK stack. Log ingestion,
-              dashboards, and alerts — all built from scratch to understand how
-              detection engineering actually works.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">ELK Stack</span>
-                <span class="tag">Security</span>
-                <span class="tag">SOC</span>
-              </div>
-              <span class="card-link">GitHub &rarr;</span>
-            </div>
-          </a>
-
-        </div>
+        <div class="projects-grid" id="featuredProjects"></div>
+        <script>renderProjects('featuredProjects', { featured: true })</script>
 
         <div class="card-more fade-in">
           <a href="projects.html" class="btn btn-ghost">see all projects &rarr;</a>
@@ -150,6 +96,8 @@
     </div>
   </footer>
 
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

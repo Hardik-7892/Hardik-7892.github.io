@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body data-page="ml">
+<body data-page="ml" style="--accent: #22C55E; --accent-hover: #16A34A;">
 
   <!-- NAV -->
   <header class="nav" id="nav">
@@ -33,6 +33,7 @@
           <li><a href="../projects.html" class="nav-link" data-page="projects">Projects</a></li>
           <li><a href="../profiles.html" class="nav-link" data-page="profiles">Profiles</a></li>
           <li><a href="../contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+          <li><button class="theme-btn" id="themeToggle" aria-label="Toggle theme">☾</button></li>
         </ul>
       </nav>
     </div>
@@ -135,48 +136,8 @@
         <p class="section-label fade-in">relevant work</p>
         <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Projects</h2>
 
-        <div class="projects-grid">
-
-          <a href="https://github.com/Hardik-7892/AI-Companion"
-             target="_blank" rel="noopener"
-             class="card fade-in"
-             style="--card-color: var(--c-python)">
-            <p class="card-name">AI-Companion</p>
-            <p class="card-desc">
-              Fully local AI assistant with long-term semantic memory. RAG pipeline
-              with FAISS + SentenceTransformers, runs GGUF models entirely offline.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Python</span>
-                <span class="tag">FAISS</span>
-                <span class="tag">SentenceTransformers</span>
-                <span class="tag">llama.cpp</span>
-              </div>
-              <span class="card-link">GitHub &rarr;</span>
-            </div>
-          </a>
-
-          <a href="https://github.com/Hardik-7892/auto-ml"
-             target="_blank" rel="noopener"
-             class="card fade-in"
-             style="--card-color: var(--c-python)">
-            <p class="card-name">auto-ml</p>
-            <p class="card-desc">
-              Streamlit app wrapping AutoGluon for painless ML model training.
-              Upload a dataset, pick a target column, let it run.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Python</span>
-                <span class="tag">AutoGluon</span>
-                <span class="tag">Streamlit</span>
-              </div>
-              <span class="card-link">GitHub &rarr;</span>
-            </div>
-          </a>
-
-        </div>
+        <div class="projects-grid" id="mlProjects"></div>
+        <script>renderProjects('mlProjects', { role: 'ml' })</script>
       </div>
     </div>
 
@@ -229,6 +190,8 @@
     </div>
   </footer>
 
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="../js/data.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

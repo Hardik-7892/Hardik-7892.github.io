@@ -143,3 +143,83 @@
     observer.observe(el);
   });
 })();
+
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+(function () {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  function update() {
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+
+/* ============================================================
+   DARK MODE TOGGLE
+   ============================================================ */
+(function () {
+  const toggle = document.getElementById('themeToggle');
+  if (!toggle) return;
+
+  const stored = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = stored ? stored === 'dark' : prefersDark;
+
+  if (isDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    toggle.textContent = '\u2600';
+  }
+
+  toggle.addEventListener('click', () => {
+    const nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (nowDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      toggle.textContent = '\u263E';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      toggle.textContent = '\u2600';
+    }
+  });
+})();
+
+
+/* ============================================================
+   PROJECT FILTERS (projects.html)
+   ============================================================ */
+(function () {
+  const grid = document.getElementById('projectsGrid');
+  if (!grid) return;
+
+  const cards = grid.querySelectorAll('.card');
+  const buttons = document.querySelectorAll('.filter-btn');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        if (filter === 'all' || (card.dataset.tags || '').split(',').includes(filter)) {
+          card.classList.remove('hidden');
+          card.classList.add('visible');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+})();
