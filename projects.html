@@ -8,36 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body data-page="projects">
 
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">hp.</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html"    class="nav-link" data-page="home">Home</a></li>
-          <li><a href="about.html"    class="nav-link" data-page="about">About</a></li>
-          <li class="nav-dropdown">
-            <a href="#" class="nav-link" data-page="roles">Roles <span class="dropdown-arrow">▾</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="roles/cyber.html" class="nav-link" data-page="cyber">Cyber</a></li>
-              <li><a href="roles/ml.html"    class="nav-link" data-page="ml">ML</a></li>
-            </ul>
-          </li>
-          <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
-          <li><a href="profiles.html" class="nav-link" data-page="profiles">Profiles</a></li>
-          <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
-          <li><button class="theme-btn" id="themeToggle" aria-label="Toggle theme">☾</button></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div id="nav-placeholder"></div>
 
   <main>
 
@@ -73,20 +49,14 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <p class="footer-text">Hardik Pandey</p>
-        <div class="footer-links">
-          <a href="https://github.com/Hardik-7892" target="_blank" rel="noopener" class="footer-link">GitHub</a>
-          <a href="https://linkedin.com/in/hp0"     target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="js/components.js"></script>
+  <script>
+  document.getElementById('nav-placeholder').outerHTML = NAV_HTML.replace(/\$BASE/g, '');
+  document.getElementById('footer-placeholder').outerHTML = FOOTER_HTML;
+  </script>
   <script src="js/data.js"></script>
   <script>renderProjects('projectsGrid')</script>
   <script src="js/main.js"></script>

@@ -215,7 +215,6 @@
       cards.forEach(card => {
         if (filter === 'all' || (card.dataset.tags || '').split(',').includes(filter)) {
           card.classList.remove('hidden');
-          card.classList.add('visible');
         } else {
           card.classList.add('hidden');
         }

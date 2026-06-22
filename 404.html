@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Hardik Pandey</title>
+  <meta name="description" content="This page doesn't exist." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="404">
+
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <div class="hero" style="align-items: center; text-align: center;">
+      <p class="hero-eyebrow fade-in">404</p>
+      <h1 class="hero-name fade-in" style="font-family: var(--font-display); font-size: clamp(5rem, 15vw, 10rem);">
+        <span class="accent">lost?</span>
+      </h1>
+      <p class="hero-bio fade-in" style="max-width: 600px; text-align: center;">
+        This page doesn't exist. Maybe it never did.<br>
+        Maybe I took it apart to understand how it worked and never put it back.
+      </p>
+      <div class="hero-ctas fade-in">
+        <a href="index.html" class="btn btn-primary">back home &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="js/components.js"></script>
+  <script>
+  document.getElementById('nav-placeholder').outerHTML = NAV_HTML.replace(/\$BASE/g, '');
+  document.getElementById('footer-placeholder').outerHTML = FOOTER_HTML;
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
