@@ -12,6 +12,13 @@
     document.querySelectorAll('.nav-link').forEach(link => {
       if (link.dataset.page === currentPage) link.classList.add('active');
     });
+    // Mark parent dropdown trigger active when a child page is active
+    document.querySelectorAll('.nav-dropdown').forEach(drop => {
+      if (drop.querySelector('.dropdown-menu .nav-link.active')) {
+        const parentLink = drop.querySelector(':scope > .nav-link');
+        if (parentLink) parentLink.classList.add('active');
+      }
+    });
   }
 
   // Scrolled border
