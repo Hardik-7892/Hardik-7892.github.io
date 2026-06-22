@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Security — Hardik Pandey</title>
+  <meta name="description" content="Hardik Pandey's cyber security profile — SOC, SIEM, detection engineering, and security research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="cyber">
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">hp.</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html"    class="nav-link" data-page="home">Home</a></li>
+          <li><a href="../about.html"    class="nav-link" data-page="about">About</a></li>
+          <li class="nav-dropdown">
+            <a href="#" class="nav-link" data-page="roles">Roles <span class="dropdown-arrow">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="cyber.html" class="nav-link" data-page="cyber">Cyber</a></li>
+              <li><a href="ml.html"    class="nav-link" data-page="ml">ML</a></li>
+            </ul>
+          </li>
+          <li><a href="../projects.html" class="nav-link" data-page="projects">Projects</a></li>
+          <li><a href="../profiles.html" class="nav-link" data-page="profiles">Profiles</a></li>
+          <li><a href="../contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="container">
+        <p class="section-label fade-in">the blue team</p>
+        <h1 class="section-title fade-in" style="margin-bottom: 0.5rem;">Cyber Security</h1>
+        <p class="page-header-sub fade-in">
+          SOC operations, detection engineering, and security infrastructure.
+        </p>
+      </div>
+    </div>
+
+    <!-- ROLE SUMMARY -->
+    <div class="section">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- SKILLS COLUMN -->
+          <div class="fade-in">
+            <div class="skills-group">
+              <p class="skills-group-label">SIEM & Detection</p>
+              <ul class="skills-list">
+                <li class="pill">ELK Stack</li>
+                <li class="pill">Elasticsearch</li>
+                <li class="pill">Logstash</li>
+                <li class="pill">Kibana</li>
+                <li class="pill">SIEM</li>
+                <li class="pill">Detection Engineering</li>
+              </ul>
+            </div>
+
+            <div class="skills-group">
+              <p class="skills-group-label">Languages</p>
+              <ul class="skills-list">
+                <li class="pill">Python</li>
+                <li class="pill">Rust</li>
+                <li class="pill">C#</li>
+                <li class="pill">JavaScript</li>
+              </ul>
+            </div>
+
+            <div class="skills-group">
+              <p class="skills-group-label">Tools & Other</p>
+              <ul class="skills-list">
+                <li class="pill">Git</li>
+                <li class="pill">Docker</li>
+                <li class="pill">Google Sheets API</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- BIO COLUMN -->
+          <div>
+            <p class="bio-para fade-in">
+              I build security tooling because I want to understand how attacks work
+              — and how to catch them. My <strong>SIEM-ELK</strong> project is a full SOC lab
+              built from scratch: log ingestion with Logstash, detection dashboards in Kibana,
+              custom alert rules. No guided labs, just raw infrastructure and genuine
+              exploration.
+            </p>
+
+            <p class="bio-para fade-in">
+              I'm interested in <strong>detection engineering</strong> — the craft of
+              writing rules that actually catch real threats without drowning in false
+              positives. My background in AI gives me an interesting angle: I think about
+              how LLMs and anomaly detection can augment, not replace, a SOC analyst's workflow.
+            </p>
+
+            <p class="bio-para fade-in">
+              I also ran a <strong>human-centred security research</strong> study on
+              emoji-based passwords, comparing memorability vs security strength across
+              different password schemes. Research that actually has practical implications.
+            </p>
+
+            <div class="currently-box fade-in">
+              <p class="currently-label">currently exploring</p>
+              <p class="currently-text">
+                Detection engineering workflows, SOC automation, and the intersection of
+                AI and security operations.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- RELEVANT PROJECTS -->
+    <div class="section" style="padding-top: 0;">
+      <div class="container">
+        <p class="section-label fade-in">relevant work</p>
+        <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Projects</h2>
+
+        <div class="projects-grid">
+
+          <a href="https://github.com/Hardik-7892/SIEM-ELK"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-elk)">
+            <p class="card-name">SIEM-ELK</p>
+            <p class="card-desc">
+              A SOC analyst lab built from scratch on the ELK stack. Log ingestion
+              with Logstash, detection dashboards in Kibana, custom alert rules.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Elasticsearch</span>
+                <span class="tag">Logstash</span>
+                <span class="tag">Kibana</span>
+                <span class="tag">SIEM</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Hardik-7892/Improving-Passwords-using-Emojis"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-python)">
+            <p class="card-name">Emoji Passwords</p>
+            <p class="card-desc">
+              Human-centred security research comparing text-only, emoji-only, and
+              hybrid passwords — testing security strength and memorability.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Research</span>
+                <span class="tag">Google Sheets API</span>
+              </div>
+              <span class="card-link">GitHub &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="section" style="padding-top: 0;">
+      <div class="container">
+        <p class="section-label fade-in">credentials</p>
+        <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Certifications</h2>
+
+        <div class="projects-grid">
+
+          <a href="https://www.skills.google.com/public_profiles/f91f8473-2224-4143-a48d-3646d84db887"
+             target="_blank" rel="noopener"
+             class="card fade-in"
+             style="--card-color: var(--c-gcp)">
+            <div class="profile-card-top">
+              <p class="card-name">Google Cloud Cybersecurity</p>
+              <img src="https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png"
+                   alt="Diamond League badge" class="profile-badge-icon" loading="lazy" />
+            </div>
+            <p class="card-desc">
+              50+ skill badges including security-focused labs on IAM, VPC
+              design, SIEM tools, and threat detection.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">Diamond League</span>
+                <span class="tag">50+ badges</span>
+              </div>
+              <span class="card-link">View profile &rarr;</span>
+            </div>
+          </a>
+
+          <a href="../profiles.html"
+             class="card fade-in"
+             style="--card-color: var(--c-elk)">
+            <p class="card-name">SIEM / SOC Training</p>
+            <p class="card-desc">
+              Hands-on lab work in Elastic Stack security features, detection
+              rule authoring, and log analysis pipelines.
+            </p>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">SIEM</span>
+                <span class="tag">ELK</span>
+                <span class="tag">SOC</span>
+              </div>
+              <span class="card-link">Learn more &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">Hardik Pandey</p>
+        <div class="footer-links">
+          <a href="https://github.com/Hardik-7892" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+          <a href="https://linkedin.com/in/hp0"     target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

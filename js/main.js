@@ -1,5 +1,5 @@
 /* ============================================================
-   NAV — scrolled state + active link + hamburger
+   NAV — scrolled state + active link + hamburger + dropdown
    ============================================================ */
 (function () {
   const nav = document.getElementById('nav');
@@ -28,14 +28,38 @@
       links.classList.toggle('open');
     });
 
-    // Close on link click (mobile)
+    // Close on link click (mobile) — skip dropdown parent trigger
     links.querySelectorAll('.nav-link').forEach(l => {
       l.addEventListener('click', () => {
+        if (l.parentElement.classList.contains('nav-dropdown')) return;
         toggle.classList.remove('open');
         links.classList.remove('open');
       });
     });
   }
+
+  // Dropdown toggle on mobile (click instead of hover)
+  document.querySelectorAll('.nav-dropdown').forEach(drop => {
+    const trigger = drop.querySelector('.nav-link');
+    if (trigger) {
+      trigger.addEventListener('click', e => {
+        if (window.innerWidth <= 640) {
+          e.preventDefault();
+          e.stopPropagation();
+          drop.classList.toggle('open');
+        }
+      });
+    }
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+        d.classList.remove('open');
+      });
+    }
+  });
 })();
 
 

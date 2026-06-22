@@ -156,6 +156,59 @@ img { max-width: 100%; display: block; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ============================================================
+   DROPDOWN NAV
+   ============================================================ */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown > .nav-link {
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+}
+.dropdown-arrow {
+  font-size: 0.6rem;
+  margin-left: 3px;
+  transition: transform 0.2s ease;
+}
+.nav-dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.4rem 0;
+  min-width: 130px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  box-shadow: var(--shadow);
+  z-index: 200;
+}
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.dropdown-menu li {
+  width: 100%;
+}
+.dropdown-menu .nav-link {
+  display: block;
+  padding: 0.35rem 1.1rem;
+  white-space: nowrap;
+  border-radius: 0;
+}
+.dropdown-menu .nav-link:hover {
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ============================================================
    HERO (index.html only)
    ============================================================ */
 .hero {
@@ -590,6 +643,26 @@ footer {
   }
   .nav-links.open { display: flex; }
   .nav-toggle { display: flex; }
+
+  /* dropdown inline on mobile */
+  .nav-dropdown {
+    width: 100%;
+  }
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    box-shadow: none;
+    border: none;
+    padding: 0 0 0 1rem;
+    background: transparent;
+    min-width: auto;
+  }
+  .nav-dropdown.open .dropdown-menu {
+    display: block;
+  }
 
   .hero-name { font-size: clamp(3.25rem, 14vw, 5rem); }
   .section { padding: 3.5rem 0; }
