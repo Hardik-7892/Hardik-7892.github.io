@@ -564,8 +564,51 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
+   3D BACKGROUND (cyber page)
+   ============================================================ */
+.page-header.has-bg {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+.page-header.has-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom, transparent 50%, var(--bg) 100%);
+  pointer-events: none;
+}
+.bg-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.page-header.has-bg .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
    ABOUT PAGE
    ============================================================ */
+.about-photo-wrapper {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.about-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow);
+  display: inline-block;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
