@@ -593,6 +593,20 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
+   3D BACKGROUND FULL-PAGE (ML page)
+   ============================================================ */
+.bg-3d-full {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+[data-page="ml"] main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
    ABOUT PAGE
    ============================================================ */
 .about-photo-wrapper {
