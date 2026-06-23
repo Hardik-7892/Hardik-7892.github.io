@@ -67,6 +67,94 @@ const projects = [
   },
 ];
 
+const profiles = [
+  {
+    id: 'gcp-skills',
+    name: 'Google Cloud Skills Boost',
+    url: 'https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887',
+    color: 'var(--c-gcp)',
+    desc: '50+ skill badges and Arcade achievements earned through hands-on labs across Google Cloud — currently sitting in the Diamond league, the top tier on the leaderboard.',
+    tags: ['Diamond League', '34,595 pts', '50+ badges'],
+    badgeIcon: 'https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png',
+    linkText: 'View profile \u2192'
+  },
+  {
+    id: 'gcp-cyber',
+    name: 'Google Cloud Cybersecurity',
+    url: 'https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887',
+    color: 'var(--c-gcp)',
+    desc: '50+ skill badges including networking, load balancing, Kubernetes, and cloud infrastructure — earned through hands-on Google Cloud labs.',
+    tags: ['Diamond League', '50+ badges'],
+    badgeIcon: 'https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png',
+    linkText: 'View profile \u2192'
+  },
+  {
+    id: 'gcp-ml',
+    name: 'Google Cloud ML Skills',
+    url: 'https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887',
+    color: 'var(--c-gcp)',
+    desc: '50+ skill badges including ML APIs, BigQuery analytics, and GenAI pathways — from introductory to advanced hands-on labs.',
+    tags: ['Diamond League', '50+ badges'],
+    badgeIcon: 'https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png',
+    linkText: 'View profile \u2192'
+  },
+  {
+    id: 'vercel',
+    name: 'Vercel',
+    url: 'https://vercel.com/hardiks-projects-9b7e5c43',
+    color: 'var(--c-vercel)',
+    desc: 'Live deployments and previews for side projects and experiments — shipped and hosted straight from GitHub.',
+    tags: ['Hosting', 'Deployments'],
+    linkText: 'View profile \u2192'
+  },
+  {
+    id: 'itchio',
+    name: 'itch.io',
+    url: 'https://hardik-7892.itch.io/',
+    color: 'var(--c-itch)',
+    desc: 'Games and interactive builds, including 2D Shooter and other experiments made in Unity.',
+    tags: ['Game Dev', 'Unity'],
+    linkText: 'View profile \u2192'
+  }
+];
+
+function renderProfiles(containerId, opts) {
+  if (!opts) opts = {};
+  var container = document.getElementById(containerId);
+  if (!container) return;
+
+  var filtered = profiles.slice();
+
+  if (opts.ids) {
+    filtered = filtered.filter(function (p) {
+      return opts.ids.indexOf(p.id) !== -1;
+    });
+  }
+
+  container.innerHTML = filtered.map(function (p) {
+    var badgeHtml = p.badgeIcon
+      ? '<div class="profile-card-top">'
+        + '<p class="card-name">' + p.name + '</p>'
+        + '<img src="' + p.badgeIcon + '" alt="' + p.name + ' badge" class="profile-badge-icon" loading="lazy" />'
+        + '</div>'
+      : '<p class="card-name">' + p.name + '</p>';
+
+    return '<a href="' + p.url + '"'
+      + '   target="_blank" rel="noopener"'
+      + '   class="card profile-card fade-in"'
+      + '   style="--card-color: ' + p.color + '">'
+      + badgeHtml
+      + '  <p class="card-desc">' + p.desc + '</p>'
+      + '  <div class="card-footer">'
+      + '    <div class="card-tags">'
+      + p.tags.map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('')
+      + '    </div>'
+      + '    <span class="card-link">' + (p.linkText || 'View profile \u2192') + '</span>'
+      + '  </div>'
+      + '</a>';
+  }).join('');
+}
+
 function renderProjects(containerId, opts = {}) {
   const container = document.getElementById(containerId);
   if (!container) return;
