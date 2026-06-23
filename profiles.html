@@ -31,85 +31,7 @@
     <!-- PROFILE CARDS -->
     <div class="section">
       <div class="container">
-        <div class="projects-grid">
-
-          <!-- Google Cloud Skills Boost -->
-          <a href="https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887"
-             target="_blank" rel="noopener"
-             class="card profile-card fade-in"
-             style="--card-color: var(--c-gcp)">
-            <div class="profile-card-top">
-              <p class="card-name">Google Cloud Skills Boost</p>
-              <img src="https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png"
-                   alt="Diamond League badge" class="profile-badge-icon" loading="lazy" />
-            </div>
-            <p class="card-desc">
-              50+ skill badges and Arcade achievements earned through hands-on labs
-              across Google Cloud — currently sitting in the Diamond league, the top
-              tier on the leaderboard.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Diamond League</span>
-                <span class="tag">34,595 pts</span>
-                <span class="tag">50+ badges</span>
-              </div>
-              <span class="card-link">View profile &rarr;</span>
-            </div>
-          </a>
-
-          <!-- Vercel -->
-          <a href="https://vercel.com/hardiks-projects-9b7e5c43"
-             target="_blank" rel="noopener"
-             class="card profile-card fade-in"
-             style="--card-color: var(--c-vercel)">
-            <div class="profile-card-top">
-              <p class="card-name">Vercel</p>
-            </div>
-            <p class="card-desc">
-              Live deployments and previews for side projects and experiments —
-              shipped and hosted straight from GitHub.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Hosting</span>
-                <span class="tag">Deployments</span>
-              </div>
-              <span class="card-link">View profile &rarr;</span>
-            </div>
-          </a>
-
-          <!-- itch.io -->
-          <a href="https://hardik-7892.itch.io/"
-             target="_blank" rel="noopener"
-             class="card profile-card fade-in"
-             style="--card-color: var(--c-itch)">
-            <div class="profile-card-top">
-              <p class="card-name">itch.io</p>
-            </div>
-            <p class="card-desc">
-              Games and interactive builds, including 2D Shooter and other
-              experiments made in Unity.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Game Dev</span>
-                <span class="tag">Unity</span>
-              </div>
-              <span class="card-link">View profile &rarr;</span>
-            </div>
-          </a>
-
-          <!--
-            To add more profiles (LeetCode, Kaggle, Codeforces, etc.):
-            duplicate a card above, then update:
-              - href
-              - --card-color  (add a new --c-* token in css/style.css for a unique accent)
-              - card-name, card-desc
-              - tags in card-tags
-          -->
-
-        </div>
+        <div class="projects-grid" id="profileCards"></div>
       </div>
     </div>
 
@@ -123,6 +45,8 @@
   document.getElementById('nav-placeholder').outerHTML = NAV_HTML.replace(/\$BASE/g, '');
   document.getElementById('footer-placeholder').outerHTML = FOOTER_HTML;
   </script>
+  <script src="js/data.js"></script>
+  <script>renderProfiles('profileCards', { ids: ['gcp-skills', 'vercel', 'itchio'] })</script>
   <script src="js/main.js"></script>
 </body>
 </html>
