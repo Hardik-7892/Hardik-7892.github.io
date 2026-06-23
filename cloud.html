@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Cloud — Hardik Pandey</title>
+  <meta name="description" content="Skill badges and achievements earned on Google Cloud Skills Boost." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="cloud" style="--accent: #4285F4; --accent-hover: #3367D6;">
+
+  <div id="nav-placeholder"></div>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="container">
+        <p class="section-label fade-in">the cloud</p>
+        <h1 class="section-title fade-in" style="margin-bottom: 0.5rem;">Google Cloud Skills</h1>
+        <p class="page-header-sub fade-in">
+          Diamond League — 34,595 points — 51 skill badges earned through hands-on labs.
+        </p>
+        <a href="https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887"
+           target="_blank" rel="noopener"
+           class="btn btn-primary fade-in" style="margin-top: 1.5rem;">
+          View on Google Cloud Skills Boost &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- BADGE GALLERY -->
+    <div class="section">
+      <div class="container">
+
+        <div class="filter-bar fade-in">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="genai">GenAI</button>
+          <button class="filter-btn" data-filter="ml">ML</button>
+          <button class="filter-btn" data-filter="cyber">Security</button>
+          <button class="filter-btn" data-filter="infra">Infrastructure</button>
+          <button class="filter-btn" data-filter="data">Data</button>
+          <button class="filter-btn" data-filter="appdev">App Dev</button>
+          <button class="filter-btn" data-filter="arcade">Arcade</button>
+          <button class="filter-btn" data-filter="general">General</button>
+        </div>
+
+        <div id="badgeList"></div>
+
+        <p id="badgeCount" class="badge-count fade-in"></p>
+
+      </div>
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="js/components.js"></script>
+  <script>
+  document.getElementById('nav-placeholder').outerHTML = NAV_HTML.replace(/\$BASE/g, '');
+  document.getElementById('footer-placeholder').outerHTML = FOOTER_HTML;
+  </script>
+  <script src="js/cloud-badges.js"></script>
+  <script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var defaultFilter = params.get('filter') || 'all';
+
+    renderBadges('badgeList', defaultFilter);
+
+    function forceBadgesVisible() {
+      document.querySelectorAll('#badgeList .fade-in').forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        renderBadges('badgeList', btn.dataset.filter);
+        forceBadgesVisible();
+      });
+    });
+
+    if (defaultFilter !== 'all') {
+      document.querySelectorAll('.filter-btn').forEach(function (btn) {
+        if (btn.dataset.filter === defaultFilter) {
+          document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+        }
+      });
+    }
+  })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

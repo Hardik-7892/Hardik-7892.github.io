@@ -70,33 +70,33 @@ const projects = [
 const profiles = [
   {
     id: 'gcp-skills',
-    name: 'Google Cloud Skills Boost',
-    url: 'https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887',
+    name: 'Google Cloud Skills',
+    url: 'cloud.html',
     color: 'var(--c-gcp)',
-    desc: '50+ skill badges and Arcade achievements earned through hands-on labs across Google Cloud — currently sitting in the Diamond league, the top tier on the leaderboard.',
-    tags: ['Diamond League', '34,595 pts', '50+ badges'],
+    desc: 'Diamond League — 34,595 points. 51 skill badges across ML, GenAI, infrastructure, security, data, and more.',
+    tags: ['Diamond League', '34,595 pts', '51 badges'],
     badgeIcon: 'https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png',
-    linkText: 'View profile \u2192'
+    linkText: 'Browse badges \u2192'
   },
   {
     id: 'gcp-cyber',
     name: 'Google Cloud Cybersecurity',
-    url: 'https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887',
+    url: 'cloud.html?filter=cyber',
     color: 'var(--c-gcp)',
-    desc: '50+ skill badges including networking, load balancing, Kubernetes, and cloud infrastructure — earned through hands-on Google Cloud labs.',
-    tags: ['Diamond League', '50+ badges'],
+    desc: '51 skill badges including networking, load balancing, Kubernetes, and cloud infrastructure — earned through hands-on Google Cloud labs.',
+    tags: ['Diamond League', '51 badges'],
     badgeIcon: 'https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png',
-    linkText: 'View profile \u2192'
+    linkText: 'Browse badges \u2192'
   },
   {
     id: 'gcp-ml',
     name: 'Google Cloud ML Skills',
-    url: 'https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887',
+    url: 'cloud.html?filter=ml',
     color: 'var(--c-gcp)',
-    desc: '50+ skill badges including ML APIs, BigQuery analytics, and GenAI pathways — from introductory to advanced hands-on labs.',
-    tags: ['Diamond League', '50+ badges'],
+    desc: '51 skill badges including ML APIs, BigQuery analytics, and GenAI pathways — from introductory to advanced hands-on labs.',
+    tags: ['Diamond League', '51 badges'],
     badgeIcon: 'https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png',
-    linkText: 'View profile \u2192'
+    linkText: 'Browse badges \u2192'
   },
   {
     id: 'vercel',

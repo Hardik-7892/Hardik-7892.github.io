@@ -17,7 +17,15 @@ const NAV_HTML = `
             </ul>
           </li>
           <li><a href="$BASEprojects.html" class="nav-link" data-page="projects">Projects</a></li>
-          <li><a href="$BASEprofiles.html" class="nav-link" data-page="profiles">Profiles</a></li>
+          <li class="nav-dropdown">
+            <a href="$BASEprofiles.html" class="nav-link" data-page="profiles">Profiles <span class="dropdown-arrow">\u25BE</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="$BASEprofiles.html" class="nav-link" data-page="profiles">All Profiles</a></li>
+              <li><a href="$BASEcloud.html"    class="nav-link" data-page="cloud">Google Cloud</a></li>
+              <li><a href="https://vercel.com/hardiks-projects-9b7e5c43" target="_blank" rel="noopener" class="nav-link">Vercel</a></li>
+              <li><a href="https://hardik-7892.itch.io"    target="_blank" rel="noopener" class="nav-link">Itch.io</a></li>
+            </ul>
+          </li>
           <li><a href="$BASEcontact.html"  class="nav-link" data-page="contact">Contact</a></li>
           <li><button class="theme-btn" id="themeToggle" aria-label="Toggle theme">\u263E</button></li>
         </ul>

@@ -117,37 +117,19 @@
       </div>
     </div>
 
-    <!-- CERTIFICATIONS -->
+    <!-- GOOGLE CLOUD BADGES -->
     <div class="section" style="padding-top: 0;">
       <div class="container">
         <p class="section-label fade-in">credentials</p>
-        <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Certifications</h2>
+        <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Google Cloud Badges</h2>
 
-        <div class="projects-grid">
+        <div id="badgeList"></div>
 
-          <a href="https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887"
-             target="_blank" rel="noopener"
-             class="card fade-in"
-             style="--card-color: var(--c-gcp)">
-            <div class="profile-card-top">
-              <p class="card-name">Google Cloud Cybersecurity</p>
-              <img src="https://cdn.qwiklabs.com/assets/leagues/diamond_sm_new-06034c04ad18f430d9bd6cb990cc389114c4307d.png"
-                   alt="Diamond League badge" class="profile-badge-icon" loading="lazy" />
-            </div>
-            <p class="card-desc">
-              50+ skill badges including security-focused labs on IAM, VPC
-              design, SIEM tools, and threat detection.
-            </p>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="tag">Diamond League</span>
-                <span class="tag">50+ badges</span>
-              </div>
-              <span class="card-link">View profile &rarr;</span>
-            </div>
-          </a>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="../cloud.html" class="btn btn-primary">View All Badges &rarr;</a>
+        </div>
 
-        <div class="projects-grid" style="margin-top: 1rem;">
+        <div class="projects-grid" style="margin-top: 2rem;">
           <a href="../profiles.html"
              class="card fade-in"
              style="--card-color: var(--c-elk)">
@@ -181,7 +163,8 @@
   </script>
   <script src="../js/data.js"></script>
   <script>renderProjects('cyberProjects', { role: 'cyber' })</script>
-  <script>renderProfiles('cyberCerts', { ids: ['gcp-cyber'] })</script>
+  <script src="../js/cloud-badges.js"></script>
+  <script>renderBadges('badgeList', 'cyber')</script>
   <script src="../js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="../js/cyber-network.js"></script>
