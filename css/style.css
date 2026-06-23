@@ -638,7 +638,8 @@ img { max-width: 100%; display: block; }
   z-index: 0;
   pointer-events: none;
 }
-[data-page="ml"] main {
+[data-page="ml"] main,
+[data-page="cloud"] main {
   position: relative;
   z-index: 1;
 }
