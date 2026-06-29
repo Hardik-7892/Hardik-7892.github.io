@@ -730,6 +730,9 @@ img { max-width: 100%; display: block; }
   z-index: 0;
   pointer-events: none;
 }
+[data-page="ml"] .bg-3d-full {
+  overflow: hidden;
+}
 [data-page="ml"] main,
 [data-page="cloud"] main {
   position: relative;

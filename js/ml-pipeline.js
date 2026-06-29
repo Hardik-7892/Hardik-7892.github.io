@@ -4,15 +4,20 @@
 
   const W = window.innerWidth;
   const H = window.innerHeight;
+  const SCROLL_H = H * 2;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(40, W / H, 0.1, 100);
-  camera.position.set(1, 2, 18);
+  const camera = new THREE.PerspectiveCamera(40, W / SCROLL_H, 0.1, 100);
+  camera.position.set(1, 0, 28);
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-  renderer.setSize(W, H);
+  renderer.setSize(W, SCROLL_H);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  container.appendChild(renderer.domElement);
+  const canvas = renderer.domElement;
+  canvas.style.position = 'absolute';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  container.appendChild(canvas);
 
   const group = new THREE.Group();
   scene.add(group);
@@ -25,9 +30,9 @@
 
   const positions = [
     new THREE.Vector3(-5.5, -3,   0),
-    new THREE.Vector3(-2.5,  2,  -0.5),
-    new THREE.Vector3( 0.5, -2.5, 1),
-    new THREE.Vector3( 3.5,  2.5, -0.5),
+    new THREE.Vector3(-3,  1,  -0.5),
+    new THREE.Vector3( 1.5, -1.5, 1),
+    new THREE.Vector3( 1.5,  2.5, -0.5),
     new THREE.Vector3( 6.5, -0.5, 0.5),
     new THREE.Vector3( 9,   -3,   0),
   ];
@@ -115,6 +120,18 @@
   }, 2800);
 
   let time = 0;
+
+  function updatePipelineScroll() {
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+    if (maxScroll > 0) {
+      const progress = Math.min(window.scrollY / maxScroll, 1);
+      const translateY = -progress * (SCROLL_H - H);
+      canvas.style.transform = 'translateY(' + translateY + 'px)';
+    }
+  }
+  window.addEventListener('scroll', updatePipelineScroll);
+  updatePipelineScroll();
+
   function animate() {
     requestAnimationFrame(animate);
     time += 0.016;
@@ -145,8 +162,10 @@
   window.addEventListener('resize', () => {
     const w = window.innerWidth;
     const h = window.innerHeight;
-    camera.aspect = w / h;
+    const sh = h * 2;
+    camera.aspect = w / sh;
     camera.updateProjectionMatrix();
-    renderer.setSize(w, h);
+    renderer.setSize(w, sh);
+    updatePipelineScroll();
   });
 })();
