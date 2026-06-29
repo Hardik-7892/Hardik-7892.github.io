@@ -852,13 +852,13 @@ img { max-width: 100%; display: block; }
   justify-content: flex-start;
 }
 [data-page="ml"] .page-header.has-bg .container {
-  width: 50%;
+  width: 40%;
   max-width: none;
   margin: 0;
   padding: 0 0 0 5%;
 }
 [data-page="ml"] .bg-3d {
-  left: 50%;
+  left: 30%;
   top: 0;
   right: 0;
   bottom: 0;
@@ -1280,4 +1280,105 @@ body.custom-cursor-active * {
     transition: none;
   }
   .cursor { animation: none; opacity: 1; }
+}
+
+/* ============================================================
+   SKELETON LOADING — shows while Three.js / fonts load
+   ============================================================ */
+.bg-3d::before,
+.bg-3d-full::before,
+#cloud-globe::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, transparent 25%, rgba(128,128,128,0.04) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+.bg-3d-full::before {
+  z-index: 0;
+}
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ============================================================
+   PRIVACY BANNER
+   ============================================================ */
+.privacy-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 0.75rem 1.5rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+  flex-wrap: wrap;
+}
+.privacy-banner.visible {
+  transform: translateY(0);
+}
+.privacy-banner p {
+  max-width: 600px;
+  line-height: 1.5;
+}
+.privacy-banner a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.privacy-btn {
+  flex-shrink: 0;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.privacy-btn:hover {
+  background: var(--accent-hover);
+}
+
+/* ============================================================
+   PRINT STYLESHEET
+   ============================================================ */
+@media print {
+  .nav,
+  .back-to-top,
+  .bg-3d,
+  .bg-3d-full,
+  #cloud-globe,
+  .visitor-info,
+  .node-info,
+  .nn-tooltip,
+  .cursor-dot,
+  .cursor-ring,
+  .privacy-banner,
+  .theme-btn {
+    display: none !important;
+  }
+  body {
+    padding-top: 0;
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .hero { min-height: auto; padding: 2rem 0; }
+  .page-header.has-bg { min-height: auto; background: none !important; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+  a[href^="#"]::after,
+  a[href^="javascript"]::after { content: ""; }
 }

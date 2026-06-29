@@ -274,3 +274,25 @@
     el.addEventListener('mouseleave', function () { ring.classList.remove('cursor-ring--hover'); });
   });
 })();
+
+
+/* ============================================================
+   PRIVACY BANNER — GoatCounter notice, opt-out
+   ============================================================ */
+(function () {
+  var banner = document.getElementById('privacyBanner');
+  var btn = document.getElementById('privacyBtn');
+  if (!banner || !btn) return;
+
+  if (localStorage.getItem('privacy-dismissed')) return;
+
+  // small delay so it doesn't pop in immediately
+  setTimeout(function () {
+    banner.classList.add('visible');
+  }, 800);
+
+  btn.addEventListener('click', function () {
+    banner.classList.remove('visible');
+    localStorage.setItem('privacy-dismissed', 'true');
+  });
+})();
