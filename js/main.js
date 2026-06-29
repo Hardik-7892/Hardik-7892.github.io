@@ -222,3 +222,44 @@
     });
   });
 })();
+
+
+/* ============================================================
+   CURSOR DOT + RING (generic pages)
+   ============================================================ */
+(function () {
+  const page = document.body.dataset.page;
+  if (page === 'cyber' || page === 'ml') return;
+
+  document.body.classList.add('custom-cursor-active');
+
+  const dot = document.createElement('div');
+  dot.className = 'cursor-dot';
+  document.body.appendChild(dot);
+
+  const ring = document.createElement('div');
+  ring.className = 'cursor-ring';
+  document.body.appendChild(ring);
+
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+  });
+
+  function tick() {
+    rx += (mx - rx) * 0.15;
+    ry += (my - ry) * 0.15;
+    ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // Expand ring on hover over interactive elements
+  document.querySelectorAll('a, button, [role="button"], input, .card, .pill, .contact-card').forEach(function (el) {
+    el.addEventListener('mouseenter', function () { ring.classList.add('cursor-ring--hover'); });
+    el.addEventListener('mouseleave', function () { ring.classList.remove('cursor-ring--hover'); });
+  });
+})();
