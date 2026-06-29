@@ -693,6 +693,94 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
+   NODE INFO PANEL (cyber page)
+   ============================================================ */
+.node-info {
+  position: fixed;
+  z-index: 89;
+  padding: 0.4rem 0.65rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, border-color 0.3s;
+}
+.node-info.ni-flip-x {
+  transform: translateX(-100%);
+}
+.node-info.ni-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  border-color: var(--accent);
+}
+.ni-header {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+.ni-icon {
+  color: var(--accent);
+  font-size: 0.4rem;
+  flex-shrink: 0;
+}
+.ni-id {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+.ni-close {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  margin-left: auto;
+  opacity: 0.5;
+  transition: opacity 0.2s, color 0.2s;
+}
+.ni-close:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+.ni-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.ni-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  line-height: 1;
+}
+.ni-label {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.6rem;
+  min-width: 2.8rem;
+  flex-shrink: 0;
+}
+.ni-val {
+  font-weight: 600;
+  color: var(--text);
+}
+.ni-val.status-up { color: #22C55E; }
+.ni-val.status-down { color: #EF4444; }
+
+/* ============================================================
    3D BACKGROUND (cyber page)
     ============================================================ */
 .page-header.has-bg {
@@ -737,6 +825,24 @@ img { max-width: 100%; display: block; }
 }
 [data-page="ml"] .bg-3d {
   left: 50%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Cyber page: text left, globe right */
+[data-page="cyber"] .page-header.has-bg {
+  justify-content: flex-start;
+  min-height: 500px;
+}
+[data-page="cyber"] .page-header.has-bg .container {
+  width: 30%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 0 5%;
+}
+[data-page="cyber"] .bg-3d {
+  left: 30%;
   top: 0;
   right: 0;
   bottom: 0;
@@ -1040,9 +1146,9 @@ footer {
    CUSTOM CURSORS
    ============================================================ */
 
-/* Cyber: green crosshair with two concentric circles */
+/* Cyber: red crosshair with two concentric circles */
 [data-page="cyber"] {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%2322C55E' stroke-width='1' opacity='0.3'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%2322C55E' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='16' y1='5' x2='16' y2='27' stroke='%2322C55E' stroke-width='2'/%3E%3Cline x1='5' y1='16' x2='27' y2='16' stroke='%2322C55E' stroke-width='2'/%3E%3C/svg%3E") 16 16, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%23EF4444' stroke-width='1' opacity='0.3'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23EF4444' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='16' y1='5' x2='16' y2='27' stroke='%23EF4444' stroke-width='2'/%3E%3Cline x1='5' y1='16' x2='27' y2='16' stroke='%23EF4444' stroke-width='2'/%3E%3C/svg%3E") 16 16, auto;
 }
 
 /* ML: neural node with connections */
