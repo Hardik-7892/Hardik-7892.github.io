@@ -601,8 +601,68 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
-   3D BACKGROUND (cyber page)
+   VISITOR INFO (cyber page) — floating top-right widget
    ============================================================ */
+.visitor-info {
+  position: fixed;
+  top: calc(var(--nav-h) + 0.75rem);
+  right: 1.25rem;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  transition: border-color 0.3s, background 0.3s, opacity 0.55s ease, transform 0.55s ease;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+}
+.visitor-info.vi-ready {
+  border-color: var(--accent);
+  background: rgba(14, 165, 233, 0.06);
+}
+.vi-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  line-height: 1;
+}
+.vi-icon {
+  color: var(--accent);
+  font-size: 0.45rem;
+  flex-shrink: 0;
+}
+.vi-icon-placeholder {
+  width: 0.45rem;
+  flex-shrink: 0;
+}
+.vi-label {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.6rem;
+  min-width: 3.6rem;
+  flex-shrink: 0;
+}
+.vi-val {
+  color: var(--text);
+  font-weight: 600;
+}
+.vi-loc,
+.vi-org {
+  font-weight: 400;
+  color: var(--muted);
+}
+.vi-error { color: var(--accent); }
+
+/* ============================================================
+   3D BACKGROUND (cyber page)
+    ============================================================ */
 .page-header.has-bg {
   position: relative;
   overflow: hidden;
