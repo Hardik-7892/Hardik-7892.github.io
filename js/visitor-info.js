@@ -1,11 +1,53 @@
 /* ============================================================
    VISITOR INFO — IP / location detection (cyber page)
+   Fully opt-in — no data is fetched until the visitor clicks "Reveal".
    Primary: ipapi.co (HTTPS, 1k/day). Fallback: ipinfo.io.
    ============================================================ */
 (function () {
   var el = document.getElementById('visitorInfo');
   if (!el) return;
 
+  /* ---------- opt-in prompt ---------- */
+  function showOptIn() {
+    el.innerHTML =
+      '<div class="vi-row">' +
+        '<span class="vi-icon">\u25C8</span>' +
+        '<span class="vi-label">IP lookup</span>' +
+        '<button class="vi-reveal-btn">Reveal</button>' +
+      '</div>' +
+      '<div class="vi-row vi-optin-hint">' +
+        '<span class="vi-icon-placeholder"></span>' +
+        '<span class="vi-optin-text">Your IP &amp; location will be fetched and shown on this widget</span>' +
+      '</div>';
+    el.classList.add('vi-optin');
+
+    var btn = el.querySelector('.vi-reveal-btn');
+    btn.addEventListener('click', function () {
+      fetchData();
+    });
+  }
+
+  /* ---------- data fetch ---------- */
+  function fetchData() {
+    el.innerHTML = '<div class="vi-row"><span class="vi-icon">\u25C8</span><span class="vi-label">Detecting...</span></div>';
+
+    fetch('https://ipapi.co/json/')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.error) throw new Error(d.reason || d.error);
+        render(d, 'ipapico');
+      })
+      .catch(function () {
+        fetch('https://ipinfo.io/json')
+          .then(function (r) { return r.json(); })
+          .then(function (d) { render(d, 'ipinfo'); })
+          .catch(function () {
+            el.innerHTML = '<span class="vi-icon">\u25C8</span><span class="vi-error">unavailable</span>';
+          });
+      });
+  }
+
+  /* ---------- render fetched data ---------- */
   function render(d, source) {
     var ip, city, region, country, tz, postal, lat, lon, orgName, asn, flags, hostname;
 
@@ -62,16 +104,11 @@
     if (orgName) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">ISP</span><span class="vi-val vi-org">' + orgName + '</span></div>';
 
     el.innerHTML = '<div class="vi-header">' + headerRow + '<button class="vi-toggle" aria-label="Toggle details">\u2212</button></div><div class="vi-body">' + bodyRows + '</div>';
+    el.classList.remove('vi-optin');
     el.classList.add('vi-ready');
 
     var toggle = el.querySelector('.vi-toggle');
     var body = el.querySelector('.vi-body');
-
-    if (localStorage.getItem('vi-collapsed') !== 'false') {
-      el.classList.add('vi-collapsed');
-      toggle.textContent = '+';
-      if (body) body.style.display = 'none';
-    }
 
     toggle.addEventListener('click', function () {
       var collapsed = el.classList.toggle('vi-collapsed');
@@ -81,18 +118,6 @@
     });
   }
 
-  fetch('https://ipapi.co/json/')
-    .then(function (r) { return r.json(); })
-    .then(function (d) {
-      if (d.error) throw new Error(d.reason || d.error);
-      render(d, 'ipapico');
-    })
-    .catch(function () {
-      fetch('https://ipinfo.io/json')
-        .then(function (r) { return r.json(); })
-        .then(function (d) { render(d, 'ipinfo'); })
-        .catch(function () {
-          el.innerHTML = '<span class="vi-icon">\u25C8</span><span class="vi-error">unavailable</span>';
-        });
-    });
+  /* ---------- start: show opt-in ---------- */
+  showOptIn();
 })();
