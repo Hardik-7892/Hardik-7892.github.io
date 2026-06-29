@@ -701,6 +701,7 @@ img { max-width: 100%; display: block; }
   min-height: 420px;
   display: flex;
   align-items: center;
+  background: var(--bg);
 }
 .page-header.has-bg::after {
   content: '';
@@ -713,12 +714,32 @@ img { max-width: 100%; display: block; }
 .bg-3d {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 3;
   pointer-events: none;
+}
+.bg-3d canvas {
+  display: block;
 }
 .page-header.has-bg .container {
   position: relative;
   z-index: 2;
+}
+
+/* ML page: text left, network right */
+[data-page="ml"] .page-header.has-bg {
+  justify-content: flex-start;
+}
+[data-page="ml"] .page-header.has-bg .container {
+  width: 50%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 0 5%;
+}
+[data-page="ml"] .bg-3d {
+  left: 50%;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* ============================================================
@@ -1062,6 +1083,43 @@ body.custom-cursor-active * {
   width: 52px;
   height: 52px;
   opacity: 1;
+}
+
+/* ============================================================
+   NEURAL NETWORK TOOLTIP (ML page)
+   ============================================================ */
+.nn-tooltip {
+  position: fixed;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #fff;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.nn-tooltip.visible {
+  opacity: 1;
+}
+.nn-tooltip .tt-layer {
+  color: #22D3EE;
+  font-weight: 700;
+  font-size: 14px;
+}
+.nn-tooltip .tt-neuron {
+  color: #94A3B8;
+}
+.nn-tooltip .tt-conns {
+  color: #22D3EE;
+  font-size: 12px;
+  margin-top: 2px;
 }
 
 @media (pointer: coarse) {

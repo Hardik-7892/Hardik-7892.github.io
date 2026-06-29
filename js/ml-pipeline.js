@@ -51,6 +51,13 @@
   });
 
   function makeLabel(text) {
+    const col = (function (hex) {
+      const n = parseInt(hex.slice(1), 16);
+      const r = ((n >> 16) & 0xFF) * 0.55 | 0;
+      const g = ((n >> 8) & 0xFF) * 0.55 | 0;
+      const b = (n & 0xFF) * 0.55 | 0;
+      return '#' + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+    })((getComputedStyle(document.body).getPropertyValue('--accent') || '#22C55E').trim());
     const c = document.createElement('canvas');
     c.width = 256; c.height = 72;
     const ctx = c.getContext('2d');
@@ -59,10 +66,10 @@
     ctx.textBaseline = 'middle';
     ctx.shadowColor = 'rgba(0,0,0,0.5)';
     ctx.shadowBlur = 6;
-    ctx.fillStyle = '#A3E635';
+    ctx.fillStyle = col;
     ctx.fillText(text, 128, 36);
     ctx.shadowBlur = 0;
-    ctx.fillStyle = '#84CC16';
+    ctx.fillStyle = col;
     ctx.fillText(text, 128, 36);
     const tex = new THREE.CanvasTexture(c);
     tex.needsUpdate = true;
