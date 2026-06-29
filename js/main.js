@@ -1,4 +1,15 @@
 /* ============================================================
+   GOATCOUNTER — visitor analytics
+   ============================================================ */
+(function () {
+  var s = document.createElement('script');
+  s.src = '//gc.zgo.at/count.js';
+  s.async = true;
+  s.dataset.goatcounter = 'https://hardik.goatcounter.com/count';
+  document.head.appendChild(s);
+})();
+
+/* ============================================================
    NAV — scrolled state + active link + hamburger + dropdown
    ============================================================ */
 (function () {

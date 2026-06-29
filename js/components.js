@@ -41,6 +41,7 @@ const FOOTER_HTML = `
         <div class="footer-links">
           <a href="https://github.com/Hardik-7892" target="_blank" rel="noopener" class="footer-link">GitHub</a>
           <a href="https://linkedin.com/in/hp0"     target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+          <a href="https://hardik.goatcounter.com" target="_blank" rel="noopener" class="footer-link">Visitors</a>
         </div>
       </div>
     </div>
