@@ -564,6 +564,11 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 
+/* Active/touch press states for mobile feedback */
+.card:active, .btn:active, .contact-card:active, .pill:active {
+  transform: scale(0.97);
+}
+
 /* ============================================================
    PROFILE CARDS (profiles.html) — extends .card
    ============================================================ */
@@ -1191,6 +1196,7 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+  nav { display: flex; align-items: center; }
   .nav-toggle { display: flex; }
 
   /* dropdown inline on mobile */
@@ -1200,20 +1206,24 @@ footer {
   .dropdown-menu {
     position: static;
     transform: none;
-    opacity: 1;
-    visibility: visible;
-    display: none;
     box-shadow: none;
     border: none;
     padding: 0 0 0 1rem;
     background: transparent;
     min-width: auto;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: visible;
+    transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
   }
   .nav-dropdown.open .dropdown-menu {
-    display: block;
+    max-height: 300px;
+    opacity: 1;
+    padding: 0 0 0.5rem 1rem;
   }
 
-  .hero-name { font-size: clamp(3.25rem, 14vw, 5rem); }
+  .hero-name { font-size: clamp(3.25rem, 14vw, 5rem); overflow-wrap: break-word; }
   .section { padding: 3.5rem 0; }
   .page-header { padding: 2.5rem 0 2rem; }
 
@@ -1230,9 +1240,13 @@ footer {
   .page-header.has-bg { min-height: auto; }
   [data-page="cyber"] .page-header.has-bg { min-height: auto; }
 
-  /* Mobile: dim 3D canvas behind text to reduce clutter */
-  [data-page="cyber"] .bg-3d,
-  [data-page="ml"] .bg-3d { left: 0; opacity: 0.25; }
+  /* Mobile: reposition visitor info to static so it doesn't overlap content */
+  .visitor-info {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 1rem;
+  }
 
   /* Mobile: reduce contact wrapper top/bottom padding */
   .contact-wrapper { padding: 2.5rem 0; }
@@ -1243,12 +1257,23 @@ footer {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to right, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, black 92%, transparent 100%);
   }
   .filter-bar::-webkit-scrollbar { display: none; }
   .filter-btn { flex-shrink: 0; }
 
   /* Mobile: tighter badge gaps */
   #badgeList { gap: 0.5rem; }
+
+  /* Mobile: tighter privacy banner */
+  .privacy-banner {
+    padding: 0.5rem 1rem;
+    font-size: 0.72rem;
+    gap: 0.5rem;
+  }
+  .privacy-banner p { max-width: 100%; }
+  .privacy-btn { padding: 0.25rem 0.75rem; font-size: 0.72rem; }
 }
 
 @media (max-width: 480px) {

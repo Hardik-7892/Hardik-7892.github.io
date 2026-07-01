@@ -1,4 +1,5 @@
 (function () {
+  if (window.innerWidth <= 640) return;
   const container = document.getElementById('cloud-globe');
   if (!container) return;
 
