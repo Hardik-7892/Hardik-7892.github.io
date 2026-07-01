@@ -97,9 +97,7 @@
     if (loc) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Location</span><span class="vi-val vi-loc">' + loc + '</span></div>';
     if (region) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Region</span><span class="vi-val vi-org">' + region + '</span></div>';
     if (tz) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Timezone</span><span class="vi-val vi-org">' + tz + '</span></div>';
-    if (postal) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Postal</span><span class="vi-val vi-org">' + postal + '</span></div>';
     if (hostname) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Hostname</span><span class="vi-val vi-org">' + hostname + '</span></div>';
-    if (coords) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Coords</span><span class="vi-val vi-org">' + coords + '</span></div>';
     if (asn) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">ASN</span><span class="vi-val vi-org">AS' + asn + '</span></div>';
     if (orgName) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">ISP</span><span class="vi-val vi-org">' + orgName + '</span></div>';
 

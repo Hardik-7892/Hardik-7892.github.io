@@ -3,8 +3,10 @@
    ============================================================ */
 (function () {
   var s = document.createElement('script');
-  s.src = '//gc.zgo.at/count.js';
+  s.src = 'https://gc.zgo.at/count.js';
   s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.integrity = 'sha384-LBe81vaT88F+IoxRdhG4rkNti28qLCoCIAstqmYp5RtK93u5kJ3NkEIetQAHf486';
   s.dataset.goatcounter = 'https://hardik.goatcounter.com/count';
   document.head.appendChild(s);
 })();

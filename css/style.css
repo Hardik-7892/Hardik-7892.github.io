@@ -1,4 +1,36 @@
 /* ============================================================
+   SELF-HOSTED FONTS
+   ============================================================ */
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 700 800;
+  src: url('../assets/fonts/syne.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 600;
+  src: url('../assets/fonts/dm-sans.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/jetbrains-mono.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Honk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/honk.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* ============================================================
    TOKENS
    ============================================================ */
 :root {
