@@ -1184,6 +1184,44 @@ footer {
   .hero-name { font-size: clamp(3.25rem, 14vw, 5rem); }
   .section { padding: 3.5rem 0; }
   .page-header { padding: 2.5rem 0 2rem; }
+
+  /* Mobile: full-width container for role page headers */
+  [data-page="cyber"] .page-header.has-bg .container,
+  [data-page="ml"] .page-header.has-bg .container {
+    width: 100%;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Mobile: reduce excessive header height on pages with 3D bg */
+  .page-header.has-bg { min-height: auto; }
+  [data-page="cyber"] .page-header.has-bg { min-height: auto; }
+
+  /* Mobile: dim 3D canvas behind text to reduce clutter */
+  [data-page="cyber"] .bg-3d,
+  [data-page="ml"] .bg-3d { left: 0; opacity: 0.25; }
+
+  /* Mobile: reduce contact wrapper top/bottom padding */
+  .contact-wrapper { padding: 2.5rem 0; }
+
+  /* Mobile: horizontal-scroll filter bar */
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .filter-btn { flex-shrink: 0; }
+
+  /* Mobile: tighter badge gaps */
+  #badgeList { gap: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .nav-inner { padding: 0 16px; }
 }
 
 /* ============================================================
