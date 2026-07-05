@@ -87,6 +87,17 @@ const projects = [
     featured: false,
     roles: [],
   },
+  {
+    id: 'portfolio',
+    name: 'Portfolio Website',
+    desc: 'A personal portfolio with 3D visualizations (Three.js), responsive design, dark mode, privacy-first analytics, and custom CSP. Built with vanilla HTML, CSS, and JavaScript \u2014 no frameworks. Iteratively developed with AI assistance.',
+    url: 'https://github.com/Hardik-7892/Hardik-7892.github.io',
+    color: 'var(--c-web)',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'AI-assisted'],
+    filterTags: ['web'],
+    featured: false,
+    roles: [],
+  },
 ];
 
 const profiles = [
