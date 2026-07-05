@@ -98,6 +98,17 @@ const projects = [
     featured: false,
     roles: [],
   },
+  {
+    id: 'shutterfolio',
+    name: 'Shutterfolio',
+    desc: 'A photographer portfolio website with a secure admin panel to manage photos, settings, and content from any device. Features drag-and-drop uploads, GitHub API-based storage, serverless API routes on Vercel, and Alpine.js on the frontend.',
+    url: 'https://github.com/Hardik-7892/shutterfolio',
+    color: 'var(--c-web)',
+    tags: ['JavaScript', 'Alpine.js', 'Serverless', 'GitHub API', 'HTML', 'CSS', 'AI-assisted'],
+    filterTags: ['web'],
+    featured: false,
+    roles: [],
+  },
 ];
 
 const profiles = [
