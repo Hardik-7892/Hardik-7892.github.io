@@ -159,6 +159,15 @@ const profiles = [
     desc: 'Games and interactive builds, including Space Shooter 2D and other experiments made in Unity.',
     tags: ['Game Dev', 'Unity'],
     linkText: 'View profile \u2192'
+  },
+  {
+    id: 'tryhackme',
+    name: 'TryHackMe',
+    url: 'https://tryhackme.com/p/hardik0',
+    color: 'var(--c-thm)',
+    desc: 'Hands-on cybersecurity training \u2014 working through CTF rooms and offensive/defensive security challenges.',
+    tags: ['Cyber Security', 'CTF'],
+    linkText: 'View profile \u2192'
   }
 ];
 
