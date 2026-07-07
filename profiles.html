@@ -20,39 +20,7 @@
 </head>
 <body data-page="profiles">
 
-  <header class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">hp.</a>
-      <nav>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html"    class="nav-link" data-page="home">Home</a></li>
-          <li><a href="about.html"    class="nav-link" data-page="about">About</a></li>
-          <li class="nav-dropdown">
-            <a href="#" class="nav-link" data-page="roles">Roles <span class="dropdown-arrow">&#x25BE;</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="roles/cyber.html" class="nav-link" data-page="cyber">Cyber</a></li>
-              <li><a href="roles/ml.html"    class="nav-link" data-page="ml">ML</a></li>
-            </ul>
-          </li>
-          <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
-          <li class="nav-dropdown">
-            <a href="profiles.html" class="nav-link" data-page="profiles">Profiles <span class="dropdown-arrow">&#x25BE;</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="profiles.html" class="nav-link" data-page="profiles">All Profiles</a></li>
-              <li><a href="cloud.html"    class="nav-link" data-page="cloud">Google Cloud</a></li>
-              <li><a href="https://vercel.com/hardiks-projects-9b7e5c43" target="_blank" rel="noopener" class="nav-link">Vercel</a></li>
-              <li><a href="https://hardik-7892.itch.io"    target="_blank" rel="noopener" class="nav-link">Itch.io</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
-          <li><button class="theme-btn" id="themeToggle" aria-label="Toggle theme">&#x263E;</button></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div id="shared-nav" data-page="profiles" data-prefix=""></div>
 
   <main>
 
@@ -76,27 +44,14 @@
 
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <p class="footer-text">Hardik Pandey</p>
-        <div class="footer-links">
-          <a href="https://github.com/Hardik-7892" target="_blank" rel="noopener" class="footer-link">GitHub</a>
-          <a href="https://linkedin.com/in/hp0"     target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-          <a href="https://hardik.goatcounter.com" target="_blank" rel="noopener" class="footer-link">Visitors</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="shared-footer"></div>
 
-  <aside class="privacy-banner" id="privacyBanner">
-    <p>This site uses <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a> for privacy-friendly analytics (no cookies, no personal data).</p>
-    <button class="privacy-btn" id="privacyBtn">Got it</button>
-  </aside>
+  <div id="shared-banner"></div>
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
   <script src="js/data.js"></script>
   <script>renderProfiles('profileCards', { ids: ['gcp-skills', 'vercel', 'itchio'] })</script>
+  <script src="js/shared.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

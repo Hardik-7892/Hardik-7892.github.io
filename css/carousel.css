@@ -12,11 +12,8 @@
 .carousel-track {
   display: flex;
   gap: 1.25rem;
-  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
-  cursor: grab;
 }
-.carousel-track:active { cursor: grabbing; }
 
 .carousel-track .card {
   flex: 0 0 280px;

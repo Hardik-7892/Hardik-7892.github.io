@@ -1,0 +1,24 @@
+/* ============================================================
+   FADE-IN ON SCROLL
+   ============================================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   REDUCED MOTION OVERRIDE
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .cursor { animation: none; opacity: 1; }
+}

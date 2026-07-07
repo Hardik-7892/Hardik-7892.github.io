@@ -1,0 +1,92 @@
+/* ============================================================
+   SELF-HOSTED FONTS
+   ============================================================ */
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 700 800;
+  src: url('../assets/fonts/syne.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 600;
+  src: url('../assets/fonts/dm-sans.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/jetbrains-mono.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Honk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/honk.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --bg: #F8F7F2;
+  --surface: #FFFFFF;
+  --text: #141420;
+  --muted: #6C6C7A;
+  --accent: #E04D20;
+  --accent-hover: #B83D17;
+  --border: #E6E5DF;
+  --shadow-sm: 0 1px 3px rgba(20, 20, 32, 0.06);
+  --shadow: 0 4px 16px rgba(20, 20, 32, 0.09);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display-title: "Honk", system-ui;
+
+  --nav-h: 64px;
+  --max-w: 1100px;
+  --radius: 10px;
+
+  /* GitHub language colors */
+  --c-python: #3572A5;
+  --c-rust: #CE6E00;
+  --c-csharp: #178600;
+  --c-elk: #00BFB3;
+  --c-other: #888;
+
+  /* External profile accent colors */
+  --c-gcp: #4285F4;
+  --c-vercel: #000000;
+  --c-itch: #FA5C5C;
+  --c-web: #E34F26;
+  --c-thm: #212C42;
+
+  /* Profile images */
+  --profile-image: url('../images/light_theme_profile.png');
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+[data-theme="dark"] {
+  --bg: #121212;
+  --surface: #1E1E1E;
+  --text: #E4E4E7;
+  --muted: #A1A1AA;
+  --border: #27272A;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --profile-image: url('../images/dark_theme_profile.png');
+}
+[data-theme="dark"] .nav.scrolled {
+  background: rgba(18, 18, 18, 0.92);
+}
+[data-theme="dark"] .btn-primary {
+  color: #fff;
+}
