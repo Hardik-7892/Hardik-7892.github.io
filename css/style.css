@@ -66,6 +66,9 @@
   --c-itch: #FA5C5C;
   --c-web: #E34F26;
   --c-thm: #212C42;
+
+  /* Profile images */
+  --profile-image: url('../images/light_theme_profile.png');
 }
 
 /* ============================================================
@@ -79,6 +82,7 @@
   --border: #27272A;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --profile-image: url('../images/dark_theme_profile.png');
 }
 [data-theme="dark"] .nav.scrolled {
   background: rgba(18, 18, 18, 0.92);
@@ -958,7 +962,9 @@ img { max-width: 100%; display: block; }
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  object-fit: cover;
+  background-image: var(--profile-image);
+  background-size: cover;
+  background-position: center;
   border: 3px solid var(--border);
   box-shadow: var(--shadow);
   display: inline-block;
