@@ -17,6 +17,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src https://ipapi.co https://ipinfo.io https://hardik.goatcounter.com;" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/carousel.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -107,7 +108,14 @@
         <p class="section-label fade-in">featured work</p>
         <h2 class="section-title fade-in">a few things i've built</h2>
 
-        <div class="projects-grid" id="featuredProjects"></div>
+        <div class="carousel-section" id="featuredSection">
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="featuredProjects"></div>
+          </div>
+          <button class="carousel-btn carousel-btn--prev" aria-label="Previous project">&#x2039;</button>
+          <button class="carousel-btn carousel-btn--next" aria-label="Next project">&#x203A;</button>
+          <div class="carousel-dots" id="featuredDots"></div>
+        </div>
 
         <div class="card-more fade-in">
           <a href="projects.html" class="btn btn-ghost">see all projects &rarr;</a>
