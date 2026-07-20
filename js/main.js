@@ -365,7 +365,6 @@
   var prevBtn = document.querySelector('.carousel-btn--prev');
   var nextBtn = document.querySelector('.carousel-btn--next');
   if (!track || !section || !dotsEl || !prevBtn || !nextBtn) return;
-  if (track.children.length === 0) return;
 
   var CARD_GAP = 20;
   var CARD_W = 280;
@@ -475,18 +474,41 @@
     return function () { pauseAuto(); fn(); setTimeout(resumeAuto, 2000); };
   }
 
-  /* Visibility */
+  /* ---------- setup: populate clones and render ---------- */
+  function setup() {
+    if (track.children.length === 0) return false;
+
+    cards = Array.from(track.children);
+    realCount = cards.length;
+
+    var lastClone = cards[realCount - 1].cloneNode(true);
+    lastClone.setAttribute('aria-hidden', 'true');
+    track.insertBefore(lastClone, track.firstChild);
+
+    for (var ci = 0; ci < realCount; ci++) {
+      var clone = cards[ci].cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    }
+
+    cards = Array.from(track.children);
+    renderDots();
+    goTo(OFFSET, false);
+    track.setAttribute('tabindex', '0');
+    track.setAttribute('aria-label', 'Featured projects');
+    return true;
+  }
+
+  /* ---------- event wiring (outside setup so it binds once) ---------- */
   var obs = new IntersectionObserver(function (e) {
     visible = e[0].isIntersecting;
     if (visible && !paused) startAuto(); else stopAuto();
   }, { threshold: 0.3 });
   obs.observe(section);
 
-  /* Buttons */
   prevBtn.addEventListener('click', withPause(prev));
   nextBtn.addEventListener('click', withPause(next));
 
-  /* Dots */
   dotsEl.addEventListener('click', function (e) {
     var d = e.target.closest('.carousel-dot');
     if (!d) return;
@@ -497,22 +519,21 @@
     setTimeout(resumeAuto, 2000);
   });
 
-  /* Hover pause */
-  track.addEventListener('mouseenter', pauseAuto);
-  track.addEventListener('mouseleave', function () { if (visible) setTimeout(resumeAuto, 1000); });
+  section.addEventListener('mouseenter', pauseAuto);
+  section.addEventListener('mouseleave', function () { if (visible) setTimeout(resumeAuto, 1000); });
 
-  /* Touch swipe */
+  /* Touch swipe on section (wider touch target) */
   (function () {
     var sx = 0, ex = 0, swiping = false;
-    track.addEventListener('touchstart', function (e) {
+    section.addEventListener('touchstart', function (e) {
       sx = e.changedTouches[0].screenX;
       swiping = true;
     }, { passive: true });
-    track.addEventListener('touchmove', function (e) {
+    section.addEventListener('touchmove', function (e) {
       if (!swiping) return;
       ex = e.changedTouches[0].screenX;
     }, { passive: true });
-    track.addEventListener('touchend', function () {
+    section.addEventListener('touchend', function () {
       if (!swiping) return;
       swiping = false;
       var dist = sx - ex;
@@ -522,44 +543,29 @@
     });
   })();
 
-  /* Tab visibility */
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) stopAuto(); else if (visible && !paused) startAuto();
   });
 
-  /* Keyboard */
   document.addEventListener('keydown', function (e) {
     if (!visible) return;
     if (e.key === 'ArrowLeft') { e.preventDefault(); cancelSnap = true; moving = false; pauseAuto(); prev(); setTimeout(resumeAuto, 2000); }
     if (e.key === 'ArrowRight') { e.preventDefault(); cancelSnap = true; moving = false; pauseAuto(); next(); setTimeout(resumeAuto, 2000); }
   });
 
-  /* Resize */
   var raf;
   window.addEventListener('resize', function () {
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(function () { goTo(cur, false); });
   });
 
-  /* Init */
-  cards = Array.from(track.children);
-  realCount = cards.length;
-
-  var lastClone = cards[realCount - 1].cloneNode(true);
-  lastClone.setAttribute('aria-hidden', 'true');
-  track.insertBefore(lastClone, track.firstChild);
-
-  for (var ci = 0; ci < realCount; ci++) {
-    var clone = cards[ci].cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    track.appendChild(clone);
+  /* ---------- init, or wait for content ---------- */
+  if (!setup()) {
+    var mo = new MutationObserver(function () {
+      if (setup()) mo.disconnect();
+    });
+    mo.observe(track, { childList: true });
   }
-
-  cards = Array.from(track.children);
-  renderDots();
-  goTo(OFFSET, false);
-  track.setAttribute('tabindex', '0');
-  track.setAttribute('aria-label', 'Featured projects');
 })();
 
 /* ============================================================
