@@ -86,27 +86,75 @@
     if (country) locParts.push(country);
     var loc = locParts.join(', ');
 
-    var coords = '';
-    if (lat && lon) coords = lat + ',' + lon;
-
-    var headerRow = '<div class="vi-row">';
-    headerRow += '<span class="vi-icon">\u25C8</span><span class="vi-label">IP</span><span class="vi-val">' + ip + '</span>';
-    headerRow += '</div>';
-
-    var bodyRows = '';
-    if (loc) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Location</span><span class="vi-val vi-loc">' + loc + '</span></div>';
-    if (region) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Region</span><span class="vi-val vi-org">' + region + '</span></div>';
-    if (tz) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Timezone</span><span class="vi-val vi-org">' + tz + '</span></div>';
-    if (hostname) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">Hostname</span><span class="vi-val vi-org">' + hostname + '</span></div>';
-    if (asn) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">ASN</span><span class="vi-val vi-org">AS' + asn + '</span></div>';
-    if (orgName) bodyRows += '<div class="vi-row"><span class="vi-icon-placeholder"></span><span class="vi-label">ISP</span><span class="vi-val vi-org">' + orgName + '</span></div>';
-
-    el.innerHTML = '<div class="vi-header">' + headerRow + '<button class="vi-toggle" aria-label="Toggle details">\u2212</button></div><div class="vi-body">' + bodyRows + '</div>';
+    /* Build the widget DOM using textContent for API-sourced values */
+    el.innerHTML = '';
     el.classList.remove('vi-optin');
     el.classList.add('vi-ready');
 
-    var toggle = el.querySelector('.vi-toggle');
-    var body = el.querySelector('.vi-body');
+    var header = document.createElement('div');
+    header.className = 'vi-header';
+
+    var ipRow = document.createElement('div');
+    ipRow.className = 'vi-row';
+    var ipIcon = document.createElement('span');
+    ipIcon.className = 'vi-icon';
+    ipIcon.textContent = '\u25C8';
+    ipRow.appendChild(ipIcon);
+    var ipLabel = document.createElement('span');
+    ipLabel.className = 'vi-label';
+    ipLabel.textContent = 'IP';
+    ipRow.appendChild(ipLabel);
+    var ipVal = document.createElement('span');
+    ipVal.className = 'vi-val';
+    ipVal.textContent = ip;
+    ipRow.appendChild(ipVal);
+    header.appendChild(ipRow);
+
+    var toggle = document.createElement('button');
+    toggle.className = 'vi-toggle';
+    toggle.setAttribute('aria-label', 'Toggle details');
+    toggle.textContent = '\u2212';
+    header.appendChild(toggle);
+
+    el.appendChild(header);
+
+    var body = document.createElement('div');
+    body.className = 'vi-body';
+
+    function addRow(label, value, extraCls) {
+      if (!value) return;
+      var row = document.createElement('div');
+      row.className = 'vi-row';
+      var ph = document.createElement('span');
+      ph.className = 'vi-icon-placeholder';
+      row.appendChild(ph);
+      var lbl = document.createElement('span');
+      lbl.className = 'vi-label';
+      lbl.textContent = label;
+      row.appendChild(lbl);
+      var val = document.createElement('span');
+      val.className = 'vi-val' + (extraCls ? ' ' + extraCls : '');
+      val.textContent = value;
+      row.appendChild(val);
+      body.appendChild(row);
+    }
+
+    var displayLoc = loc || '';
+    addRow('Location', displayLoc, 'vi-loc');
+    addRow('Region', region, 'vi-org');
+    addRow('Timezone', tz, 'vi-org');
+    addRow('Hostname', hostname, 'vi-org');
+    if (asn) addRow('ASN', 'AS' + asn, 'vi-org');
+    addRow('ISP', orgName, 'vi-org');
+
+    el.appendChild(body);
+
+    var saved = localStorage.getItem('vi-collapsed');
+    if (saved === 'true') {
+      el.classList.add('vi-collapsed');
+      toggle.textContent = '+';
+      body.style.display = 'none';
+    }
 
     toggle.addEventListener('click', function () {
       var collapsed = el.classList.toggle('vi-collapsed');

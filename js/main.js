@@ -7,7 +7,7 @@
   s.async = true;
   s.crossOrigin = 'anonymous';
   s.integrity = 'sha384-LBe81vaT88F+IoxRdhG4rkNti28qLCoCIAstqmYp5RtK93u5kJ3NkEIetQAHf486';
-  s.dataset.goatcounter = 'https://hardik.goatcounter.com/count';
+  s.dataset.goatcounter = 'https://goatcounter.hardik-pandey.com/count';
   document.head.appendChild(s);
 })();
 

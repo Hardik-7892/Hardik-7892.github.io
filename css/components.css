@@ -354,6 +354,16 @@
   background: var(--card-color, var(--border));
   border-radius: var(--radius) var(--radius) 0 0;
 }
+.card[data-color="python"] { --card-color: var(--c-python); }
+.card[data-color="rust"] { --card-color: var(--c-rust); }
+.card[data-color="csharp"] { --card-color: var(--c-csharp); }
+.card[data-color="elk"] { --card-color: var(--c-elk); }
+.card[data-color="web"] { --card-color: var(--c-web); }
+.card[data-color="gcp"] { --card-color: var(--c-gcp); }
+.card[data-color="vercel"] { --card-color: var(--c-vercel); }
+.card[data-color="itch"] { --card-color: var(--c-itch); }
+.card[data-color="thm"] { --card-color: var(--c-thm); }
+.card[data-color="other"] { --card-color: var(--c-other); }
 .card:hover {
   box-shadow: var(--shadow);
   transform: translateY(-3px);
@@ -737,6 +747,27 @@
 }
 .ni-val.status-up { color: #22C55E; }
 .ni-val.status-down { color: #EF4444; }
+
+/* ============================================================
+   PAGE-SPECIFIC ACCENT OVERRIDES
+   ============================================================ */
+[data-page="cloud"] { --accent: #4285F4; --accent-hover: #3367D6; }
+[data-page="cyber"] { --accent: #0EA5E9; --accent-hover: #0284C7; }
+[data-page="ml"]    { --accent: #22C55E; --accent-hover: #16A34A; }
+
+/* ============================================================
+   UTILITY CLASSES (replaces inline style="" attributes)
+   ============================================================ */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1.5rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 2rem; }
+.section--no-pt { padding-top: 0; }
+.hero--centered { align-items: center; text-align: center; }
+.hero-bio-404 { max-width: 600px; text-align: center; }
+.hero-title-404 { font-family: var(--font-display); font-size: clamp(5rem, 15vw, 10rem); }
+.hero-role-label { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); align-self: center; }
 
 /* ============================================================
    3D BACKGROUND (cyber page)

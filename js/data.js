@@ -196,7 +196,7 @@ function renderProfiles(containerId, opts) {
     return '<a href="' + p.url + '"'
       + '   target="_blank" rel="noopener"'
       + '   class="card profile-card fade-in"'
-      + '   style="--card-color: ' + p.color + '">'
+      + '   data-color="' + p.color.replace(/^var\(--c-/, '').replace(/\)$/, '') + '">'
       + badgeHtml
       + '  <p class="card-desc">' + p.desc + '</p>'
       + '  <div class="card-footer">'
@@ -238,7 +238,7 @@ function renderProjects(containerId, opts = {}) {
       + '   target="_blank" rel="noopener"'
       + '   class="card fade-in"'
       + '   data-tags="' + p.filterTags.join(',') + '"'
-      + '   style="--card-color: ' + p.color + '">'
+      + '   data-color="' + p.color.replace(/^var\(--c-/, '').replace(/\)$/, '') + '">'
       + '  <p class="card-name">' + p.name + '</p>'
       + '  <p class="card-desc">' + p.desc + '</p>'
       + '  <div class="card-footer">'

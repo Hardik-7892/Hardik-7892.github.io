@@ -21,7 +21,7 @@
   <meta property="og:url" content="https://hardik-pandey.com/roles/cyber.html" />
   <!-- <link rel="canonical" href="https://hardik-7892.github.io/roles/cyber.html" /> -->
   <link rel="canonical" href="https://hardik-pandey.com/roles/cyber.html" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src https://ipapi.co https://ipinfo.io https://hardik.goatcounter.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; frame-ancestors 'none';" />
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="manifest" href="../manifest.json" />
@@ -35,7 +35,7 @@
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
   <script src="../js/theme-init.js"></script>
 </head>
-<body data-page="cyber" style="--accent: #0EA5E9; --accent-hover: #0284C7;">
+<body data-page="cyber">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -48,11 +48,11 @@
       <div id="cyber-bg" class="bg-3d"></div>
       <div class="container">
         <p class="section-label fade-in">the blue team</p>
-        <h1 class="section-title fade-in" style="margin-bottom: 0.5rem;">Cyber Security</h1>
+        <h1 class="section-title fade-in mb-1">Cyber Security</h1>
         <p class="page-header-sub fade-in">
           SOC operations, detection engineering, and security infrastructure.
         </p>
-        <a href="../cv/CV_Hardik_Cyber.docx" download class="btn btn-primary fade-in" style="margin-top: 1.5rem;">
+        <a href="../cv/CV_Hardik_Cyber.docx" download class="btn btn-primary fade-in mt-1">
           Download CV &darr;
         </a>
       </div>
@@ -150,31 +150,31 @@
     </div>
 
     <!-- RELEVANT PROJECTS -->
-    <div class="section" style="padding-top: 0;">
+    <div class="section section--no-pt">
       <div class="container">
         <p class="section-label fade-in">relevant work</p>
-        <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Projects</h2>
+        <h2 class="section-title fade-in mb-2">Projects</h2>
 
         <div class="projects-grid" id="cyberProjects"></div>
       </div>
     </div>
 
     <!-- GOOGLE CLOUD BADGES -->
-    <div class="section" style="padding-top: 0;">
+    <div class="section section--no-pt">
       <div class="container">
         <p class="section-label fade-in">credentials</p>
-        <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Google Cloud Badges</h2>
+        <h2 class="section-title fade-in mb-2">Google Cloud Badges</h2>
 
         <div id="badgeList" aria-live="polite"></div>
 
-        <div style="text-align: center; margin-top: 1.5rem;">
+        <div class="text-center mt-1">
           <a href="../cloud.html" class="btn btn-primary">View All Badges &rarr;</a>
         </div>
 
-        <div class="projects-grid" style="margin-top: 2rem;">
+        <div class="projects-grid mt-2">
           <a href="../profiles.html"
              class="card fade-in"
-             style="--card-color: var(--c-elk)">
+             data-color="elk">
             <p class="card-name">SIEM / SOC Training</p>
             <p class="card-desc">
               Hands-on lab work in Elastic Stack security features, detection
@@ -195,7 +195,7 @@
 
     <div class="section">
       <div class="container">
-        <div class="currently-box fade-in" style="text-align: center;">
+        <div class="currently-box fade-in text-center">
           <p class="currently-text">Like what you see? <a href="../contact.html">Get in touch &rarr;</a></p>
         </div>
       </div>
@@ -208,12 +208,11 @@
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
   <script src="../js/data.js"></script>
-  <script>renderProjects('cyberProjects', { role: 'cyber' })</script>
   <script src="../js/cloud-badges.js"></script>
-  <script>renderBadges('badgeList', 'cyber')</script>
   <script src="../js/shared.js"></script>
   <script src="../js/main.js"></script>
   <script src="../js/visitor-info.js"></script>
+  <script src="../js/page-init.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" integrity="sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O" crossorigin="anonymous"></script>
   <script src="../js/cyber-globe.js"></script>
 </body>

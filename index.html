@@ -21,7 +21,7 @@
   <meta property="og:url" content="https://hardik-pandey.com/" />
   <!-- <link rel="canonical" href="https://hardik-7892.github.io/" /> -->
   <link rel="canonical" href="https://hardik-pandey.com/" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src https://ipapi.co https://ipinfo.io https://hardik.goatcounter.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; frame-ancestors 'none';" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="css/tokens.css" />
@@ -81,7 +81,7 @@
         <a href="about.html"    class="btn btn-ghost">about me</a>
       </div>
       <div class="hero-ctas-sub fade-in">
-        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); align-self: center;">roles:</span>
+        <span class="hero-role-label">roles:</span>
         <a href="roles/cyber.html" class="btn btn-ghost">cyber security &rarr;</a>
         <a href="roles/ml.html"    class="btn btn-ghost">machine learning &rarr;</a>
       </div>
@@ -116,8 +116,8 @@
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
   <script src="js/data.js"></script>
-  <script>renderProjects('featuredProjects', { featured: true })</script>
   <script src="js/shared.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/page-init.js"></script>
 </body>
 </html>

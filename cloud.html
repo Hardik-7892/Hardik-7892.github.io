@@ -21,7 +21,7 @@
   <meta property="og:url" content="https://hardik-pandey.com/cloud.html" />
   <!-- <link rel="canonical" href="https://hardik-7892.github.io/cloud.html" /> -->
   <link rel="canonical" href="https://hardik-pandey.com/cloud.html" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src https://ipapi.co https://ipinfo.io https://hardik.goatcounter.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; frame-ancestors 'none';" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
@@ -35,7 +35,7 @@
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
   <script src="js/theme-init.js"></script>
 </head>
-<body data-page="cloud" style="--accent: #4285F4; --accent-hover: #3367D6;">
+<body data-page="cloud">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -48,13 +48,13 @@
       <div id="cloud-bg" class="bg-3d"></div>
       <div class="container">
         <p class="section-label fade-in">the cloud</p>
-        <h1 class="section-title fade-in" style="margin-bottom: 0.5rem;">Google Cloud Skills</h1>
+        <h1 class="section-title fade-in mb-1">Google Cloud Skills</h1>
         <p class="page-header-sub fade-in">
           Diamond League — 34,595 points — 51 skill badges earned through hands-on labs.
         </p>
         <a href="https://www.skills.google/public_profiles/f91f8473-2224-4143-a48d-3646d84db887"
            target="_blank" rel="noopener"
-           class="btn btn-primary fade-in" style="margin-top: 1.5rem;">
+           class="btn btn-primary fade-in mt-1">
           View on Google Cloud Skills Boost &rarr;
         </a>
       </div>
@@ -84,7 +84,7 @@
     </div>
     <div class="section">
       <div class="container">
-        <div class="currently-box fade-in" style="text-align: center;">
+        <div class="currently-box fade-in text-center">
           <p class="currently-text">Like what you see? <a href="contact.html">Get in touch &rarr;</a></p>
         </div>
       </div>
@@ -97,40 +97,9 @@
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
   <script src="js/cloud-badges.js"></script>
-  <script>
-  (function () {
-    var VALID_FILTERS = ['all', 'genai', 'ml', 'cyber', 'infra', 'data', 'appdev', 'arcade', 'general'];
-    var params = new URLSearchParams(window.location.search);
-    var rawFilter = params.get('filter') || 'all';
-    var defaultFilter = VALID_FILTERS.indexOf(rawFilter) !== -1 ? rawFilter : 'all';
-
-    renderBadges('badgeList', defaultFilter);
-
-    function forceBadgesVisible() {
-      document.querySelectorAll('#badgeList .fade-in').forEach(function (el) { el.classList.add('visible'); });
-    }
-
-    document.querySelectorAll('.filter-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        renderBadges('badgeList', btn.dataset.filter);
-        forceBadgesVisible();
-      });
-    });
-
-    if (defaultFilter !== 'all') {
-      document.querySelectorAll('.filter-btn').forEach(function (btn) {
-        if (btn.dataset.filter === defaultFilter) {
-          document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-        }
-      });
-    }
-  })();
-  </script>
   <script src="js/shared.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/page-init.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" integrity="sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O" crossorigin="anonymous"></script>
   <script src="js/cloud-bg.js"></script>
   <script src="js/cloud-globe.js"></script>
