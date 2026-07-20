@@ -465,8 +465,10 @@
     }
   }
 
-  function startAuto() { stopAuto(); if (!paused && visible && cards.length > 1) timer = setInterval(next, INTERVAL); }
-  function stopAuto() { clearInterval(timer); timer = null; }
+  function autoTick() { next(); scheduleNext(); }
+  function scheduleNext() { stopAuto(); if (!paused && visible && cards.length > 1) timer = setTimeout(autoTick, INTERVAL); }
+  function startAuto() { scheduleNext(); }
+  function stopAuto() { clearTimeout(timer); timer = null; }
   function pauseAuto() { paused = true; stopAuto(); }
   function resumeAuto() { paused = false; startAuto(); }
 
