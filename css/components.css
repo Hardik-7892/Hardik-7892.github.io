@@ -17,7 +17,7 @@
   -webkit-backdrop-filter: blur(10px);
 }
 .nav-inner {
-  max-width: var(--max-w);
+  width: min(90%, var(--max-w));
   margin: 0 auto;
   padding: 0 24px;
   height: 100%;
@@ -163,14 +163,14 @@
   flex-direction: column;
   justify-content: center;
   padding: 4rem 24px 5rem;
-  max-width: var(--max-w);
+  width: min(90%, var(--max-w));
   margin: 0 auto;
 }
 .hero::before {
   content: '';
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: min(500px, 50vw);
+  height: min(500px, 50vw);
   border-radius: 50%;
   background: var(--accent);
   opacity: 0.035;
@@ -182,8 +182,8 @@
 .hero::after {
   content: '';
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: min(200px, 25vw);
+  height: min(200px, 25vw);
   border: 2px solid var(--accent);
   opacity: 0.06;
   border-radius: 0;
@@ -245,7 +245,7 @@
   50% { opacity: 0; }
 }
 .hero-bio {
-  max-width: 500px;
+  max-width: min(500px, 90%);
   font-size: 1.05rem;
   color: var(--muted);
   line-height: 1.75;
@@ -330,7 +330,7 @@
    ============================================================ */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.25rem;
 }
 .card {
@@ -510,7 +510,7 @@
 .page-header-sub {
   font-size: 1.05rem;
   color: var(--muted);
-  max-width: 480px;
+  max-width: min(480px, 90%);
   margin-top: 0.75rem;
   line-height: 1.65;
 }
@@ -744,7 +744,7 @@
 .page-header.has-bg {
   position: relative;
   overflow: hidden;
-  min-height: 420px;
+  min-height: clamp(300px, 50vh, 500px);
   display: flex;
   align-items: center;
   background: var(--bg);
@@ -791,7 +791,7 @@
 /* Cyber page: text left, globe right */
 [data-page="cyber"] .page-header.has-bg {
   justify-content: flex-start;
-  min-height: 500px;
+  min-height: clamp(350px, 55vh, 500px);
 }
 [data-page="cyber"] .page-header.has-bg .container {
   width: 30%;
@@ -912,7 +912,7 @@
    CONTACT PAGE
    ============================================================ */
 .contact-wrapper {
-  max-width: 620px;
+  max-width: min(620px, 92%);
   padding: 5rem 0;
 }
 .contact-intro {

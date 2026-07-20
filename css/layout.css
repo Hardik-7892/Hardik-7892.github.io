@@ -45,7 +45,7 @@ img { max-width: 100%; display: block; }
    LAYOUT UTILITIES
    ============================================================ */
 .container {
-  max-width: var(--max-w);
+  width: min(90%, var(--max-w));
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -158,7 +158,7 @@ footer {
   transform: translateY(0);
 }
 .privacy-banner p {
-  max-width: 600px;
+  max-width: min(600px, 90%);
   line-height: 1.5;
 }
 .privacy-banner a {
@@ -223,14 +223,12 @@ footer {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .page-header-flex { flex-direction: column; gap: 2rem; }
   .page-header-text { max-width: 100%; }
 }
 
 @media (max-width: 640px) {
-  .projects-grid { grid-template-columns: 1fr; }
   .contact-cards { grid-template-columns: 1fr; }
 
   .nav-links {
@@ -276,7 +274,7 @@ footer {
     transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
   }
   .nav-dropdown.open .dropdown-menu {
-    max-height: 300px;
+    max-height: 70vh;
     opacity: 1;
     padding: 0 0 0.5rem 1rem;
   }
