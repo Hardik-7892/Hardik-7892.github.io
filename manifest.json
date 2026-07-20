@@ -1,0 +1,21 @@
+{
+  "name": "Hardik Pandey — Software Engineer",
+  "short_name": "Hardik Pandey",
+  "description": "Software engineer working on local AI systems, security tooling, Rust, and the occasional game.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#F8F7F2",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

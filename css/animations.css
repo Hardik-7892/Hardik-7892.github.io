@@ -12,6 +12,21 @@
 }
 
 /* ============================================================
+   PAGE TRANSITION ANIMATIONS (View Transitions API)
+   ============================================================ */
+@view-transition { navigation: auto; }
+
+::view-transition-old(root) {
+  animation: 0.25s ease-out both vt-fade-out;
+}
+::view-transition-new(root) {
+  animation: 0.25s ease-in both vt-fade-in;
+}
+
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; } }
+
+/* ============================================================
    REDUCED MOTION OVERRIDE
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -21,4 +36,8 @@
     transition: none;
   }
   .cursor { animation: none; opacity: 1; }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }

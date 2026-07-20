@@ -19,12 +19,16 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src https://ipapi.co https://ipinfo.io https://hardik.goatcounter.com;" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" as="script" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <meta name="theme-color" content="#F8F7F2" />
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+  <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')</script>
 </head>
 <body data-page="cloud" style="--accent: #4285F4; --accent-hover: #3367D6;">
 
@@ -69,6 +73,13 @@
 
         <p id="badgeCount" class="badge-count fade-in"></p>
 
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="currently-box fade-in" style="text-align: center;">
+          <p class="currently-text">Like what you see? <a href="contact.html">Get in touch &rarr;</a></p>
+        </div>
       </div>
     </div>
   </main>

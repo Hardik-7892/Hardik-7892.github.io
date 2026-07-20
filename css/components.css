@@ -133,7 +133,8 @@
   box-shadow: var(--shadow);
   z-index: 200;
 }
-.nav-dropdown:hover .dropdown-menu {
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown.open .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
@@ -832,12 +833,9 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-image: var(--profile-image);
-  background-size: cover;
-  background-position: center;
   border: 3px solid var(--border);
   box-shadow: var(--shadow);
-  display: inline-block;
+  object-fit: cover;
 }
 
 .about-grid {
@@ -978,9 +976,25 @@
 }
 
 /* Hide default cursor on generic pages (JS adds class) */
-body.custom-cursor-active,
-body.custom-cursor-active * {
+body.custom-cursor-active {
   cursor: none !important;
+}
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active input,
+body.custom-cursor-active select,
+body.custom-cursor-active textarea,
+body.custom-cursor-active [role="button"],
+body.custom-cursor-active [tabindex]:not([tabindex="-1"]) {
+  cursor: pointer !important;
+}
+
+/* ============================================================
+   FOCUS INDICATORS
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Dot + Ring cursor (generic pages) */
@@ -1077,6 +1091,13 @@ body.custom-cursor-active * {
 .bg-3d-full::before {
   z-index: 0;
 }
+.bg-3d.loaded::before,
+.bg-3d-full.loaded::before,
+#cloud-globe.loaded::before {
+  animation: none;
+  opacity: 0;
+}
+
 @keyframes skeleton-shimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }

@@ -50,8 +50,25 @@ footer {
   flex-wrap: wrap;
 }
 .footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.footer-text p {
   font-size: 0.82rem;
   color: var(--muted);
+  margin: 0;
+}
+.footer-domain {
+  font-size: 0.75rem !important;
+  color: var(--muted);
+}
+.footer-domain a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.footer-domain a:hover {
+  text-decoration: underline;
 }
 .footer-links {
   display: flex;
@@ -162,7 +179,12 @@ footer {
   .cursor-dot,
   .cursor-ring,
   .privacy-banner,
-  .theme-btn {
+  .theme-btn,
+  .carousel-btn,
+  .carousel-dots,
+  .filter-bar,
+  canvas,
+  .footer-links {
     display: none !important;
   }
   body {
@@ -172,6 +194,8 @@ footer {
   }
   .hero { min-height: auto; padding: 2rem 0; }
   .page-header.has-bg { min-height: auto; background: none !important; }
+  .section { padding: 1rem 0; }
+  .card { break-inside: avoid; page-break-inside: avoid; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
   a[href^="#"]::after,
   a[href^="javascript"]::after { content: ""; }

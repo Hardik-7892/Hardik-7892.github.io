@@ -166,6 +166,7 @@
     renderer.render(scene, camera);
   }
   animate();
+  container.classList.add('loaded');
 
   window.addEventListener('resize', () => {
     const w = window.innerWidth;

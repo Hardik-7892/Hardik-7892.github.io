@@ -12,6 +12,15 @@
 })();
 
 /* ============================================================
+   SERVICE WORKER — PWA offline caching
+   ============================================================ */
+(function () {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+})();
+
+/* ============================================================
    NAV — scrolled state + active link + hamburger + dropdown
    ============================================================ */
 (function () {
@@ -61,13 +70,42 @@
   // Dropdown toggle on mobile (click instead of hover)
   document.querySelectorAll('.nav-dropdown').forEach(drop => {
     const trigger = drop.querySelector('.nav-link');
-    if (trigger) {
-      trigger.addEventListener('click', e => {
-        if (window.innerWidth <= 640) {
-          e.preventDefault();
-          e.stopPropagation();
-          drop.classList.toggle('open');
-        }
+    if (!trigger) return;
+
+    function open() { drop.classList.add('open'); }
+    function close() { drop.classList.remove('open'); }
+    function isOpen() { return drop.classList.contains('open'); }
+
+    trigger.addEventListener('click', e => {
+      if (window.innerWidth <= 640) {
+        e.preventDefault();
+        e.stopPropagation();
+        drop.classList.toggle('open');
+      }
+    });
+
+    trigger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (isOpen()) { close(); } else { open(); }
+        var first = drop.querySelector('.dropdown-menu .nav-link');
+        if (first && !isOpen()) first.focus();
+      }
+      if (e.key === 'Escape') { close(); trigger.focus(); }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        open();
+        var first = drop.querySelector('.dropdown-menu .nav-link');
+        if (first) first.focus();
+      }
+    });
+  });
+
+  // Close on Escape from within dropdown
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+        d.classList.remove('open');
       });
     }
   });
@@ -188,13 +226,21 @@
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const isDark = stored ? stored === 'dark' : prefersDark;
 
+  function setPhoto() {
+    var photo = document.getElementById('aboutPhoto');
+    if (!photo) return;
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    photo.src = dark ? 'images/dark_theme_profile.webp' : 'images/light_theme_profile.webp';
+  }
+
   if (isDark) {
     document.documentElement.setAttribute('data-theme', 'dark');
     toggle.textContent = '\u2600';
   }
+  setPhoto();
 
   toggle.addEventListener('click', () => {
-    const nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
     if (nowDark) {
       document.documentElement.removeAttribute('data-theme');
       localStorage.setItem('theme', 'light');
@@ -204,6 +250,7 @@
       localStorage.setItem('theme', 'dark');
       toggle.textContent = '\u2600';
     }
+    setPhoto();
   });
 })();
 
@@ -446,6 +493,27 @@
   track.addEventListener('mouseenter', pauseAuto);
   track.addEventListener('mouseleave', function () { if (visible) setTimeout(resumeAuto, 1000); });
 
+  /* Touch swipe */
+  (function () {
+    var sx = 0, ex = 0, swiping = false;
+    track.addEventListener('touchstart', function (e) {
+      sx = e.changedTouches[0].screenX;
+      swiping = true;
+    }, { passive: true });
+    track.addEventListener('touchmove', function (e) {
+      if (!swiping) return;
+      ex = e.changedTouches[0].screenX;
+    }, { passive: true });
+    track.addEventListener('touchend', function () {
+      if (!swiping) return;
+      swiping = false;
+      var dist = sx - ex;
+      if (Math.abs(dist) > 50) {
+        withPause(dist > 0 ? next : prev)();
+      }
+    });
+  })();
+
   /* Tab visibility */
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) stopAuto(); else if (visible && !paused) startAuto();
@@ -484,4 +552,21 @@
   goTo(OFFSET, false);
   track.setAttribute('tabindex', '0');
   track.setAttribute('aria-label', 'Featured projects');
+})();
+
+/* ============================================================
+   PAGE TRANSITIONS — View Transitions API fallback
+   ============================================================ */
+(function () {
+  if (!document.startViewTransition) return;
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href || href.indexOf('://') > -1 || href[0] === '#' || href.indexOf('javascript:') === 0 || href.indexOf('mailto:') === 0) return;
+    if (a.getAttribute('target') === '_blank') return;
+    e.preventDefault();
+    var t = document.startViewTransition(function () { window.location.href = href; });
+    t.finished.catch(function () { window.location.href = href; });
+  });
 })();

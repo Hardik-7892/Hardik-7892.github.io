@@ -280,4 +280,5 @@
     renderer.render(scene, camera);
   }
   animate();
+  container.classList.add('loaded');
 })();

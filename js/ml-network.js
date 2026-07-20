@@ -173,4 +173,5 @@
   new MutationObserver(function () { draw(); }).observe(
     document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }
   );
+  container.classList.add('loaded');
 })();

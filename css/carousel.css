@@ -81,9 +81,8 @@
   border-color: var(--accent);
 }
 
-/* Responsive: hide buttons on mobile */
+/* Responsive: buttons stay visible, smaller on mobile */
 @media (max-width: 640px) {
-  .carousel-btn { display: none; }
   .carousel-track .card { flex: 0 0 260px; }
   .carousel-track .card.active { transform: scale(1.05); }
 }

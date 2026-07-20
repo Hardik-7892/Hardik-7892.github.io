@@ -96,6 +96,7 @@
     renderer.render(scene, camera);
   }
   animate();
+  container.classList.add('loaded');
 
   window.addEventListener('resize', function () {
     var w = container.clientWidth;
