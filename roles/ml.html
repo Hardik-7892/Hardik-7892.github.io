@@ -12,6 +12,11 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Hardik Pandey" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Machine Learning — Hardik Pandey" />
+  <meta name="twitter:description" content="Hardik Pandey's ML profile — local AI, RAG pipelines, AutoML, and applied machine learning." />
+  <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.png" />
   <!-- <meta property="og:url" content="https://hardik-7892.github.io/roles/ml.html" /> -->
   <meta property="og:url" content="https://hardik-pandey.com/roles/ml.html" />
   <!-- <link rel="canonical" href="https://hardik-7892.github.io/roles/ml.html" /> -->
@@ -28,15 +33,17 @@
   <link rel="stylesheet" href="../css/animations.css" />
   <meta name="theme-color" content="#F8F7F2" />
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
-  <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')</script>
+  <script src="../js/theme-init.js"></script>
 </head>
 <body data-page="ml" style="--accent: #22C55E; --accent-hover: #16A34A;">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div id="shared-nav" data-page="ml" data-prefix="../"></div>
 
   <div id="ml-bg" class="bg-3d-full"></div>
 
-  <main>
+  <main id="main-content">
 
     <!-- PAGE HEADER -->
     <div class="page-header has-bg">
@@ -144,7 +151,7 @@
         <p class="section-label fade-in">credentials</p>
         <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Google Cloud Badges</h2>
 
-        <div id="badgeList"></div>
+        <div id="badgeList" aria-live="polite"></div>
 
         <div style="text-align: center; margin-top: 1.5rem;">
           <a href="../cloud.html" class="btn btn-primary">View All Badges &rarr;</a>

@@ -1,3 +1,4 @@
+(function () {
 var BADGES = [
   { name: 'Work Meets Play: Metrics in Motion', date: 'Mar 28, 2026', tags: ['arcade', 'data'] },
   { name: 'Arcade March 2026 Sprint 2', date: 'Mar 27, 2026', tags: ['arcade'] },
@@ -75,3 +76,7 @@ function renderBadges(containerId, filter) {
     countEl.textContent = filtered.length + ' of ' + BADGES.length + ' badges';
   }
 }
+
+window.BADGES = BADGES;
+window.renderBadges = renderBadges;
+})();

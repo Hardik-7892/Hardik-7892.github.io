@@ -1,3 +1,4 @@
+(function () {
 const projects = [
   {
     id: 'ai-companion',
@@ -208,6 +209,10 @@ function renderProfiles(containerId, opts) {
   }).join('');
 }
 
+window.projects = projects;
+window.profiles = profiles;
+window.renderProfiles = renderProfiles;
+
 function renderProjects(containerId, opts = {}) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -245,3 +250,6 @@ function renderProjects(containerId, opts = {}) {
       + '</a>';
   }).join('');
 }
+
+window.renderProjects = renderProjects;
+})();
