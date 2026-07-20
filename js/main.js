@@ -6,7 +6,7 @@
   s.src = 'https://gc.zgo.at/count.js';
   s.async = true;
   s.crossOrigin = 'anonymous';
-  s.integrity = 'sha384-LBe81vaT88F+IoxRdhG4rkNti28qLCoCIAstqmYp5RtK93u5kJ3NkEIetQAHf486';
+  s.integrity = 'sha384-2UjvVpptg4JlEVgJI2PdscrjOjPcil/4F1ZvIMJ81CShQnEDSlPI+l4PfogvTLYi';
   s.dataset.goatcounter = 'https://goatcounter.hardik-pandey.com/count';
   document.head.appendChild(s);
 })();
@@ -193,6 +193,14 @@
   document.querySelectorAll('.fade-in:not(.hero .fade-in)').forEach(el => {
     observer.observe(el);
   });
+
+  /* Watch for dynamically created .fade-in elements (cards etc.) */
+  var mo = new MutationObserver(function () {
+    document.querySelectorAll('.fade-in:not(.hero .fade-in)').forEach(function (el) {
+      observer.observe(el);
+    });
+  });
+  mo.observe(document.body, { childList: true, subtree: true });
 })();
 
 
