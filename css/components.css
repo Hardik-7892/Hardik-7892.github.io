@@ -1134,3 +1134,30 @@ body.custom-cursor-active [tabindex]:not([tabindex="-1"]) {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+.hero-3d-wrapper {
+  position: relative;
+  min-height: calc(100vh - var(--nav-h));
+}
+.hero-3d-wrapper #particle-hero {
+  position: absolute;
+  inset: 0;
+  left: 35%;
+  z-index: 0;
+  background: var(--bg);
+}
+.hero-3d-wrapper #particle-hero > section {
+  height: calc(100vh - var(--nav-h)) !important;
+  min-height: 0 !important;
+  background: transparent !important;
+}
+.hero-3d-wrapper .hero {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  pointer-events: none;
+}
+.hero-3d-wrapper .hero a,
+.hero-3d-wrapper .hero button,
+.hero-3d-wrapper .hero .btn {
+  pointer-events: auto;
+}

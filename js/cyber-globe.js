@@ -1,4 +1,6 @@
 (function () {
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
   if (window.innerWidth <= 640) return;
   const container = document.getElementById('cyber-bg');
   if (!container) return;
@@ -225,7 +227,7 @@
     var statusText = d.status === 'up' ? 'UP' : 'DOWN';
     var durText = d.status === 'up' ? '\u2014' : d.totalDown.toFixed(1) + 's';
     el.innerHTML =
-      '<div class="ni-header"><span class="ni-icon">\u2B24</span><span class="ni-id">' + d.id + '</span><button class="ni-close" aria-label="Close node info">&times;</button></div>' +
+      '<div class="ni-header"><span class="ni-icon">\u2B24</span><span class="ni-id">' + esc(d.id) + '</span><button class="ni-close" aria-label="Close node info">&times;</button></div>' +
       '<div class="ni-body">' +
         '<div class="ni-row"><span class="ni-label">Status</span><span class="ni-val ni-status-val ' + statusClass + '">' + statusText + '</span></div>' +
         '<div class="ni-row"><span class="ni-label">Uptime</span><span class="ni-val ni-uptime-val">' + d.uptime.toFixed(1) + '%</span></div>' +

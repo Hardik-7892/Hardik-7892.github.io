@@ -1,4 +1,6 @@
 (function () {
+function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
 const projects = [
   {
     id: 'ai-companion',
@@ -188,22 +190,22 @@ function renderProfiles(containerId, opts) {
   container.innerHTML = filtered.map(function (p) {
     var badgeHtml = p.badgeIcon
       ? '<div class="profile-card-top">'
-        + '<p class="card-name">' + p.name + '</p>'
-        + '<img src="' + p.badgeIcon + '" alt="' + p.name + ' badge" class="profile-badge-icon" loading="lazy" />'
+        + '<p class="card-name">' + esc(p.name) + '</p>'
+        + '<img src="' + p.badgeIcon + '" alt="' + esc(p.name) + ' badge" class="profile-badge-icon" loading="lazy" />'
         + '</div>'
-      : '<p class="card-name">' + p.name + '</p>';
+      : '<p class="card-name">' + esc(p.name) + '</p>';
 
     return '<a href="' + p.url + '"'
       + '   target="_blank" rel="noopener"'
       + '   class="card profile-card fade-in"'
       + '   data-color="' + p.color.replace(/^var\(--c-/, '').replace(/\)$/, '') + '">'
       + badgeHtml
-      + '  <p class="card-desc">' + p.desc + '</p>'
+      + '  <p class="card-desc">' + esc(p.desc) + '</p>'
       + '  <div class="card-footer">'
       + '    <div class="card-tags">'
-      + p.tags.map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('')
+      + p.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('')
       + '    </div>'
-      + '    <span class="card-link">' + (p.linkText || 'View profile \u2192') + '</span>'
+      + '    <span class="card-link">' + esc(p.linkText || 'View profile \u2192') + '</span>'
       + '  </div>'
       + '</a>';
   }).join('');
@@ -239,11 +241,11 @@ function renderProjects(containerId, opts = {}) {
       + '   class="card fade-in"'
       + '   data-tags="' + p.filterTags.join(',') + '"'
       + '   data-color="' + p.color.replace(/^var\(--c-/, '').replace(/\)$/, '') + '">'
-      + '  <p class="card-name">' + p.name + '</p>'
-      + '  <p class="card-desc">' + p.desc + '</p>'
+      + '  <p class="card-name">' + esc(p.name) + '</p>'
+      + '  <p class="card-desc">' + esc(p.desc) + '</p>'
       + '  <div class="card-footer">'
       + '    <div class="card-tags">'
-      + p.tags.map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('')
+      + p.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('')
       + '    </div>'
       + '    <span class="card-link">GitHub &rarr;</span>'
       + '  </div>'

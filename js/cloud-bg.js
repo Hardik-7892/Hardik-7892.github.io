@@ -36,7 +36,7 @@
     ctx.drawImage(img, 0, 0, CW, CH);
     if (texture) texture.needsUpdate = true;
   };
-  img.src = 'data:image/svg+xml;base64,' + btoa(svgStr);
+  img.src = 'data:image/svg+xml,' + encodeURIComponent(svgStr);
 
   texture = new THREE.CanvasTexture(canvas);
   var mat = new THREE.MeshBasicMaterial({

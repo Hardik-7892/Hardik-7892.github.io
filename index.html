@@ -21,7 +21,7 @@
   <meta property="og:url" content="https://hardik-pandey.com/" />
   <!-- <link rel="canonical" href="https://hardik-7892.github.io/" /> -->
   <link rel="canonical" href="https://hardik-pandey.com/" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src 'self' https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; form-action 'none'" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="css/tokens.css" />
@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/carousel.css" />
+  <link rel="stylesheet" href="css/particle-hero-widget.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -66,24 +67,27 @@
 
   <main id="main-content">
 
-    <!-- HERO -->
-    <div class="hero">
-      <p class="hero-eyebrow fade-in">software engineer</p>
-      <h1 class="hero-name fade-in">Hardik<br><span class="accent">Pandey</span></h1>
-      <p class="hero-role fade-in"><span class="typed-text"></span><span class="cursor"></span></p>
-      <p class="hero-bio fade-in">
-        I pick things apart to understand them, then rebuild them better.
-        Currently spending most of my time inside LLM pipelines, security labs,
-        and the Rust type system.
-      </p>
-      <div class="hero-ctas fade-in">
-        <a href="projects.html" class="btn btn-primary">my projects &rarr;</a>
-        <a href="about.html"    class="btn btn-ghost">about me</a>
-      </div>
-      <div class="hero-ctas-sub fade-in">
-        <span class="hero-role-label">roles:</span>
-        <a href="roles/cyber.html" class="btn btn-ghost">cyber security &rarr;</a>
-        <a href="roles/ml.html"    class="btn btn-ghost">machine learning &rarr;</a>
+    <!-- HERO with 3D particle background -->
+    <div class="hero-3d-wrapper">
+      <div id="particle-hero"></div>
+      <div class="hero">
+        <p class="hero-eyebrow fade-in">software engineer</p>
+        <h1 class="hero-name fade-in">Hardik<br><span class="accent">Pandey</span></h1>
+        <p class="hero-role fade-in"><span class="typed-text"></span><span class="cursor"></span></p>
+        <p class="hero-bio fade-in">
+          I pick things apart to understand them, then rebuild them better.
+          Currently spending most of my time inside LLM pipelines, security labs,
+          and the Rust type system.
+        </p>
+        <div class="hero-ctas fade-in">
+          <a href="projects.html" class="btn btn-primary">my projects &rarr;</a>
+          <a href="about.html"    class="btn btn-ghost">about me</a>
+        </div>
+        <div class="hero-ctas-sub fade-in">
+          <span class="hero-role-label">roles:</span>
+          <a href="roles/cyber.html" class="btn btn-ghost">cyber security &rarr;</a>
+          <a href="roles/ml.html"    class="btn btn-ghost">machine learning &rarr;</a>
+        </div>
       </div>
     </div>
 
@@ -119,5 +123,7 @@
   <script src="js/shared.js"></script>
   <script src="js/main.js"></script>
   <script src="js/page-init.js"></script>
+  <script src="js/particle-hero-widget.js"></script>
+  <script src="js/particle-hero-mount.js"></script>
 </body>
 </html>

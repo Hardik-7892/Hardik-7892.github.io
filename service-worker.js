@@ -34,7 +34,9 @@ var URLS = [
   '/images/light_theme_profile.png',
   '/images/dark_theme_profile.png',
   '/favicon.svg',
-  '/manifest.json'
+  '/manifest.json',
+  '/js/particle-hero-widget.js',
+  '/css/particle-hero-widget.css'
 ];
 
 self.addEventListener('install', function (e) {
@@ -59,8 +61,6 @@ self.addEventListener('fetch', function (e) {
   e.respondWith(
     caches.match(e.request).then(function (hit) {
       return hit || fetch(e.request);
-    }).catch(function () {
-      return fetch(e.request);
     })
   );
 });
