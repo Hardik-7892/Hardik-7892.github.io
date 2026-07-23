@@ -270,11 +270,12 @@
   const grid = document.getElementById('projectsGrid');
   if (!grid) return;
 
-  const cards = grid.querySelectorAll('.card');
   const buttons = document.querySelectorAll('.filter-btn');
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
+      const cards = grid.querySelectorAll('.card');
+
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
