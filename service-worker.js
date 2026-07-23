@@ -34,6 +34,8 @@ var URLS = [
   '/images/light_theme_profile.png',
   '/images/dark_theme_profile.png',
   '/favicon.svg',
+  '/privacy.html',
+  '/terms.html',
   '/manifest.json',
   '/js/particle-hero-widget.js',
   '/css/particle-hero-widget.css'

@@ -1161,3 +1161,48 @@ body.custom-cursor-active [tabindex]:not([tabindex="-1"]) {
 .hero-3d-wrapper .hero .btn {
   pointer-events: auto;
 }
+
+/* ============================================================
+   LEGAL PAGES — privacy, terms
+   ============================================================ */
+.legal {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.legal h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 2.5em 0 0.75em;
+  color: var(--text);
+}
+.legal h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.8em 0 0.5em;
+  color: var(--text);
+}
+.legal p {
+  margin: 0 0 1em;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.legal ul {
+  margin: 0 0 1.2em 1.25em;
+}
+.legal li {
+  margin-bottom: 0.4em;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.legal strong {
+  color: var(--text);
+}
+.legal code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--surface);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}

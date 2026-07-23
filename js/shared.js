@@ -84,6 +84,8 @@
               '<p class="footer-domain">hardik-pandey.com &vert; <a href="mailto:&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#104;&#97;&#114;&#100;&#105;&#107;&#45;&#112;&#97;&#110;&#100;&#101;&#121;&#46;&#99;&#111;&#109;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#104;&#97;&#114;&#100;&#105;&#107;&#45;&#112;&#97;&#110;&#100;&#101;&#121;&#46;&#99;&#111;&#109;</a></p>' +
             '</div>' +
             '<div class="footer-links">' +
+              '<a href="privacy.html" class="footer-link">Privacy</a>' +
+              '<a href="terms.html" class="footer-link">Terms</a>' +
               '<a href="https://github.com/Hardik-7892" target="_blank" rel="noopener" class="footer-link">GitHub</a>' +
               '<a href="https://linkedin.com/in/hp0" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>' +
               '<a href="https://goatcounter.hardik-pandey.com" target="_blank" rel="noopener" class="footer-link">Visitors</a>' +
