@@ -1,48 +1,14 @@
-var CACHE = 'hardik-pandey-v2';
+var CACHE = 'hardik-pandey';
 var URLS = [
-  '/',
-  '/about.html',
-  '/projects.html',
-  '/profiles.html',
-  '/cloud.html',
-  '/contact.html',
-  '/404.html',
-  '/roles/cyber.html',
-  '/roles/ml.html',
-  '/css/tokens.css',
-  '/css/components.css',
-  '/css/layout.css',
-  '/css/animations.css',
-  '/css/carousel.css',
-  '/js/shared.js',
-  '/js/main.js',
-  '/js/data.js',
-  '/js/cloud-badges.js',
-  '/js/cloud-bg.js',
-  '/js/cloud-globe.js',
-  '/js/cyber-globe.js',
-  '/js/ml-network.js',
-  '/js/ml-pipeline.js',
-  '/js/visitor-info.js',
-  '/assets/fonts/dm-sans.woff2',
-  '/assets/fonts/syne.woff2',
-  '/assets/fonts/jetbrains-mono.woff2',
-  '/assets/fonts/honk.woff2',
-  '/images/light_theme_profile.webp',
-  '/images/dark_theme_profile.webp',
-  '/images/og-image.png',
-  '/images/light_theme_profile.png',
-  '/images/dark_theme_profile.png',
-  '/favicon.svg',
-  '/privacy.html',
-  '/terms.html',
+  '/', '/index.html',
+  '/about.html', '/projects.html', '/profiles.html',
+  '/cloud.html', '/contact.html', '/404.html',
+  '/privacy.html', '/terms.html',
+  '/roles/cyber.html', '/roles/ml.html',
   '/manifest.json',
-  '/js/particle-hero-widget.js',
-  '/js/particle-hero-mount.js',
-  '/js/page-init.js',
-  '/js/theme-init.js',
-  '/js/gc-count.js',
-  '/css/particle-hero-widget.css'
+  '/icons/icon-192x192.png', '/icons/icon-512x512.png',
+  '/favicon.svg',
+  '/images/og-image.webp'
 ];
 
 self.addEventListener('install', function (e) {
@@ -66,7 +32,12 @@ self.addEventListener('activate', function (e) {
 self.addEventListener('fetch', function (e) {
   e.respondWith(
     caches.match(e.request).then(function (hit) {
-      return hit || fetch(e.request).catch(function () {});
+      var fetchPromise = fetch(e.request).then(function (resp) {
+        if (resp && resp.ok)
+          caches.open(CACHE).then(function (cache) { cache.put(e.request, resp.clone()); });
+        return resp;
+      }).catch(function () {});
+      return hit || fetchPromise;
     })
   );
 });
