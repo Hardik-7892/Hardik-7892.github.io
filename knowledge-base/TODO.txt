@@ -1,0 +1,10 @@
+delete this file after tasks are completed
+
+This folder (knowledge-base) will be used to give data to the cloudflare ai search instance
+├── knowledge-base/
+│   ├── about.md
+│   ├── projects.md
+│   ├── experience.md
+│   └── skills.md
+
+then we add this folder to site-map but no button on any page to these files (pseudo hidden, not private). I am fine with this data being public i guess
