@@ -5,7 +5,6 @@
   var s = document.createElement('script');
   s.src = 'https://goatcounter.hardik-pandey.com/count.js';
   s.async = true;
-  s.crossOrigin = 'anonymous';
   s.dataset.goatcounter = 'https://goatcounter.hardik-pandey.com/count';
   document.head.appendChild(s);
 })();
