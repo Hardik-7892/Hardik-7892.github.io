@@ -555,8 +555,8 @@ All canonical URLs, OG tags, and sitemap URLs reference the custom domain. The o
 │   ├── carousel.css                 # Featured projects carousel
 │   └── particle-hero-widget.css     # Minified widget styles
 ├── cv/
-│   ├── CV_Hardik_Cyber.docx         # Cyber security CV download
-│   └── CV_Hardik_ML.docx            # Machine learning CV download
+│   ├── CV_Hardik_Cyber.pdf           # Cyber security CV download
+│   └── CV_Hardik_ML.pdf              # Machine learning CV download
 ├── icons/
 │   ├── icon-192x192.png             # PWA icon
 │   └── icon-512x512.png             # PWA icon
