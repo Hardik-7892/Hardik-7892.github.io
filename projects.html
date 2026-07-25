@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Hardik Pandey" />
   <title>Projects — Hardik Pandey</title>
   <meta name="description" content="Things Hardik Pandey has built — AI, security, Rust, game dev, and research." />
   <meta property="og:title" content="Projects — Hardik Pandey" />
   <meta property="og:description" content="Things Hardik Pandey has built — AI, security, Rust, game dev, and research." />
   <!-- <meta property="og:image" content="https://hardik-7892.github.io/images/og-image.png" /> -->
-  <meta property="og:image" content="https://hardik-pandey.com/images/og-image.png" />
+  <meta property="og:image" content="https://hardik-pandey.com/images/og-image.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Hardik Pandey" />
@@ -16,13 +17,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Projects — Hardik Pandey" />
   <meta name="twitter:description" content="Things Hardik Pandey has built — AI, security, Rust, game dev, and research." />
-  <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.png" />
+  <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.webp" />
   <!-- <meta property="og:url" content="https://hardik-7892.github.io/projects.html" /> -->
   <meta property="og:url" content="https://hardik-pandey.com/projects.html" />
   <!-- <link rel="canonical" href="https://hardik-7892.github.io/projects.html" /> -->
   <link rel="canonical" href="https://hardik-pandey.com/projects.html" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src 'self' https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; form-action 'none'" />
-
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://goatcounter.hardik-pandey.com https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src 'self' https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; form-action 'none'" />
+  <link rel="preconnect" href="https://goatcounter.hardik-pandey.com" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="css/tokens.css" />
@@ -31,6 +32,16 @@
   <link rel="stylesheet" href="css/animations.css" />
   <meta name="theme-color" content="#F8F7F2" />
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hardik-pandey.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://hardik-pandey.com/projects.html" }
+    ]
+  }
+  </script>
   <script src="js/theme-init.js"></script>
   <script type="application/ld+json">
   {
@@ -55,9 +66,9 @@
       <div class="container">
         <p class="section-label fade-in">the work</p>
         <h1 class="section-title fade-in mb-1">Projects</h1>
-        <p class="page-header-sub fade-in">
+        <h2 class="page-header-sub fade-in">
           Things I've built, mostly because I wanted to understand how they work.
-        </p>
+        </h2>
       </div>
     </div>
 
@@ -78,6 +89,12 @@
         </div>
 
         <div class="projects-grid" id="projectsGrid" aria-live="polite"></div>
+        <noscript>
+          <p style="text-align:center;color:var(--muted);margin-top:2rem">
+            Enable JavaScript to see the interactive project listing.
+            View all projects on <a href="https://github.com/Hardik-7892" style="color:var(--accent)">GitHub</a>.
+          </p>
+        </noscript>
       </div>
     </div>
 

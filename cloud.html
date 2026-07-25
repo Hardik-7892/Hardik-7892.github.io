@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Hardik Pandey" />
   <title>Google Cloud — Hardik Pandey</title>
   <meta name="description" content="Skill badges and achievements earned on Google Cloud Skills Boost." />
   <meta property="og:title" content="Google Cloud — Hardik Pandey" />
   <meta property="og:description" content="Skill badges and achievements earned on Google Cloud Skills Boost." />
   <!-- <meta property="og:image" content="https://hardik-7892.github.io/images/og-image.png" /> -->
-  <meta property="og:image" content="https://hardik-pandey.com/images/og-image.png" />
+  <meta property="og:image" content="https://hardik-pandey.com/images/og-image.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Hardik Pandey" />
@@ -16,13 +17,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Google Cloud — Hardik Pandey" />
   <meta name="twitter:description" content="Skill badges and achievements earned on Google Cloud Skills Boost." />
-  <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.png" />
+  <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.webp" />
   <!-- <meta property="og:url" content="https://hardik-7892.github.io/cloud.html" /> -->
   <meta property="og:url" content="https://hardik-pandey.com/cloud.html" />
   <!-- <link rel="canonical" href="https://hardik-7892.github.io/cloud.html" /> -->
   <link rel="canonical" href="https://hardik-pandey.com/cloud.html" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src 'self' https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; form-action 'none'" />
-
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://goatcounter.hardik-pandey.com https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src 'self' https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; form-action 'none'" />
+  <link rel="preconnect" href="https://goatcounter.hardik-pandey.com" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -33,6 +34,26 @@
   <link rel="stylesheet" href="css/animations.css" />
   <meta name="theme-color" content="#F8F7F2" />
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Google Cloud — Hardik Pandey",
+    "description": "Skill badges and achievements earned on Google Cloud Skills Boost.",
+    "url": "https://hardik-pandey.com/cloud.html",
+    "mainEntity": { "@type": "Person", "name": "Hardik Pandey" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hardik-pandey.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Google Cloud", "item": "https://hardik-pandey.com/cloud.html" }
+    ]
+  }
+  </script>
   <script src="js/theme-init.js"></script>
 </head>
 <body data-page="cloud">
@@ -64,6 +85,8 @@
     <div class="section">
       <div class="container">
 
+        <h2 class="section-title fade-in mb-1">Skill badges</h2>
+
         <div class="filter-bar fade-in">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="genai">GenAI</button>
@@ -77,6 +100,12 @@
         </div>
 
         <div id="badgeList" aria-live="polite"></div>
+        <noscript>
+          <p style="text-align:center;color:var(--muted);margin-top:2rem">
+            Enable JavaScript to see the badge gallery.
+            View all badges on <a href="https://www.skills.google.com/public_profiles/f91f8473-2224-4143-a48d-3646d84db887" style="color:var(--accent)">Google Cloud Skills Boost</a>.
+          </p>
+        </noscript>
 
         <p id="badgeCount" class="badge-count fade-in"></p>
 

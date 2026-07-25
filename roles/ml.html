@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Hardik Pandey" />
   <title>Machine Learning — Hardik Pandey</title>
   <meta name="description" content="Hardik Pandey's ML profile — local AI, RAG pipelines, AutoML, and applied machine learning." />
   <meta property="og:title" content="Machine Learning — Hardik Pandey" />
   <meta property="og:description" content="Hardik Pandey's ML profile — local AI, RAG pipelines, AutoML, and applied machine learning." />
   <!-- <meta property="og:image" content="https://hardik-7892.github.io/images/og-image.png" /> -->
-  <meta property="og:image" content="https://hardik-pandey.com/images/og-image.png" />
+  <meta property="og:image" content="https://hardik-pandey.com/images/og-image.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Hardik Pandey" />
@@ -16,13 +17,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Machine Learning — Hardik Pandey" />
   <meta name="twitter:description" content="Hardik Pandey's ML profile — local AI, RAG pipelines, AutoML, and applied machine learning." />
-  <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.png" />
+  <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.webp" />
   <!-- <meta property="og:url" content="https://hardik-7892.github.io/roles/ml.html" /> -->
   <meta property="og:url" content="https://hardik-pandey.com/roles/ml.html" />
   <!-- <link rel="canonical" href="https://hardik-7892.github.io/roles/ml.html" /> -->
   <link rel="canonical" href="https://hardik-pandey.com/roles/ml.html" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src 'self' https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; form-action 'none'" />
-
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://goatcounter.hardik-pandey.com https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src 'self' https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; form-action 'none'" />
+  <link rel="preconnect" href="https://goatcounter.hardik-pandey.com" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="manifest" href="../manifest.json" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -33,6 +34,30 @@
   <link rel="stylesheet" href="../css/animations.css" />
   <meta name="theme-color" content="#F8F7F2" />
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "Machine Learning — Hardik Pandey",
+    "description": "Hardik Pandey's ML profile — local AI, RAG pipelines, AutoML, and applied machine learning.",
+    "url": "https://hardik-pandey.com/roles/ml.html",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Hardik Pandey",
+      "knowsAbout": ["RAG pipelines", "FAISS", "AutoML", "Local AI", "Machine Learning"]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hardik-pandey.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Machine Learning", "item": "https://hardik-pandey.com/roles/ml.html" }
+    ]
+  }
+  </script>
   <script src="../js/theme-init.js"></script>
 </head>
 <body data-page="ml">
@@ -102,7 +127,7 @@
           <div>
             <p class="bio-para fade-in">
               I build AI systems that run <strong>entirely locally</strong> — no cloud,
-              no API keys, no data leaving your machine. My <strong>AI-Companion</strong>
+              no API keys, no data leaving your machine. My <a href="https://github.com/Hardik-7892/AI-Companion" target="_blank" rel="noopener"><strong>AI-Companion</strong></a>
               project is a modular local assistant with long-term semantic memory: RAG
               pipeline using FAISS and SentenceTransformers, running quantized GGUF models
               via llama-cpp-python.
@@ -117,7 +142,7 @@
             </p>
 
             <p class="bio-para fade-in">
-              I also built <strong>auto-ml</strong>, a Streamlit app wrapping AutoGluon
+              I also built <a href="https://github.com/Hardik-7892/auto-ml" target="_blank" rel="noopener"><strong>auto-ml</strong></a>, a Streamlit app wrapping AutoGluon
               to make ML model training painless — upload a dataset, pick a target, let
               it run. It's the kind of tool I wish existed when I started with ML.
             </p>
@@ -142,6 +167,12 @@
         <h2 class="section-title fade-in mb-2">Projects</h2>
 
         <div class="projects-grid" id="mlProjects"></div>
+        <noscript>
+          <p style="text-align:center;color:var(--muted);margin-top:1rem">
+            Enable JavaScript to see ML projects.
+            View all projects on <a href="https://github.com/Hardik-7892?tab=repositories" style="color:var(--accent)">GitHub</a>.
+          </p>
+        </noscript>
       </div>
     </div>
 

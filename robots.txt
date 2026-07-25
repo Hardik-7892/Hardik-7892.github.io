@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /cv/
+Disallow: /video/
+Disallow: /img/
 
-# Sitemap: https://hardik-7892.github.io/sitemap.xml
 Sitemap: https://hardik-pandey.com/sitemap.xml

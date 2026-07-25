@@ -1,57 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <!-- <loc>https://hardik-7892.github.io/</loc> -->
     <loc>https://hardik-pandey.com/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <!-- <loc>https://hardik-7892.github.io/about.html</loc> -->
     <loc>https://hardik-pandey.com/about.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <!-- <loc>https://hardik-7892.github.io/projects.html</loc> -->
     <loc>https://hardik-pandey.com/projects.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <!-- <loc>https://hardik-7892.github.io/profiles.html</loc> -->
     <loc>https://hardik-pandey.com/profiles.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <!-- <loc>https://hardik-7892.github.io/cloud.html</loc> -->
     <loc>https://hardik-pandey.com/cloud.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <!-- <loc>https://hardik-7892.github.io/contact.html</loc> -->
     <loc>https://hardik-pandey.com/contact.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <!-- <loc>https://hardik-7892.github.io/roles/cyber.html</loc> -->
     <loc>https://hardik-pandey.com/roles/cyber.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <!-- <loc>https://hardik-7892.github.io/roles/ml.html</loc> -->
     <loc>https://hardik-pandey.com/roles/ml.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <!-- <loc>https://hardik-7892.github.io/404.html</loc> -->
+    <loc>https://hardik-pandey.com/privacy.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://hardik-pandey.com/terms.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://hardik-pandey.com/404.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>never</changefreq>
     <priority>0.1</priority>
   </url>
 </urlset>

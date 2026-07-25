@@ -3,10 +3,9 @@
    ============================================================ */
 (function () {
   var s = document.createElement('script');
-  s.src = 'https://gc.zgo.at/count.js';
+  s.src = 'https://goatcounter.hardik-pandey.com/count.js';
   s.async = true;
   s.crossOrigin = 'anonymous';
-  s.integrity = 'sha384-D948EF569A6D8382651158092363DDB1CAE33A33DC8A5FF817566F20C27CD424A14271034A53C8FA5E0F7E882F4CB622';
   s.dataset.goatcounter = 'https://goatcounter.hardik-pandey.com/count';
   document.head.appendChild(s);
 })();
