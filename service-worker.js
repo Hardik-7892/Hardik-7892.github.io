@@ -1,4 +1,4 @@
-var CACHE = 'hardik-pandey-v1';
+var CACHE = 'hardik-pandey-v2';
 var URLS = [
   '/',
   '/about.html',
@@ -38,6 +38,10 @@ var URLS = [
   '/terms.html',
   '/manifest.json',
   '/js/particle-hero-widget.js',
+  '/js/particle-hero-mount.js',
+  '/js/page-init.js',
+  '/js/theme-init.js',
+  '/js/gc-count.js',
   '/css/particle-hero-widget.css'
 ];
 

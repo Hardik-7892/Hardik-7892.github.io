@@ -3,7 +3,7 @@
    ============================================================ */
 (function () {
   var s = document.createElement('script');
-  s.src = 'https://goatcounter.hardik-pandey.com/count.js';
+  s.src = 'js/gc-count.js';
   s.async = true;
   s.dataset.goatcounter = 'https://goatcounter.hardik-pandey.com/count';
   document.head.appendChild(s);
