@@ -109,7 +109,7 @@ Every Three.js scene follows the same pattern:
 
 - **Files:** `js/particle-hero-widget.js` + `js/particle-hero-mount.js`
 - **Repository:** [github.com/Hardik-7892/3d-particles](https://github.com/Hardik-7892/3d-particles)
-- **Demo video:** [`media/recording.mp4`](https://github.com/Hardik-7892/3d-particles/blob/main/media/recording.mp4)
+- **Demo video:** <video src="README-assets/recording.mp4" autoplay loop muted playsinline style="max-width:100%;border-radius:8px"></video>
 - **What it does:** Renders **6 rotating 3D models** (profile, cyber, ml, gamedev, cloud, webdev), each composed of **~700,000 particles** — that's **4.2 million particles** total across all models — as a particle system in the hero section.
 - **Models:** 6 `.bin` files in `assets/models/`
 - **Technical details:** The widget is loaded `async` so it doesn't block page render. The mount script polls `window.ParticleHeroWidget` every 50ms until the widget script finishes loading, then calls `.mount()`. This avoids race conditions without needing a module loader.
