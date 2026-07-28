@@ -11,7 +11,7 @@
 
   function navLinks(p) {
     var items = [
-      { label: 'Home',    href: p + 'index.html',   page: 'home' },
+      { label: 'Home',    href: p + '/',   page: 'home' },
       { label: 'About',   href: p + 'about.html',   page: 'about' },
       { label: 'Roles',   href: '#',                page: 'roles', dropdown: [
         { label: 'Cyber', href: p + 'roles/cyber.html', page: 'cyber' },
@@ -60,7 +60,7 @@
     el.innerHTML =
       '<header class="nav" id="nav">' +
         '<div class="nav-inner">' +
-          '<a href="' + p + 'index.html" class="nav-logo">hp.</a>' +
+          '<a href="' + p + '/" class="nav-logo">hp.</a>' +
           '<nav>' +
             '<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>' +
             '<ul class="nav-links" id="navLinks">' +
