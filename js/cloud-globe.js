@@ -1,5 +1,6 @@
 (function () {
   if (window.innerWidth <= 640) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const container = document.getElementById('cloud-globe');
   if (!container) return;
 

@@ -30,7 +30,7 @@ img { max-width: 100%; display: block; }
   left: 0;
   z-index: 1000;
   padding: 0.5rem 1rem;
-  background: var(--accent);
+  background: var(--accent-solid);
   color: #fff;
   font-size: 0.9rem;
   font-weight: 600;
@@ -169,8 +169,8 @@ footer {
   flex-shrink: 0;
   padding: 0.35rem 1rem;
   border-radius: var(--radius);
-  border: 1px solid var(--accent);
-  background: var(--accent);
+  border: 1px solid var(--accent-solid);
+  background: var(--accent-solid);
   color: #fff;
   font-family: var(--font-body);
   font-size: 0.8rem;
@@ -179,7 +179,8 @@ footer {
   transition: background 0.15s;
 }
 .privacy-btn:hover {
-  background: var(--accent-hover);
+  background: var(--accent-solid-hover);
+  border-color: var(--accent-solid-hover);
 }
 
 /* ============================================================

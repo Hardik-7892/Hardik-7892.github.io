@@ -5,10 +5,12 @@ const projects = [
   {
     id: 'ai-companion',
     name: 'AI-Companion',
-    desc: 'A modular, local AI assistant with long-term semantic memory. Built a RAG pipeline using FAISS and SentenceTransformers so it actually remembers what you\'ve told it. Runs quantized GGUF models via llama-cpp-python \u2014 entirely offline, entirely yours.',
+    desc: 'A modular RAG-powered conversational engine. The RAG pipeline runs both a local GGUF LLM (llama-cpp-python) and Anthropic Claude via OpenRouter with SentenceTransformers embeddings. Dual-layer memory: FAISS for semantic long-term retrieval, JSON archive for full history. Ships dual UIs (Gradio + Streamlit) sharing one logic core.',
     url: 'https://github.com/Hardik-7892/AI-Companion',
+    liveUrl: 'https://ai-companion-123.streamlit.app/',
+    liveText: 'Live demo',
     color: 'var(--c-python)',
-    tags: ['Python', 'FAISS', 'SentenceTransformers', 'llama.cpp'],
+    tags: ['Python', 'RAG', 'FAISS', 'SentenceTransformers', 'llama.cpp', 'Gradio'],
     filterTags: ['python', 'ml'],
     featured: true,
     roles: ['ml'],
@@ -16,10 +18,10 @@ const projects = [
   {
     id: 'siem-elk',
     name: 'SIEM-ELK',
-    desc: 'A SOC analyst lab built from scratch on the ELK stack. Set up log ingestion with Logstash, built detection dashboards in Kibana, and wrote custom alert rules. The goal was to understand what real detection engineering looks like, not just read about it.',
+    desc: 'A three-machine SOC homelab: a dedicated ELK SIEM server ingesting logs from an Ubuntu agent and a Windows host via Logstash. Kibana dashboards for log visualisation and threat detection with custom alert rules \u2014 a realistic SOC environment.',
     url: 'https://github.com/Hardik-7892/SIEM-ELK',
     color: 'var(--c-elk)',
-    tags: ['Elasticsearch', 'Logstash', 'Kibana', 'SIEM'],
+    tags: ['Elasticsearch', 'Logstash', 'Kibana', 'SIEM', 'Ubuntu', 'Windows'],
     filterTags: ['security'],
     featured: true,
     roles: ['cyber'],
@@ -27,8 +29,9 @@ const projects = [
   {
     id: 'auto-ml',
     name: 'auto-ml',
-    desc: 'A Streamlit app that wraps AutoGluon to make training and evaluating ML models genuinely painless. Upload a dataset, pick your target column, let it run. Comes with example model outputs so you can see what to expect.',
+    desc: 'A no-code ML web app. Upload a dataset, pick a target column, and AutoGluon handles feature engineering, model selection, and ensembling automatically \u2014 then review the evaluation results in the browser.',
     url: 'https://github.com/Hardik-7892/auto-ml',
+    liveUrl: 'https://auto-ml-hardik.streamlit.app/',
     color: 'var(--c-python)',
     tags: ['Python', 'AutoGluon', 'Streamlit'],
     filterTags: ['python', 'ml'],
@@ -38,7 +41,7 @@ const projects = [
   {
     id: 'emojinterp',
     name: 'emojinterp',
-    desc: 'A programming language where the syntax is entirely emojis. Brainfuck-inspired \u2014 each emoji maps to an instruction. Full CLI interpreter written in Rust. It does actually run programs.',
+    desc: 'A fully functional esoteric language interpreter in Rust \u2014 emoji tokens map to Brainfuck-style instructions, with lexing, parsing, and execution handled in a single CLI tool.',
     url: 'https://github.com/Hardik-7892/emojinterp',
     color: 'var(--c-rust)',
     tags: ['Rust', 'CLI', 'interpreter', 'lang design'],
@@ -49,10 +52,11 @@ const projects = [
   {
     id: 'emoji-passwords',
     name: 'Emoji Passwords',
-    desc: 'Human-centred security research. Ran a user study comparing text-only, emoji-only, and hybrid passwords \u2014 testing both security strength and memorability. Tracked results via Google Sheets API.',
+    desc: 'Human-centred security research. Designed and ran a user study comparing text-only, emoji-only, and hybrid passwords. Built a Gradio data-collection interface wired to the Google Sheets API for real-time capture, then analysed the behavioural data for recommendations.',
     url: 'https://github.com/Hardik-7892/Improving-Passwords-using-Emojis',
+    liveUrl: 'https://hcs-group-e.streamlit.app/',
     color: 'var(--c-python)',
-    tags: ['Python', 'Research', 'Google Sheets API'],
+    tags: ['Python', 'Gradio', 'Research', 'Google Sheets API'],
     filterTags: ['python', 'security', 'research'],
     featured: false,
     roles: ['cyber'],
@@ -60,8 +64,9 @@ const projects = [
   {
     id: 'space-shooter-2d',
     name: 'Space Shooter 2D',
-    desc: 'A 3-level space shooter built in Unity with WASD controls and enemy waves. Expanded from the original with additional enemies, sound effects, and level progression. Free to play on itch.io.',
-    url: 'https://github.com/Hardik-7892/Space-Shooter-2D',
+    desc: 'A complete 2D space shooter built in Unity \u2014 enemy AI, scoring systems, scene management. 3 levels, chasers and shooters, plus sound effects. Deployed as WebGL for browser play \u2014 also on itch.io.',
+    url: 'https://github.com/Hardik-7892/2D-Shooter',
+    liveUrl: 'https://hardik-pandey.com/2D-Shooter/',
     color: 'var(--c-csharp)',
     tags: ['C#', 'Unity', 'Game Dev'],
     filterTags: ['csharp', 'gamedev'],
@@ -71,7 +76,7 @@ const projects = [
   {
     id: 'install-k8s-tui',
     name: 'k8s-installer',
-    desc: 'Interactive TUI tool that generates Kubernetes installation scripts. Pick your distribution, container runtime, CNI plugin, and addons through a Ratatui terminal UI \u2014 then save or execute a ready-to-run install script.',
+    desc: 'A Rust TUI that generates ready-to-run Kubernetes install scripts across 5 distributions (kubeadm, k3s, minikube, kind, MicroK8s). Interactive ratatui mode, simple prompts, or fully CLI-driven \u2014 outputs Bash and PowerShell as a zero-dependency binary.',
     url: 'https://github.com/Hardik-7892/install-k8s-tui',
     color: 'var(--c-rust)',
     tags: ['Rust', 'CLI', 'Kubernetes', 'TUI'],
@@ -82,8 +87,9 @@ const projects = [
   {
     id: 'kart-game',
     name: 'Kart Game',
-    desc: 'A kart racing game built in Unity with builds for Windows, macOS, and WebGL. Built to explore game physics, vehicle handling, and cross-platform deployment workflows.',
+    desc: 'A complete kart racing game in Unity \u2014 physics-based driving, enemy AI, scoring systems, and scene management. WebGL build deployed for browser play, with Windows and macOS builds also available.',
     url: 'https://github.com/Hardik-7892/Kart-Game',
+    liveUrl: 'https://hardik-pandey.com/Kart-Game/',
     color: 'var(--c-csharp)',
     tags: ['C#', 'Unity', 'Game Dev'],
     filterTags: ['csharp', 'gamedev'],
@@ -93,10 +99,11 @@ const projects = [
   {
     id: 'portfolio',
     name: 'Portfolio Website',
-    desc: 'A personal portfolio with 3D visualizations (Three.js), responsive design, dark mode, privacy-first analytics, and custom CSP. Built with vanilla HTML, CSS, and JavaScript \u2014 no frameworks. Iteratively developed with AI assistance.',
+    desc: 'This site \u2014 a zero-framework ~5,500-line vanilla HTML/CSS/JS portfolio across 11 pages with six Three.js 3D scenes, PWA offline support, and dark mode. Security-first: CSP, SRI, security.txt (RFC 9116), dual-compliance privacy (UK GDPR + India DPDP). Cloudflare CDN/DNS, JSON-LD SEO, self-hosted analytics.',
     url: 'https://github.com/Hardik-7892/Hardik-7892.github.io',
+    liveUrl: 'https://hardik-pandey.com/',
     color: 'var(--c-web)',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'AI-assisted'],
+    tags: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'PWA', 'CSP'],
     filterTags: ['web'],
     featured: false,
     roles: [],
@@ -104,11 +111,36 @@ const projects = [
   {
     id: 'shutterfolio',
     name: 'Shutterfolio',
-    desc: 'A photographer portfolio website with a secure admin panel to manage photos, settings, and content from any device. Features drag-and-drop uploads, GitHub API-based storage, serverless API routes on Vercel, and Alpine.js on the frontend.',
+    desc: 'A JAMstack photographer portfolio with a secure admin panel. Drag-and-drop upload, reordering, and editing \u2014 persisted by committing to the repo via the GitHub API. Serverless API routes and server-side validation on Vercel.',
     url: 'https://github.com/Hardik-7892/shutterfolio',
+    liveUrl: 'https://shutterfolio.vercel.app/',
     color: 'var(--c-web)',
-    tags: ['JavaScript', 'Alpine.js', 'Serverless', 'GitHub API', 'HTML', 'CSS', 'AI-assisted'],
+    tags: ['JavaScript', 'Alpine.js', 'Serverless', 'GitHub API', 'Vercel'],
     filterTags: ['web'],
+    featured: false,
+    roles: [],
+  },
+  {
+    id: 'income-calculation',
+    name: 'Income Calculator',
+    desc: 'An interactive Streamlit tool that computes daily earnings from configurable hourly rates and weekend multipliers \u2014 deployed as a live web app.',
+    url: 'https://github.com/Hardik-7892/income-calculation',
+    liveUrl: 'https://income-calculation.streamlit.app/',
+    color: 'var(--c-python)',
+    tags: ['Python', 'Streamlit'],
+    filterTags: ['python'],
+    featured: false,
+    roles: [],
+  },
+  {
+    id: 'ed-tech',
+    name: 'AI-Powered Ed-Tech Platform',
+    desc: 'Led a 4-member team building an AI-powered web platform for educational delivery \u2014 from roadmap and feature prioritisation to delivery. Published the findings as a first-author IEEE paper on integrating scalable digital platforms in education.',
+    url: 'https://doi.org/10.1109/TQCEBT59414.2024.10545211',
+    urlText: 'Paper',
+    color: 'var(--c-web)',
+    tags: ['IEEE', 'Research', 'EdTech', 'Team Lead'],
+    filterTags: ['research', 'web'],
     featured: false,
     roles: [],
   },
@@ -236,20 +268,28 @@ function renderProjects(containerId, opts = {}) {
   }
 
   container.innerHTML = filtered.map(function (p) {
-    return '<a href="' + p.url + '"'
-      + '   target="_blank" rel="noopener"'
-      + '   class="card fade-in"'
-      + '   data-tags="' + p.filterTags.join(',') + '"'
-      + '   data-color="' + p.color.replace(/^var\(--c-/, '').replace(/\)$/, '') + '">'
+    var links =
+      '<div class="card-links">'
+      + '<a class="card-link" href="' + p.url + '" target="_blank" rel="noopener">'
+      + esc(p.urlText || 'GitHub') + ' &rarr;</a>'
+      + (p.liveUrl
+        ? '<a class="card-link" href="' + p.liveUrl + '" target="_blank" rel="noopener">'
+          + esc(p.liveText || 'Live site') + ' &rarr;</a>'
+        : '')
+      + '</div>';
+
+    return '<div class="card fade-in"'
+      + ' data-tags="' + p.filterTags.join(',') + '"'
+      + ' data-color="' + p.color.replace(/^var\(--c-/, '').replace(/\)$/, '') + '">'
       + '  <p class="card-name">' + esc(p.name) + '</p>'
       + '  <p class="card-desc">' + esc(p.desc) + '</p>'
       + '  <div class="card-footer">'
       + '    <div class="card-tags">'
       + p.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('')
       + '    </div>'
-      + '    <span class="card-link">GitHub &rarr;</span>'
+      + links
       + '  </div>'
-      + '</a>';
+      + '</div>';
   }).join('');
 }
 

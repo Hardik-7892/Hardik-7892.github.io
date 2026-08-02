@@ -2,20 +2,68 @@
   "name": "Hardik Pandey — Software Engineer",
   "short_name": "Hardik Pandey",
   "description": "Software engineer working on local AI systems, security tooling, Rust, and the occasional game.",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "categories": [
+    "productivity",
+    "education"
+  ],
   "background_color": "#121212",
   "theme_color": "#F8F7F2",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "url": "/projects.html"
+    },
+    {
+      "name": "Machine Learning",
+      "url": "/roles/ml.html"
+    },
+    {
+      "name": "Security & Cyber",
+      "url": "/roles/cyber.html"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact.html"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshots/home-wide.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Homepage with the 3D particle hero on desktop"
+    },
+    {
+      "src": "/images/screenshots/home-narrow.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Homepage on mobile"
     }
   ]
 }

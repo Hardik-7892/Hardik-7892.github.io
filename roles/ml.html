@@ -27,7 +27,6 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="manifest" href="../manifest.json" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" as="script" crossorigin="anonymous" integrity="sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O" />
   <link rel="stylesheet" href="../css/tokens.css" />
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/layout.css" />
@@ -168,9 +167,9 @@
 
         <div class="projects-grid" id="mlProjects"></div>
         <noscript>
-          <p style="text-align:center;color:var(--muted);margin-top:1rem">
+          <p class="noscript-note">
             Enable JavaScript to see ML projects.
-            View all projects on <a href="https://github.com/Hardik-7892?tab=repositories" style="color:var(--accent)">GitHub</a>.
+            View all projects on <a href="https://github.com/Hardik-7892?tab=repositories">GitHub</a>.
           </p>
         </noscript>
       </div>
@@ -209,8 +208,7 @@
   <script src="../js/shared.js"></script>
   <script src="../js/main.js"></script>
   <script src="../js/page-init.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" integrity="sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O" crossorigin="anonymous"></script>
-  <script src="../js/ml-pipeline.js"></script>
+  <script src="../js/3d-loader.js"></script>
   <script src="../js/ml-network.js"></script>
 </body>
 </html>

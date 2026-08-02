@@ -127,11 +127,16 @@
   if (!el) return;
 
   const roles = [
-    'building local AI systems',
+    'building a Media over QUIC testbed',
     'digging into security',
     'writing Rust',
     'shipping things',
   ];
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = roles[0];
+    return;
+  }
 
   let roleIdx = 0;
   let charIdx = 0;
@@ -257,6 +262,21 @@
       toggle.textContent = '\u2600';
     }
     setPhoto();
+  });
+})();
+
+
+/* ============================================================
+   ABOUT PHOTO — fallback to PNG if the webp fails to decode
+   (moved out of an inline onerror="" so it works under CSP)
+   ============================================================ */
+(function () {
+  var photo = document.getElementById('aboutPhoto');
+  if (!photo) return;
+  photo.addEventListener('error', function () {
+    if (this.dataset.fallbackDone) return;
+    this.dataset.fallbackDone = '1';
+    this.src = 'images/light_theme_profile.png';
   });
 })();
 
@@ -464,8 +484,10 @@
     }
   }
 
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
   function autoTick() { next(); scheduleNext(); }
-  function scheduleNext() { stopAuto(); if (!paused && visible && cards.length > 1) timer = setTimeout(autoTick, INTERVAL); }
+  function scheduleNext() { stopAuto(); if (!paused && visible && cards.length > 1 && !reduceMotion.matches) timer = setTimeout(autoTick, INTERVAL); }
   function startAuto() { scheduleNext(); }
   function stopAuto() { clearTimeout(timer); timer = null; }
   function pauseAuto() { paused = true; stopAuto(); }
@@ -522,6 +544,12 @@
 
   section.addEventListener('mouseenter', pauseAuto);
   section.addEventListener('mouseleave', function () { if (visible) setTimeout(resumeAuto, 1000); });
+
+  section.addEventListener('focusin', pauseAuto);
+  section.addEventListener('focusout', function (e) {
+    if (e.relatedTarget && section.contains(e.relatedTarget)) return;
+    if (visible) setTimeout(resumeAuto, 1000);
+  });
 
   /* Touch swipe on section (wider touch target) */
   (function () {

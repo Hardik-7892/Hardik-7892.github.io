@@ -30,6 +30,20 @@
   font-display: swap;
 }
 
+/* Honk is a COLRv1 color font — recolor its baked-in gradient to brand tones */
+@font-palette-values --honk-brand {
+  font-family: Honk;
+  override-colors:
+    0 #FF7A45, 1 #FF6B3D, 2 #E04D20, 3 #D8481F,
+    4 #B83D17, 5 #A63A16, 6 #8A2C12, 7 #7A2A0E;
+}
+@font-palette-values --honk-brand-dark {
+  font-family: Honk;
+  override-colors:
+    0 #FF9A6B, 1 #FF7A45, 2 #FF6B3D, 3 #E04D20,
+    4 #D8481F, 5 #B83D17, 6 #A63A16, 7 #8A2C12;
+}
+
 /* ============================================================
    TOKENS
    ============================================================ */
@@ -38,8 +52,10 @@
   --surface: #FFFFFF;
   --text: #141420;
   --muted: #5A5A68;
-  --accent: #E04D20;
-  --accent-hover: #B83D17;
+  --accent: #C2410C;
+  --accent-hover: #9A3412;
+  --accent-solid: #C2410C;
+  --accent-solid-hover: #9A3412;
   --border: #E6E5DF;
   --shadow-sm: 0 1px 3px rgba(20, 20, 32, 0.06);
   --shadow: 0 4px 16px rgba(20, 20, 32, 0.09);
@@ -47,7 +63,7 @@
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-display-title: "Honk", system-ui;
+  --font-display-title: 'Honk', var(--font-display);
 
   --nav-h: 64px;
   --max-w: 1400px;
@@ -80,6 +96,8 @@
   --border: #27272A;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --accent: #F97316;
+  --accent-hover: #FB923C;
 
 }
 [data-theme="dark"] .nav.scrolled {
