@@ -13,6 +13,7 @@
     var items = [
       { label: 'Home',    href: p + '/',   page: 'home' },
       { label: 'About',   href: p + 'about.html',   page: 'about' },
+      { label: 'Experience', href: p + 'experience.html', page: 'experience' },
       { label: 'Roles',   href: '#',                page: 'roles', dropdown: [
         { label: 'Cyber', href: p + 'roles/cyber.html', page: 'cyber' },
         { label: 'ML',    href: p + 'roles/ml.html',    page: 'ml' },

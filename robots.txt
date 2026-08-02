@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /cv/
+Disallow: /docs/
 Disallow: /video/
 Disallow: /img/
 
