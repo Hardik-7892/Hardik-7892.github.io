@@ -27,6 +27,11 @@
       renderBadges('badgeList', 'ml');
       break;
 
+    case 'software':
+      renderProjects('softwareProjects', { role: 'software' });
+      renderBadges('badgeList', 'infra');
+      break;
+
     case 'cloud':
       initCloudPage();
       break;

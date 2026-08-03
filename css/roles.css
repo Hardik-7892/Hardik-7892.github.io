@@ -1,0 +1,579 @@
+/* ============================================================
+   ROLES INDEX (roles.html) — "Field Guide"
+   Editorial two-column index with a sticky live preview.
+   Deliberately distinct from the 3D-heavy role pages.
+   ============================================================ */
+
+/* Per-role accent encoding (truthful — matches each role page's 3D scene):
+   software = the site accent, cyber = #0EA5E9 (cyber-globe),
+   ml = #22C55E (ml-pipeline / ml-network). */
+:root {
+  --r-software: #C2410C;
+  --r-cyber: #0EA5E9;
+  --r-ml: #22C55E;
+}
+[data-theme="dark"] {
+  --r-software: #F97316;
+}
+
+/* ------------------------------------------------------------
+   HEADER
+   ------------------------------------------------------------ */
+.roles-header {
+  padding: 4.5rem 0 3.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.roles-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 7vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 1rem 0 1.25rem;
+}
+.roles-title-accent {
+  color: var(--accent);
+}
+.roles-sub {
+  max-width: 520px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+.roles-path {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.roles-path-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.35em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  animation: roles-blink 1.1s steps(1) infinite;
+}
+@keyframes roles-blink {
+  50% { opacity: 0; }
+}
+
+/* ------------------------------------------------------------
+   INDEX — two-column: list + sticky preview
+   ------------------------------------------------------------ */
+.roles-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.roles-list {
+  min-width: 0;
+}
+
+/* --- entries --- */
+.role-entry {
+  display: block;
+  padding: 1.9rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  transition: padding 0.25s ease;
+}
+.roles-list .role-entry:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.role-entry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+.role-path {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+.role-enter {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+.role-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  transition: color 0.25s ease;
+}
+.role-thesis {
+  margin-top: 0.7rem;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.role-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.role-stats li {
+  display: inline-flex;
+  align-items: center;
+}
+.role-stats li + li::before {
+  content: '\00B7';
+  margin: 0 0.5rem;
+  color: var(--border);
+}
+
+/* hover / focus — accent per role */
+.role-entry:hover,
+.role-entry:focus-visible {
+  padding-left: 0.75rem;
+}
+.role-entry:hover .role-path,
+.role-entry:focus-visible .role-path,
+.role-entry:hover .role-name,
+.role-entry:focus-visible .role-name {
+  color: var(--entry-accent, var(--accent));
+}
+.role-entry:hover .role-enter,
+.role-entry:focus-visible .role-enter {
+  opacity: 1;
+  transform: translateX(0);
+}
+.role-entry[data-role="software"] { --entry-accent: var(--r-software); }
+.role-entry[data-role="cyber"]    { --entry-accent: var(--r-cyber); }
+.role-entry[data-role="ml"]       { --entry-accent: var(--r-ml); }
+
+/* --- sticky preview --- */
+.role-preview {
+  position: sticky;
+  top: calc(var(--nav-h) + 2rem);
+}
+.role-preview-frame {
+  position: relative;
+  min-height: 280px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.role-preview-panel {
+  position: absolute;
+  inset: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  opacity: 0;
+  transform: translateY(8px);
+  border-top: 3px solid transparent;
+  transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+  pointer-events: none;
+}
+.role-preview-panel.is-active {
+  opacity: 1;
+  transform: none;
+  border-top-color: var(--pv-accent, var(--accent));
+}
+.role-preview-panel[data-preview="default"]  { --pv-accent: var(--accent); }
+.role-preview-panel[data-preview="software"] { --pv-accent: var(--r-software); }
+.role-preview-panel[data-preview="cyber"]    { --pv-accent: var(--r-cyber); }
+.role-preview-panel[data-preview="ml"]       { --pv-accent: var(--r-ml); }
+
+.role-preview-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: lowercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+.role-preview-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  color: var(--text);
+}
+.role-preview-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.role-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+.role-preview-tags li {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.22rem 0.6rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+}
+.role-preview-cta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   THE EDGES
+   ------------------------------------------------------------ */
+.edges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.5rem;
+}
+.edge-link {
+  display: block;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+}
+.edge-path {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+.edge-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+.edge-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0.45rem 0 0.8rem;
+}
+.edge-enter {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+.edge-link:hover .edge-name,
+.edge-link:focus-visible .edge-name {
+  color: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .roles-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .role-preview {
+    display: none;
+  }
+  .role-entry {
+    padding: 1.5rem 0 1.5rem 1.25rem;
+    border-left: 3px solid var(--entry-accent, var(--accent));
+  }
+  .role-entry:hover,
+  .role-entry:focus-visible {
+    padding-left: 1.5rem;
+  }
+  .role-enter {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .roles-header {
+    padding: 2.75rem 0 2.5rem;
+  }
+  .roles-title {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+  .roles-list .role-entry:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .edges-grid {
+    gap: 1.75rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   REDUCED MOTION
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .roles-path-cursor {
+    animation: none;
+    opacity: 0.5;
+  }
+  .role-preview-panel {
+    transition: none;
+  }
+  .role-entry,
+  .role-name,
+  .role-path,
+  .role-enter {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   ACT II — "the fool's gambit" (scroll-driven scene)
+   Dark theatrical stage in BOTH themes. The stage is pinned in a
+   tall track; roles.js writes --act2-p (0..1) on #act2 and the
+   band variables below drive the choreography from it:
+   ignite -> bird breaks out with scroll -> eye exits -> coming soon.
+   ------------------------------------------------------------ */
+.act2-section {
+  --act2-red: #FF3B3B;
+  --act2-red-deep: #B91C1C;
+  --act2-paper: #F1ECE4;
+  --act2-paper-dim: #B4AFA6;
+  /* scroll progress (0..1) written by roles.js; bands ramp the beats */
+  --act2-p: 0;
+  --act2-b2: clamp(0, calc((var(--act2-p) - 0.08) / 0.42), 1);
+  --act2-b3: clamp(0, calc((var(--act2-p) - 0.50) / 0.22), 1);
+  --act2-b4: clamp(0, calc((var(--act2-p) - 0.72) / 0.18), 1);
+  height: 420vh;
+}
+.act2-pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+}
+.act2-stage {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(120% 140% at 50% 0%, #1B1113 0%, #0B0A0C 55%, #070709 100%);
+  border-block: 1px solid #2A2224;
+  overflow: hidden;
+}
+.act2-stage::before,
+.act2-stage::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+.act2-stage::before {
+  top: 18px;
+  left: 18px;
+  border-top: 1px solid var(--act2-red-deep);
+  border-left: 1px solid var(--act2-red-deep);
+}
+.act2-stage::after {
+  bottom: 18px;
+  right: 18px;
+  border-bottom: 1px solid var(--act2-red-deep);
+  border-right: 1px solid var(--act2-red-deep);
+}
+.act2-inner {
+  max-width: var(--max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+}
+.act2-eyebrow {
+  grid-column: 1;
+  grid-row: 1;
+}
+.act2-eye-wrap,
+.act2-copy {
+  grid-column: 1;
+  grid-row: 2;
+  min-height: 0;
+}
+.act2-mono {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* eye — scroll-driven: bird breaks out (b2), whole eye exits up + fades (b3) */
+.act2-eye-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.act2-eye {
+  width: min(340px, 78vw);
+  height: auto;
+  color: #4A2A2A;
+  will-change: transform, opacity;
+  transform: translateY(calc(var(--act2-b3) * -9vh));
+  opacity: calc(1 - var(--act2-b3));
+}
+.act2-eye-body {
+  opacity: calc(1 - var(--act2-b2) * 0.65);
+}
+.act2-bird-wrap {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  will-change: transform;
+  transform:
+    translateY(calc(var(--act2-b2) * -320px))
+    scale(calc(1 + var(--act2-b2) * 0.6))
+    rotate(calc(var(--act2-b2) * -12deg));
+  opacity: calc(1 - var(--act2-b2) * 0.85);
+}
+.act2-eye-tag {
+  color: var(--act2-paper-dim);
+  opacity: calc(1 - var(--act2-b2));
+}
+
+/* copy — fades in centered where the eye was (b4), title flips */
+.act2-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: var(--act2-b4);
+  transform: translateY(calc(14px - var(--act2-b4) * 14px));
+}
+.act2-eyebrow {
+  color: var(--act2-red);
+  margin: 0;
+}
+.act2-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4.4vw, 3.1rem);
+  line-height: 1.08;
+  margin: 0 0 14px;
+  color: var(--act2-paper);
+  display: grid;
+}
+.act2-title > span,
+.act2-sub > span,
+.act2-status > span {
+  grid-area: 1 / 1;
+}
+.act2-sub {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--act2-paper-dim);
+  margin: 0 0 18px;
+  display: grid;
+}
+.act2-status {
+  color: var(--act2-red-deep);
+  display: grid;
+}
+.act2-sep {
+  opacity: 0.5;
+}
+
+/* text-flip — scroll-linked via b4 (no transition; the scroll IS the animation) */
+.act2-t-dormant {
+  opacity: calc(1 - var(--act2-b4));
+  transform: translateY(calc(var(--act2-b4) * -6px));
+}
+.act2-t-active {
+  opacity: var(--act2-b4);
+  transform: translateY(calc(6px - var(--act2-b4) * 6px));
+}
+
+/* ignition — the Geass bird lights red + pulses; the eye itself stays dull */
+#act2.activated .act2-sigil {
+  fill: var(--act2-red);
+}
+#act2.activated .act2-bird-wrap {
+  animation: act2-pulse 2.6s ease-in-out infinite;
+}
+@keyframes act2-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(255, 59, 59, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(255, 59, 59, 0.9));
+  }
+}
+
+/* act II responsive — the pinned scene also runs on mobile, shorter track */
+@media (max-width: 899px) {
+  .act2-section {
+    height: 320vh;
+  }
+  .act2-eye {
+    width: min(230px, 70vw);
+  }
+  .act2-stage::before,
+  .act2-stage::after {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* act II reduced motion: no pin, no flight — eye hidden, copy shown statically */
+@media (prefers-reduced-motion: reduce) {
+  .act2-section {
+    height: auto;
+  }
+  .act2-pin {
+    position: static;
+    height: auto;
+  }
+  .act2-stage {
+    height: auto;
+    padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+  }
+  .act2-eye-wrap {
+    display: none;
+  }
+  .act2-copy {
+    opacity: 1;
+    transform: none;
+  }
+  .act2-t-state {
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  #act2.activated .act2-t-dormant {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  #act2.activated .act2-t-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

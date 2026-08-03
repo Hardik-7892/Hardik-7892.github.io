@@ -13,7 +13,7 @@ const projects = [
     tags: ['Python', 'RAG', 'FAISS', 'SentenceTransformers', 'llama.cpp', 'Gradio', 'AI-assisted'],
     filterTags: ['python', 'ml', 'ai-assisted'],
     featured: true,
-    roles: ['ml'],
+    roles: ['ml', 'software'],
   },
   {
     id: 'siem-elk',
@@ -47,7 +47,7 @@ const projects = [
     tags: ['Rust', 'CLI', 'interpreter', 'lang design'],
     filterTags: ['rust'],
     featured: true,
-    roles: [],
+    roles: ['software'],
   },
   {
     id: 'emoji-passwords',
@@ -106,7 +106,7 @@ const projects = [
     tags: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'PWA', 'CSP', 'AI-assisted'],
     filterTags: ['web', 'ai-assisted'],
     featured: false,
-    roles: [],
+    roles: ['software'],
   },
   {
     id: 'shutterfolio',
@@ -118,7 +118,7 @@ const projects = [
     tags: ['JavaScript', 'Alpine.js', 'Serverless', 'GitHub API', 'Vercel', 'AI-assisted'],
     filterTags: ['web', 'ai-assisted'],
     featured: false,
-    roles: [],
+    roles: ['software'],
   },
   {
     id: 'income-calculation',

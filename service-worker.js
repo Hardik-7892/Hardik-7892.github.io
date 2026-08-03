@@ -4,12 +4,12 @@ var CACHE = 'hardik-pandey-v3';
 
 var URLS = [
   '/', '/index.html', '/about.html', '/experience.html', '/projects.html', '/profiles.html',
-  '/cloud.html', '/contact.html', '/404.html', '/privacy.html', '/terms.html',
-  '/roles/cyber.html', '/roles/ml.html',
+  '/cloud.html', '/contact.html', '/roles.html', '/404.html', '/privacy.html', '/terms.html',
+  '/roles/cyber.html', '/roles/ml.html', '/roles/software.html',
   '/css/tokens.css', '/css/components.css', '/css/layout.css', '/css/animations.css',
-  '/css/carousel.css', '/css/particle-hero-widget.css',
+  '/css/carousel.css', '/css/particle-hero-widget.css', '/css/roles.css',
   '/js/theme-init.js', '/js/data.js', '/js/shared.js', '/js/main.js', '/js/page-init.js',
-  '/js/experience.js',
+  '/js/experience.js', '/js/roles.js',
   '/js/3d-loader.js', '/js/cloud-badges.js', '/js/cloud-bg.js', '/js/cloud-globe.js',
   '/js/cyber-globe.js', '/js/ml-network.js', '/js/ml-pipeline.js',
   '/js/particle-hero-mount.js', '/js/particle-hero-widget.js',

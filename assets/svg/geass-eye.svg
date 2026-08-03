@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================
+     THE FOOL'S GAMBIT — Geass eye (editable source)
+     Editable source for the Act II teaser on roles.html.
+     The runtime version is inlined into roles.html, split into
+     #act2 .act2-eye-body + .act2-bird-wrap so the bird can break
+     out of the eye on scroll (CSS transform, GPU-composited).
+
+     Open in Inkscape / Figma / Illustrator to tweak.
+     Bird geometry: traced from the Code Geass sigil (canonical
+     vector from Wikimedia Commons, "Geass.svg", CC-BY-SA), scaled
+     to sit inside the iris via <g transform> (no hand-math).
+
+     viewBox: 0 0 200 130 — the eye sits lower, leaving headroom
+     above so the bird can fly up and out of the eye.
+     ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 130" fill="none" stroke="#FF3B3B">
+  <title>The fool's gambit — Geass eye</title>
+
+  <g id="eye-body" stroke="#4A2A2A">
+    <g transform="translate(0, 30)">
+      <path d="M 14 52 Q 100 6 186 52" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 14 52 Q 100 98 186 52" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="100" cy="52" r="10" stroke-width="2"/>
+    </g>
+  </g>
+
+  <g id="bird" fill="#FF3B3B" stroke="rgba(0, 0, 0, 0.35)" stroke-width="1.5">
+    <g transform="translate(100, 82) scale(0.26) translate(-111, -74)">
+      <path d="M 111,147 C 122,124 131,124 139,120 C 164,110 165,93 161,73 C 158,47 197,25 218,1 L 143,36 C 129,44 132,50 134,60 C 140,79 136,87 129,94 C 123,98 110,107 92,94 C 86,88 83,76 87,60 C 89,49 92,43 79,36 L 4,1 C 28,25 64,50 60,73 C 60,93 53,105 82,120 C 92,125 100,123 110,147 z"/>
+    </g>
+  </g>
+</svg>

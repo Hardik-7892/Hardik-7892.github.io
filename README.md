@@ -76,7 +76,7 @@ The `<body>` tag on each page carries a `data-page` attribute (e.g., `data-page=
 
 ---
 
-## Pages (11)
+## Pages (13)
 
 | Page | Purpose | Unique Feature |
 | --- | --- | --- |
@@ -86,8 +86,10 @@ The `<body>` tag on each page carries a `data-page` attribute (e.g., `data-page=
 | `/contact.html` | GitHub, LinkedIn, Email cards | HTML-entity-encoded email address (anti-spam) |
 | `/profiles.html` | External platform cards | Badge icons from Google Cloud CDN, role-specific profile sets |
 | `/cloud.html` | 51 Google Cloud badges | 8-category filter bar, URL param pre-filter (`?filter=cyber`), 3D globe |
+| `/roles.html` | Roles index hub | Editorial "Field Guide" — sticky live preview on hover, per-role accents |
 | `/roles/cyber.html` | Cyber security role page | 3D network globe with health simulation, opt-in IP widget |
 | `/roles/ml.html` | Machine learning role page | 3D pipeline (scroll-linked) + 2D neural network (hover tooltips) |
+| `/roles/software.html` | Software engineering role page | Curated SWE skills + project grid, plain header (no 3D) |
 | `/privacy.html` | Privacy policy | 10 sections, dual-compliance (UK GDPR + India DPDP Act 2023) |
 | `/terms.html` | Terms of use | 9 sections |
 | `/404.html` | Custom 404 page | Personality copy: "Maybe I took it apart to understand how it worked" |
@@ -553,9 +555,11 @@ All canonical URLs, OG tags, and sitemap URLs reference the custom domain. The o
 │   ├── components.css               # All component styles
 │   ├── animations.css               # Fade-in, view transitions, reduced motion
 │   ├── carousel.css                 # Featured projects carousel
+│   ├── roles.css                    # Roles index page styles
 │   └── particle-hero-widget.css     # Minified widget styles
 ├── cv/
 │   ├── CV_Hardik_Cyber.pdf           # Cyber security CV download
+│   ├── CV_Hardik_Grad_SoftwareEngineer.pdf # Software engineering CV download
 │   └── CV_Hardik_ML.pdf              # Machine learning CV download
 ├── icons/
 │   ├── icon-192x192.png             # PWA icon
@@ -579,6 +583,7 @@ All canonical URLs, OG tags, and sitemap URLs reference the custom domain. The o
 │   ├── page-init.js                 # Per-page render dispatcher
 │   ├── particle-hero-mount.js       # Hero widget mount (with polling)
 │   ├── particle-hero-widget.js      # Bundled Three.js particle viewer
+│   ├── roles.js                     # Roles index — live preview switching
 │   ├── shared.js                    # Nav/footer/banner injection
 │   ├── theme-init.js                # Blocking dark mode (1 line)
 │   └── visitor-info.js              # Opt-in IP/location widget
@@ -586,7 +591,8 @@ All canonical URLs, OG tags, and sitemap URLs reference the custom domain. The o
 │   └── TODO.txt                     # Notes for future Cloudflare AI search
 ├── roles/
 │   ├── cyber.html                   # Cyber security role page
-│   └── ml.html                      # Machine learning role page
+│   ├── ml.html                      # Machine learning role page
+│   └── software.html                # Software engineering role page
 ├── 404.html                         # Custom 404 page
 ├── about.html                       # About page
 ├── cloud.html                       # Google Cloud badges page
@@ -598,6 +604,7 @@ All canonical URLs, OG tags, and sitemap URLs reference the custom domain. The o
 ├── profiles.html                    # External profiles page
 ├── projects.html                    # Projects page
 ├── robots.txt                       # Crawler rules
+├── roles.html                       # Roles index hub ("Field Guide")
 ├── service-worker.js                # PWA service worker
 ├── sitemap.xml                      # XML sitemap
 ├── terms.html                       # Terms of use

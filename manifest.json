@@ -42,6 +42,14 @@
       "url": "/experience.html"
     },
     {
+      "name": "Roles",
+      "url": "/roles.html"
+    },
+    {
+      "name": "Software Engineering",
+      "url": "/roles/software.html"
+    },
+    {
       "name": "Machine Learning",
       "url": "/roles/ml.html"
     },
