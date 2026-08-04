@@ -1,6 +1,6 @@
 /* Hardik Pandey PWA — stale-while-revalidate with full offline shell.
    Same-origin GET only; hero models are revalidated, not precached. */
-var CACHE = 'hardik-pandey-v3';
+var CACHE = 'hardik-pandey-v4';
 
 var URLS = [
   '/', '/index.html', '/about.html', '/experience.html', '/projects.html', '/profiles.html',
@@ -12,12 +12,13 @@ var URLS = [
   '/js/experience.js', '/js/roles.js',
   '/js/3d-loader.js', '/js/cloud-badges.js', '/js/cloud-bg.js', '/js/cloud-globe.js',
   '/js/cyber-globe.js', '/js/ml-network.js', '/js/ml-pipeline.js',
-  '/js/particle-hero-mount.js', '/js/particle-hero-widget.js',
+  '/js/particle-hero-mount.js', '/js/particle-hero-widget.js', '/js/particle-hero-lag.js',
   '/js/visitor-info.js', '/js/gc-count.js',
   '/assets/fonts/dm-sans.woff2', '/assets/fonts/honk.woff2',
   '/assets/fonts/jetbrains-mono.woff2', '/assets/fonts/syne.woff2',
   '/images/og-image.webp', '/images/light_theme_profile.webp',
   '/images/light_theme_profile.png', '/images/dark_theme_profile.webp',
+  '/video/video-fallback-60fps.webp',
   '/manifest.json', '/favicon.svg',
   '/icons/icon-192x192.png', '/icons/icon-512x512.png'
 ];

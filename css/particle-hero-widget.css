@@ -1,1 +1,158 @@
-.t{position:relative;width:100%;min-height:100svh;background:#d3d4cc}.i{position:absolute!important;inset:0}.o{position:absolute!important;top:14px!important;left:14px!important;z-index:20!important}.n{position:absolute;inset:0}.e{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#d3d4cc}.a{position:absolute;inset:0;z-index:2;opacity:0;overflow:hidden;pointer-events:none;transition:opacity .82s ease}.s{opacity:1}.p{object-fit:contain;transform:scale(1.08);filter:blur(24px) saturate(.88)}.r{position:absolute;inset:0;background:#d3d4cc24}
+.t{position:relative;width:100%;min-height:100svh;background:transparent}.i{position:absolute!important;inset:0}.o{position:absolute!important;top:14px!important;left:14px!important;z-index:20!important}.n{position:absolute;inset:0}.e{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:transparent}.a{position:absolute;inset:0;z-index:2;opacity:0;overflow:hidden;pointer-events:none;transition:opacity .82s ease}.s{opacity:1}.p{object-fit:contain;transform:scale(1.08);filter:blur(24px) saturate(.88)}.r{position:absolute;inset:0;background:transparent}
+
+/* ============================================================
+   HERO 3D TOGGLE — disable/enable the particle background
+   ============================================================ */
+.hero-3d-controls {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 5.75rem;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+}
+.hero-3d-tip {
+  position: relative;
+  max-width: 220px;
+  padding: 0.5rem 0.65rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--muted);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+.hero-3d-tip.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.hero-3d-tip::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: 22px;
+  width: 10px;
+  height: 10px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transform: rotate(45deg);
+}
+.hero-3d-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font-family: var(--font-body);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.hero-3d-toggle:hover {
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+.hero-3d-toggle__track {
+  position: relative;
+  width: 30px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--border);
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+.hero-3d-toggle__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+.hero-3d-toggle[aria-checked="true"] .hero-3d-toggle__track {
+  background: var(--accent-solid);
+}
+.hero-3d-toggle[aria-checked="true"] .hero-3d-toggle__thumb {
+  transform: translateX(12px);
+}
+
+/* ============================================================
+   HERO 3D TOAST — auto-disabled notice with re-enable button
+   ============================================================ */
+.hero-3d-toast {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 8rem;
+  z-index: 300;
+  max-width: min(320px, calc(100vw - 3rem));
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+.hero-3d-toast.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.hero-3d-toast__text {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+.hero-3d-toast__btn {
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent-solid);
+  background: var(--accent-solid);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.hero-3d-toast__btn:hover {
+  background: var(--accent-solid-hover);
+  border-color: var(--accent-solid-hover);
+}
+@media (max-width: 640px) {
+  .hero-3d-controls {
+    right: 1rem;
+    bottom: 5.25rem;
+  }
+  .hero-3d-tip {
+    max-width: 180px;
+  }
+  .hero-3d-toast {
+    right: 1rem;
+    bottom: 7.5rem;
+    left: 1rem;
+    max-width: none;
+  }
+}
