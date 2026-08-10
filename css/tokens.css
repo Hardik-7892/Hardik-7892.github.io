@@ -34,14 +34,16 @@
 @font-palette-values --honk-brand {
   font-family: Honk;
   override-colors:
-    0 #FF7A45, 1 #FF6B3D, 2 #E04D20, 3 #D8481F,
-    4 #B83D17, 5 #A63A16, 6 #8A2C12, 7 #7A2A0E;
+    0 #3A1606, 1 #3A1606,
+    2 #9A3412, 3 #9A3412, 4 #BC6E15, 5 #DDA917,
+    6 #FFE31A, 7 #FFE31A;
 }
 @font-palette-values --honk-brand-dark {
   font-family: Honk;
   override-colors:
-    0 #FF9A6B, 1 #FF7A45, 2 #FF6B3D, 3 #E04D20,
-    4 #D8481F, 5 #B83D17, 6 #A63A16, 7 #8A2C12;
+    0 #FFE9B3, 1 #FFE9B3,
+    2 #FFE31A, 3 #FFE31A, 4 #DDA917, 5 #BC6E15,
+    6 #9A3412, 7 #9A3412;
 }
 
 /* ============================================================
