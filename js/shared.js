@@ -35,9 +35,9 @@
       if (item.dropdown) {
         html += '<li class="nav-dropdown">';
         if (item.href === '#') {
-          html += '<a role="button" tabindex="0" class="nav-link" data-page="' + item.page + '">' + item.label + ' <span class="dropdown-arrow">&#x25BE;</span></a>';
+          html += '<a role="button" tabindex="0" class="nav-link" data-page="' + item.page + '">' + item.label + ' <span class="dropdown-arrow" aria-hidden="true">&#x25BE;</span></a>';
         } else {
-          html += '<a href="' + item.href + '" class="nav-link" data-page="' + item.page + '">' + item.label + ' <span class="dropdown-arrow">&#x25BE;</span></a>';
+          html += '<a href="' + item.href + '" class="nav-link" data-page="' + item.page + '">' + item.label + ' <span class="dropdown-arrow" aria-hidden="true">&#x25BE;</span></a>';
         }
         html += '<ul class="dropdown-menu">';
         item.dropdown.forEach(function (d) {
@@ -65,7 +65,7 @@
         '<div class="nav-inner">' +
           '<a href="' + p + '/" class="nav-logo">hp.</a>' +
           '<nav>' +
-            '<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>' +
+            '<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>' +
             '<ul class="nav-links" id="navLinks">' +
               navLinks(p) +
               '<li><button class="theme-btn" id="themeToggle" aria-label="Toggle theme">&#x263E;</button></li>' +

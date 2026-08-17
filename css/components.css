@@ -6,6 +6,7 @@
   top: 0; left: 0; right: 0;
   z-index: 100;
   height: var(--nav-h);
+  padding-top: env(safe-area-inset-top, 0px);
   background: var(--bg);
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s, background 0.25s;
@@ -560,7 +561,7 @@
 .visitor-info {
   position: fixed;
   top: calc(var(--nav-h) + 0.75rem);
-  right: 1.25rem;
+  right: calc(1.25rem + env(safe-area-inset-right, 0px));
   z-index: 90;
   display: flex;
   flex-direction: column;
@@ -1532,6 +1533,7 @@ body.custom-cursor-active [tabindex]:not([tabindex="-1"]) {
   padding: 0;
   background: rgba(0, 0, 0, 0.9);
   color: var(--text);
+  overscroll-behavior: contain;
   max-width: 92vw;
   width: min(92vw, 1100px);
   max-height: 92vh;

@@ -6,12 +6,13 @@
 (function () {
   var el = document.getElementById('visitorInfo');
   if (!el) return;
+  el.setAttribute('role', 'status');
 
   /* ---------- opt-in prompt ---------- */
   function showOptIn() {
     el.innerHTML =
       '<div class="vi-row">' +
-        '<span class="vi-icon">\u25C8</span>' +
+        '<span class="vi-icon" aria-hidden="true">\u25C8</span>' +
         '<span class="vi-label">IP lookup</span>' +
         '<button class="vi-reveal-btn">Reveal</button>' +
       '</div>' +
@@ -29,7 +30,7 @@
 
   /* ---------- data fetch ---------- */
   function fetchData() {
-    el.innerHTML = '<div class="vi-row"><span class="vi-icon">\u25C8</span><span class="vi-label">Detecting...</span></div>';
+    el.innerHTML = '<div class="vi-row"><span class="vi-icon" aria-hidden="true">\u25C8</span><span class="vi-label">Detecting\u2026</span></div>';
 
     fetch('https://ipapi.co/json/')
       .then(function (r) { return r.json(); })
@@ -42,7 +43,7 @@
           .then(function (r) { return r.json(); })
           .then(function (d) { render(d, 'ipinfo'); })
           .catch(function () {
-            el.innerHTML = '<span class="vi-icon">\u25C8</span><span class="vi-error">unavailable</span>';
+            el.innerHTML = '<span class="vi-icon" aria-hidden="true">\u25C8</span><span class="vi-error">unavailable</span>';
           });
       });
   }
@@ -98,6 +99,7 @@
     ipRow.className = 'vi-row';
     var ipIcon = document.createElement('span');
     ipIcon.className = 'vi-icon';
+    ipIcon.setAttribute('aria-hidden', 'true');
     ipIcon.textContent = '\u25C8';
     ipRow.appendChild(ipIcon);
     var ipLabel = document.createElement('span');

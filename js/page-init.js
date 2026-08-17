@@ -50,22 +50,31 @@
       document.querySelectorAll('#badgeList .fade-in').forEach(function (el) { el.classList.add('visible'); });
     }
 
+    function applyFilter(filter) {
+      document.querySelectorAll('.filter-btn').forEach(function (b) {
+        var active = b.dataset.filter === filter;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      renderBadges('badgeList', filter);
+      forceBadgesVisible();
+    }
+
     document.querySelectorAll('.filter-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        renderBadges('badgeList', btn.dataset.filter);
-        forceBadgesVisible();
+        var filter = btn.dataset.filter;
+        applyFilter(filter);
+        var url = new URL(window.location.href);
+        if (filter === 'all') url.searchParams.delete('filter');
+        else url.searchParams.set('filter', filter);
+        history.replaceState(null, '', url);
       });
     });
 
-    if (defaultFilter !== 'all') {
-      document.querySelectorAll('.filter-btn').forEach(function (btn) {
-        if (btn.dataset.filter === defaultFilter) {
-          document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-        }
-      });
-    }
+    document.querySelectorAll('.filter-btn').forEach(function (btn) {
+      var active = btn.dataset.filter === defaultFilter;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
   }
 })();

@@ -3,7 +3,7 @@
    ============================================================ */
 (function () {
   var s = document.createElement('script');
-  s.src = 'js/gc-count.js';
+  s.src = '/js/gc-count.js';
   s.async = true;
   s.dataset.goatcounter = 'https://goatcounter.hardik-pandey.com/count';
   document.head.appendChild(s);
@@ -51,8 +51,10 @@
   // Hamburger toggle
   if (toggle && links) {
     toggle.addEventListener('click', () => {
-      toggle.classList.toggle('open');
-      links.classList.toggle('open');
+      const open = !links.classList.contains('open');
+      toggle.classList.toggle('open', open);
+      links.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
     });
 
     // Close on link click (mobile) — skip dropdown parent trigger
@@ -61,6 +63,7 @@
         if (l.parentElement.classList.contains('nav-dropdown')) return;
         toggle.classList.remove('open');
         links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -221,7 +224,8 @@
   update();
 
   btn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
   });
 })();
 
@@ -261,6 +265,7 @@
       localStorage.setItem('theme', 'dark');
       toggle.textContent = '\u2600';
     }
+    if (window.syncThemeColor) window.syncThemeColor(document.documentElement.getAttribute('data-theme') === 'dark');
     setPhoto();
   });
 })();
@@ -290,22 +295,36 @@
 
   const buttons = document.querySelectorAll('.filter-btn');
 
+  function applyFilter(filter) {
+    const cards = grid.querySelectorAll('.card');
+
+    buttons.forEach(b => {
+      const active = b.dataset.filter === filter;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+
+    cards.forEach(card => {
+      if (filter === 'all' || (card.dataset.tags || '').split(',').includes(filter)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var initial = params.get('filter') || 'all';
+  document.addEventListener('DOMContentLoaded', function () { applyFilter(initial); });
+
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      const cards = grid.querySelectorAll('.card');
-
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
       const filter = btn.dataset.filter;
-
-      cards.forEach(card => {
-        if (filter === 'all' || (card.dataset.tags || '').split(',').includes(filter)) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
+      applyFilter(filter);
+      var url = new URL(window.location.href);
+      if (filter === 'all') url.searchParams.delete('filter');
+      else url.searchParams.set('filter', filter);
+      history.replaceState(null, '', url);
     });
   });
 })();
@@ -317,6 +336,7 @@
 (function () {
   const page = document.body.dataset.page;
   if (page === 'cyber' || page === 'ml') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   document.body.classList.add('custom-cursor-active');
 
@@ -416,7 +436,9 @@
     var html = '';
     var realIdx = getRealIdx(cur);
     for (var di = 0; di < realCount; di++) {
-      html += '<button class="carousel-dot' + ((di === realIdx) ? ' active' : '') + '" data-i="' + di + '"></button>';
+      html += '<button class="carousel-dot' + ((di === realIdx) ? ' active' : '') + '" data-i="' + di + '"' +
+        ' aria-label="Go to slide ' + (di + 1) + ' of ' + realCount + '"' +
+        ((di === realIdx) ? ' aria-current="true"' : '') + '></button>';
     }
     dotsEl.innerHTML = html;
     dotsEl.setAttribute('aria-label', 'Project ' + (realIdx + 1) + ' of ' + realCount);
@@ -428,13 +450,20 @@
       c.classList.toggle('active', getRealIdx(j) === realIdx);
     });
     dotsEl.querySelectorAll('.carousel-dot').forEach(function (d) {
-      d.classList.toggle('active', parseInt(d.dataset.i) === realIdx);
+      var isActive = parseInt(d.dataset.i) === realIdx;
+      d.classList.toggle('active', isActive);
+      if (isActive) {
+        d.setAttribute('aria-current', 'true');
+      } else {
+        d.removeAttribute('aria-current');
+      }
     });
     dotsEl.setAttribute('aria-label', 'Project ' + (realIdx + 1) + ' of ' + realCount);
   }
   function goTo(i, anim) {
     if (cards.length === 0) return;
     if (anim === undefined) anim = true;
+    if (reduceMotion.matches) anim = false;
     if (i < 0) i = 0;
     if (i >= cards.length - 1) i = cards.length - 1;
 

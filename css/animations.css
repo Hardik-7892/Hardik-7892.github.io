@@ -36,6 +36,24 @@
     transition: none;
   }
   .cursor { animation: none; opacity: 1; }
+  .hero::before,
+  .bg-3d::before,
+  .bg-3d-full::before,
+  #cloud-globe::before {
+    animation: none;
+  }
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+  .skip-link,
+  .privacy-banner,
+  .nav-links,
+  .dropdown-menu,
+  .hero-3d-tip,
+  .hero-3d-toast {
+    transition: none;
+  }
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
