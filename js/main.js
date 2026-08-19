@@ -356,11 +356,30 @@
     dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
   });
 
+  let lastX = 0, lastY = 0;
+
   function tick() {
-    rx += (mx - rx) * 0.15;
-    ry += (my - ry) * 0.15;
-    ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
-    requestAnimationFrame(tick);
+      rx += (mx - rx) * 0.25;
+      ry += (my - ry) * 0.25;
+
+      const dx = mx - lastX;
+      const dy = my - lastY;
+
+      const speed = Math.min(Math.sqrt(dx * dx + dy * dy), 20);
+      const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+      const stretch = 1 + speed * 0.025;
+
+      ring.style.transform =
+          'translate(' + rx + 'px,' + ry + 'px) ' +
+          'translate(-50%,-50%) ' +
+          'rotate(' + angle + 'deg) ' +
+          'scale(' + stretch + ',' + (1 / stretch) + ')';
+
+      lastX = mx;
+      lastY = my;
+
+      requestAnimationFrame(tick);
   }
   tick();
 
