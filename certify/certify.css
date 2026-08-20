@@ -72,6 +72,56 @@
   font-size: 0.85rem;
 }
 
+.cert-modes {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.cert-modes li {
+  margin-bottom: 12px;
+}
+
+.cert-modes li:last-child {
+  margin-bottom: 0;
+}
+
+.cert-modes code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: var(--text);
+}
+
+.cert-modes strong {
+  color: var(--text);
+}
+
+.cert-mode-param {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+/* Inline links inside certify content: visible as links by default */
+body[data-page="certify"] main a:not(.btn) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+body[data-page="certify"] main a:not(.btn):hover {
+  color: var(--accent-hover);
+  text-decoration-thickness: 2px;
+}
+
 .cert-card {
   display: none;
   background: var(--surface);

@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Hardik Pandey" />
-  <title>Certificate Verification — Hardik Pandey</title>
-  <meta name="description" content="Verify a post-quantum signed certificate from hardik-pandey.com — ML-DSA-87 (NIST FIPS 204) signatures checked entirely in your browser." />
-  <meta property="og:title" content="Certificate Verification — Hardik Pandey" />
-  <meta property="og:description" content="Verify a post-quantum signed certificate from hardik-pandey.com — ML-DSA-87 (FIPS 204) signatures checked entirely in your browser." />
+  <title>Certificate Verification | Hardik Pandey</title>
+  <meta name="description" content="Verify a post-quantum signed certificate from hardik-pandey.com: ML-DSA-87 (NIST FIPS 204) signatures checked entirely in your browser." />
+  <meta property="og:title" content="Certificate Verification | Hardik Pandey" />
+  <meta property="og:description" content="Verify a post-quantum signed certificate from hardik-pandey.com: ML-DSA-87 (FIPS 204) signatures checked entirely in your browser." />
   <meta property="og:image" content="https://hardik-pandey.com/images/og-image.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Hardik Pandey" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Certificate Verification — Hardik Pandey" />
-  <meta name="twitter:description" content="Verify a post-quantum signed certificate from hardik-pandey.com — ML-DSA-87 (FIPS 204) signatures checked entirely in your browser." />
+  <meta name="twitter:title" content="Certificate Verification | Hardik Pandey" />
+  <meta name="twitter:description" content="Verify a post-quantum signed certificate from hardik-pandey.com: ML-DSA-87 (FIPS 204) signatures checked entirely in your browser." />
   <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.webp" />
   <meta property="og:url" content="https://hardik-pandey.com/certify/verify.html" />
   <link rel="canonical" href="https://hardik-pandey.com/certify/verify.html" />
@@ -34,7 +34,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Certificate Verification — Hardik Pandey",
+    "name": "Certificate Verification | Hardik Pandey",
     "description": "Verify a post-quantum signed certificate from hardik-pandey.com.",
     "url": "https://hardik-pandey.com/certify/verify.html",
     "about": { "@type": "WebPage", "name": "Certificate Verification" }
@@ -66,12 +66,17 @@
         <div id="certStatus" class="cert-status" aria-live="polite"></div>
 
         <div class="cert-form">
-          <p class="mb-2">Paste a certificate JSON below, then click <strong>Verify</strong>. Certificates may also be opened directly via their <code>?id=</code> or <code>?c=</code> link.</p>
+          <p class="mb-2">Paste a certificate JSON below and click <strong>Verify</strong>, or open the page with a link that already contains one:</p>
           <textarea id="certInput" aria-label="Certificate JSON" spellcheck="false" placeholder='{ "v": 1, "id": "…", "issuer": "hardik-pandey.com", "issuedAt": "…", "subject": "…", "claim": "…", "sig": "…" }'></textarea>
           <div class="cert-form-row">
-            <button id="certVerifyBtn" class="btn" type="button">Verify</button>
+            <button id="certVerifyBtn" class="btn btn-primary" type="button">Verify</button>
             <span id="certHint" class="cert-hint"></span>
           </div>
+          <ul class="cert-modes">
+            <li><strong>Paste JSON</strong> <span class="cert-mode-param">(the text box above)</span><br/>Paste any certificate you have as a file and click Verify.</li>
+            <li><code>?id=&lt;certificate id&gt;</code> <span class="cert-mode-param">(short link)</span><br/>The certificate ID is a 16-character hash of the claims, printed on the certificate. The page fetches the hosted copy from <code>issued/&lt;id&gt;.json</code>.</li>
+            <li><code>?c=&lt;full certificate&gt;</code> <span class="cert-mode-param">(long link)</span><br/>The entire certificate is packed into the link. The page decodes and verifies it directly, with no download, even if the hosted copy is later removed.</li>
+          </ul>
         </div>
 
         <div id="certCard" class="cert-card" aria-live="polite">
@@ -98,7 +103,7 @@
               <div class="cert-verify-actions">
                 <p>Scan the QR code (or follow the link) to re-verify this certificate later. The signature is ML-DSA-87 and stays valid indefinitely.</p>
                 <div id="certVerifyUrl" class="mono"></div>
-                <button id="certPrintBtn" class="btn" type="button">Print / Save as PDF</button>
+                <button id="certPrintBtn" class="btn btn-ghost" type="button">Print / Save as PDF</button>
               </div>
             </div>
           </div>

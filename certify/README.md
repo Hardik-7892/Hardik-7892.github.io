@@ -205,6 +205,15 @@ Verify (long)  : https://hardik-pandey.com/certify/verify.html?c=<base64url of t
 - Without `--publish`, you get the long `?c=` URL and the JSON to paste/email.
   Zero commits.
 
+**The two verify URL forms** (the verify page explains these too):
+
+- `?id=<certificate id>` is a **short link**. The certificate ID is a 16-character
+  hash of the claims; the verify page fetches the hosted copy from
+  `certify/issued/<id>.json`.
+- `?c=<full certificate>` is a **long, self-contained link**. The whole
+  certificate JSON is encoded into the URL; the verify page decodes and checks
+  it directly, so it keeps working even if the hosted file is later removed.
+
 ### Verify locally
 
 ```sh
