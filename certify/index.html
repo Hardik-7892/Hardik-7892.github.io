@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Hardik Pandey" />
+  <title>Certificates — Hardik Pandey</title>
+  <meta name="description" content="Post-quantum signed acknowledgement certificates from hardik-pandey.com — every certificate is verified in-browser with ML-DSA-87 (NIST FIPS 204)." />
+  <meta property="og:title" content="Certificates — Hardik Pandey" />
+  <meta property="og:description" content="Post-quantum signed acknowledgement certificates from hardik-pandey.com." />
+  <meta property="og:image" content="https://hardik-pandey.com/images/og-image.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Hardik Pandey" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Certificates — Hardik Pandey" />
+  <meta name="twitter:description" content="Post-quantum signed acknowledgement certificates from hardik-pandey.com." />
+  <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.webp" />
+  <meta property="og:url" content="https://hardik-pandey.com/certify/" />
+  <link rel="canonical" href="https://hardik-pandey.com/certify/" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src 'self' https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; form-action 'none'" />
+  <link rel="preconnect" href="https://goatcounter.hardik-pandey.com" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <meta name="theme-color" content="#F8F7F2" />
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Certificates — Hardik Pandey",
+    "description": "Post-quantum signed acknowledgement certificates from hardik-pandey.com.",
+    "url": "https://hardik-pandey.com/certify/",
+    "about": { "@type": "WebPage", "name": "Certificates" }
+  }
+  </script>
+  <script src="../js/theme-init.js"></script>
+</head>
+<body data-page="certify">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div id="shared-nav" data-page="certify" data-prefix="../"></div>
+
+  <main id="main-content">
+
+    <div class="page-header">
+      <div class="container page-header-flex">
+        <div class="page-header-text">
+          <p class="section-label fade-in">certificates</p>
+          <h1 class="section-title fade-in mb-1">Post-Quantum Certificates</h1>
+          <p class="page-header-sub fade-in">Signed acknowledgement certificates, verified in your browser with ML-DSA-87 (NIST FIPS 204).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container section">
+
+      <div class="section fade-in">
+        <h2 class="section-title mb-1">What these certificates are</h2>
+        <p>When a security report I receive is validated, I may issue a certificate acknowledging it. The certificate is a plain JSON file containing the exact claims (subject, date, what was acknowledged) plus a digital signature over those claims. Nothing is stored on any server beyond the public files themselves.</p>
+        <p>The signature uses <strong>ML-DSA-87</strong>, the highest security level of NIST's FIPS 204 post-quantum signature standard. Because browsers do not yet ship post-quantum algorithms in WebCrypto, verification runs through <code>@noble/post-quantum</code>, a small audited pure-JavaScript implementation self-hosted on this site.</p>
+      </div>
+
+      <div class="section fade-in">
+        <h2 class="section-title mb-1">How verification works</h2>
+        <ol class="mb-2">
+          <li>The certificate carries its <strong>certificate ID</strong> — the first 16 hex characters of the SHA-256 hash of the signed claims.</li>
+          <li>The verify page fetches the certificate (via the ID or the embedded link) and the site's single <a href="public-key.json">public key</a>.</li>
+          <li>It checks the hash matches, then checks the ML-DSA-87 signature against the exact signed bytes using the public key.</li>
+        </ol>
+        <p>Only the signer's private key (never on this site) can produce a signature the public key accepts — so a valid certificate is mathematically provable as issued by me, and any tampering is detected immediately.</p>
+      </div>
+
+      <div class="section fade-in">
+        <h2 class="section-title mb-1">Verify a certificate</h2>
+        <p>Open the <a href="verify.html">verification page</a> and paste a certificate, or follow the certificate's own link. A printable certificate card is shown for every valid certificate.</p>
+      </div>
+
+      <div class="section fade-in">
+        <h2 class="section-title mb-1">What a certificate does and doesn't prove</h2>
+        <p>It proves <strong>hardik-pandey.com issued this exact signed statement about this subject on this date</strong>. It does not prove the person presenting it is that subject, and it cannot be revoked once issued — the signature remains valid as long as the public key is in use. Treat it as a signed acknowledgement, not an identity document.</p>
+        <p>Technical details, the key model, and the minting tooling are documented in <a href="README.md">certify/README.md</a>.</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="shared-footer"></div>
+
+  <div id="shared-banner"></div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="../js/shared.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

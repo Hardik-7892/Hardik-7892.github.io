@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Hardik Pandey" />
+  <title>Certificate Verification — Hardik Pandey</title>
+  <meta name="description" content="Verify a post-quantum signed certificate from hardik-pandey.com — ML-DSA-87 (NIST FIPS 204) signatures checked entirely in your browser." />
+  <meta property="og:title" content="Certificate Verification — Hardik Pandey" />
+  <meta property="og:description" content="Verify a post-quantum signed certificate from hardik-pandey.com — ML-DSA-87 (FIPS 204) signatures checked entirely in your browser." />
+  <meta property="og:image" content="https://hardik-pandey.com/images/og-image.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Hardik Pandey" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Certificate Verification — Hardik Pandey" />
+  <meta name="twitter:description" content="Verify a post-quantum signed certificate from hardik-pandey.com — ML-DSA-87 (FIPS 204) signatures checked entirely in your browser." />
+  <meta name="twitter:image" content="https://hardik-pandey.com/images/og-image.webp" />
+  <meta property="og:url" content="https://hardik-pandey.com/certify/verify.html" />
+  <link rel="canonical" href="https://hardik-pandey.com/certify/verify.html" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://ipapi.co https://ipinfo.io; style-src 'self'; font-src 'self'; img-src 'self' https://cdn.qwiklabs.com data:; connect-src 'self' https://ipapi.co https://ipinfo.io https://goatcounter.hardik-pandey.com; base-uri 'self'; form-action 'none'" />
+  <link rel="preconnect" href="https://goatcounter.hardik-pandey.com" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="certify.css" />
+  <meta name="theme-color" content="#F8F7F2" />
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Certificate Verification — Hardik Pandey",
+    "description": "Verify a post-quantum signed certificate from hardik-pandey.com.",
+    "url": "https://hardik-pandey.com/certify/verify.html",
+    "about": { "@type": "WebPage", "name": "Certificate Verification" }
+  }
+  </script>
+  <script src="../js/theme-init.js"></script>
+</head>
+<body data-page="certify">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div id="shared-nav" data-page="certify" data-prefix="../"></div>
+
+  <main id="main-content">
+
+    <div class="page-header">
+      <div class="container page-header-flex">
+        <div class="page-header-text">
+          <p class="section-label fade-in">certificates</p>
+          <h1 class="section-title fade-in mb-1">Certificate Verification</h1>
+          <p class="page-header-sub fade-in">Post-quantum signatures (ML-DSA-87, NIST FIPS 204) verified entirely in your browser.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="cert-tool">
+
+        <div id="certStatus" class="cert-status" aria-live="polite"></div>
+
+        <div class="cert-form">
+          <p class="mb-2">Paste a certificate JSON below, then click <strong>Verify</strong>. Certificates may also be opened directly via their <code>?id=</code> or <code>?c=</code> link.</p>
+          <textarea id="certInput" aria-label="Certificate JSON" spellcheck="false" placeholder='{ "v": 1, "id": "…", "issuer": "hardik-pandey.com", "issuedAt": "…", "subject": "…", "claim": "…", "sig": "…" }'></textarea>
+          <div class="cert-form-row">
+            <button id="certVerifyBtn" class="btn" type="button">Verify</button>
+            <span id="certHint" class="cert-hint"></span>
+          </div>
+        </div>
+
+        <div id="certCard" class="cert-card" aria-live="polite">
+          <div class="cert-card-header">
+            <span class="cert-kind">Signed claim by hardik-pandey.com</span>
+          </div>
+          <div class="cert-card-body">
+            <h2 id="certSubject" class="cert-subject"></h2>
+            <p id="certClaim" class="cert-claim"></p>
+            <dl class="cert-meta">
+              <dt>Issued</dt>
+              <dd id="certIssuedAt"></dd>
+              <dt>Issuer</dt>
+              <dd id="certIssuer"></dd>
+              <dt>Certificate ID</dt>
+              <dd id="certId" class="mono"></dd>
+              <dt>Signature</dt>
+              <dd id="certSigCheck" class="mono"></dd>
+              <dt>Fingerprint</dt>
+              <dd id="certFingerprint" class="mono"></dd>
+            </dl>
+            <div class="cert-verify-wrap">
+              <canvas id="certQr" width="140" height="140" aria-label="QR code linking to this certificate"></canvas>
+              <div class="cert-verify-actions">
+                <p>Scan the QR code (or follow the link) to re-verify this certificate later. The signature is ML-DSA-87 and stays valid indefinitely.</p>
+                <div id="certVerifyUrl" class="mono"></div>
+                <button id="certPrintBtn" class="btn" type="button">Print / Save as PDF</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <div id="shared-footer"></div>
+
+  <div id="shared-banner"></div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="../js/shared.js"></script>
+  <script src="noble-post-quantum.js" integrity="sha384-AlWeSh8RgSSqrXkbbyDcSZIRksRvS6Ux67o8SlSqOKwBUhyw6rK4JrO2GA0xcTqx" crossorigin="anonymous"></script>
+  <script src="qrcode.js" integrity="sha384-FXSZtDNTPGCEIhQbhpOomaaYGkQS8QQUrniTDPp0AOKomYjAcczic42s00MfvP1J" crossorigin="anonymous"></script>
+  <script src="verify.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
