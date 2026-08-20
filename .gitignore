@@ -1,0 +1,3 @@
+# Certificate minting CLI lives in its own repo (C:\projects\certify-cli)
+# Site tooling: Python bytecode caches
+__pycache__/

@@ -17,6 +17,7 @@ This is a fully static portfolio built with **zero frameworks, zero build tools*
 - [PWA](#pwa)
 - [Analytics & Privacy](#analytics--privacy)
 - [Security](#security)
+- [Post-Quantum Certificates (certify/)](#post-quantum-certificates-certify)
 - [SEO & Metadata](#seo--metadata)
 - [Performance](#performance)
 - [Accessibility](#accessibility)
@@ -76,7 +77,7 @@ The `<body>` tag on each page carries a `data-page` attribute (e.g., `data-page=
 
 ---
 
-## Pages (13)
+## Pages (15)
 
 | Page | Purpose | Unique Feature |
 | --- | --- | --- |
@@ -92,6 +93,8 @@ The `<body>` tag on each page carries a `data-page` attribute (e.g., `data-page=
 | `/roles/software.html` | Software engineering role page | Curated SWE skills + project grid, plain header (no 3D) |
 | `/privacy.html` | Privacy policy | 10 sections, dual-compliance (UK GDPR + India DPDP Act 2023) |
 | `/terms.html` | Terms of use | 9 sections |
+| `/certify/` (index.html) | Post-quantum certificates landing | Explains the ML-DSA-87 signature system + link to the verify tool |
+| `/certify/verify.html` | Certificate verification | Verifies certificates in-browser (`?id=`, `?c=`, or paste), printable card |
 | `/404.html` | Custom 404 page | Personality copy: "Maybe I took it apart to understand how it worked" |
 
 ---
@@ -190,7 +193,7 @@ The stylesheet is split into focused partials, imported via `@import` in `css/st
 
 ---
 
-## JavaScript Architecture (16 files)
+## JavaScript Architecture (17 files)
 
 All files use IIFE wrappers. Globals are explicitly attached to `window`.
 
@@ -211,6 +214,7 @@ All files use IIFE wrappers. Globals are explicitly attached to `window`.
 | `ml-network.js` | 177 | 2D Canvas neural network | Hover tooltips, theme-aware via MutationObserver |
 | `particle-hero-widget.js` | bundled | 3D particle viewer | Pre-built widget, loaded async |
 | `particle-hero-mount.js` | 32 | Mounts hero with 6 `.bin` models | Polls for widget readiness, configures yaw speed and offset |
+| `certify/verify.js` | 219 | In-browser certificate verification | Fetches `public-key.json` + cert file, checks SHA-256 id and ML-DSA-87 signature via vendored PQ lib; renders certificate card + QR; all output via `textContent` |
 
 **Data flow:**
 
@@ -238,11 +242,13 @@ Request → Check cache → Return cached (stale) immediately
                        └→ Fetch from network → Update cache for next time
 ```
 
-**Pre-cached URLs (18 items):**
+**Pre-cached URLs:**
 
-- All 11 HTML pages (including 404)
+- All HTML pages (including 404 and the `roles/` + `certify/` pages)
 - `manifest.json`, `favicon.svg`, `og-image.webp`
 - PWA icons (192x192, 512x512)
+- Certify assets (`certify/verify.js`, vendored PQ + QR libraries, `public-key.json`, `certify.css`) so verification works offline after first visit
+- Minted certificates (`certify/issued/<id>.json`) are **not** precached; they self-cache on first request via the fetch handler
 
 **Why stale-while-revalidate instead of cache-first?**
 
@@ -400,6 +406,57 @@ The `.well-known/security.txt` file follows RFC 9116, providing a security conta
 
 ---
 
+## Post-Quantum Certificates (certify/)
+
+When a security report received via `.well-known/security.txt` is validated, I may issue an acknowledgement certificate. Each certificate is a JSON file signed with **ML-DSA-87** (NIST FIPS 204, post-quantum) and verified **entirely in the browser** against a single published public key: no backend, no database, nothing secret on the domain.
+
+- **Verify a certificate:** `certify/verify.html` (`?id=`, `?c=`, or paste)
+- **Landing page:** `certify/index.html`
+- **Public key:** `certify/public-key.json`
+
+### Why post-quantum cryptography (PQC)
+
+Classical signatures (RSA, ECDSA) rest on factoring and discrete logarithms,
+problems a large-scale quantum computer can solve with **Shor's algorithm**.
+That makes today's PKI breakable in a post-quantum world, and the threat isn't
+only future traffic: attackers can already record today's signed data and break
+it later (**"harvest now, decrypt later"**).
+
+ML-DSA-87 avoids both problems. It is a **lattice-based** scheme whose security
+rests on the hardness of **Module-LWE**, a problem with **no known quantum
+speedup**, at NIST security category 5 (≈ AES-256).
+
+### How it flows
+
+```mermaid
+flowchart LR
+    subgraph Mint["Mint (site owner's machine)"]
+        A["~/.certify/master.seed<br/>(secret, never leaves)"] --> B["HKDF + deterministic keygen"]
+        B --> Pk["public key"]
+        B --> Sk["secret key"]
+        Sk --> S["sign the claims (ML-DSA-87)"]
+    end
+    subgraph Publish["Publish (this repo, static)"]
+        Pk --> P["certify/public-key.json"]
+        S --> C["certify/issued/&lt;id&gt;.json"]
+    end
+    subgraph Verify["Verify (visitor's browser)"]
+        P --> F["fetch both files"]
+        C --> F
+        F --> H["rebuild claims bytes"]
+        H --> H1["SHA-256 id check"]
+        H --> H2["ML-DSA-87 verify<br/>@noble/post-quantum (SRI-pinned)"]
+        H1 --> V["VALID"]
+        H2 --> V
+    end
+```
+
+Browsers don't ship post-quantum algorithms in WebCrypto yet, so verification runs through `@noble/post-quantum`, vendored as a self-hosted single file with SRI. The site itself remains **zero-build and dependency-free**. The certificate is minted by a **developer-only Node CLI** that lives in its own repository (`certify-cli`); it never ships, and it writes only the public key, issued certificates, and the vendored verification libraries into this repo.
+
+Full documentation (the signature scheme, the key model: master seed → HKDF → deterministic keygen, security properties and honest limits, and CLI usage) lives in [`certify/README.md`](certify/README.md).
+
+---
+
 ## SEO & Metadata
 
 ### Unique Meta Per Page
@@ -548,6 +605,17 @@ All canonical URLs, OG tags, and sitemap URLs reference the custom domain. The o
 │       ├── ml.bin                   # 3D model for ML section
 │       ├── profile_nobg.bin         # 3D profile model
 │       └── webdev.bin               # 3D model for web dev
+├── certify/
+│   ├── index.html                   # Certificates landing page
+│   ├── verify.html                  # In-browser certificate verification (?id=, ?c=, paste)
+│   ├── verify.js                    # Verification logic (ML-DSA-87 + SHA-256 id check)
+│   ├── certify.css                  # Verify page styles + print rules
+│   ├── noble-post-quantum.js        # Vendored PQ library (SRI-pinned)
+│   ├── qrcode.js                    # Vendored QR encoder for the certificate card (SRI-pinned)
+│   ├── public-key.json              # The single ML-DSA-87 public key (published once)
+│   ├── issued/
+│   │   └── <id>.json                # Minted certificates (the ledger, committed)
+│   └── README.md                    # Full certificate system docs
 ├── css/
 │   ├── style.css                    # Entry point (imports all partials)
 │   ├── tokens.css                   # Design tokens, fonts, dark mode
@@ -593,6 +661,8 @@ All canonical URLs, OG tags, and sitemap URLs reference the custom domain. The o
 │   ├── cyber.html                   # Cyber security role page
 │   ├── ml.html                      # Machine learning role page
 │   └── software.html                # Software engineering role page
+├── scripts/
+│   └── generate-fallback-webp.py    # Dev script: fallback WebP image generator (CLI lives in its own repo)
 ├── 404.html                         # Custom 404 page
 ├── about.html                       # About page
 ├── cloud.html                       # Google Cloud badges page
