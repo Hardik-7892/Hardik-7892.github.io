@@ -10,7 +10,7 @@
   var page = document.body.dataset.page;
   var map = {
     cyber: ['cyber-globe.js'],
-    ml: ['ml-pipeline.js'],
+    ml: ['ml-pipeline.js', 'ml-network.js'],
     cloud: ['cloud-bg.js', 'cloud-globe.js']
   };
   if (!map[page]) return;
