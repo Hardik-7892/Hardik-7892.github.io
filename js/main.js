@@ -331,63 +331,17 @@
 
 
 /* ============================================================
-   CURSOR DOT + RING (generic pages)
+   CURSOR DOT + RING — now lazy-loaded via cursor.js
    ============================================================ */
 (function () {
-  const page = document.body.dataset.page;
+  var page = document.body.dataset.page;
   if (page === 'cyber' || page === 'ml') return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  document.body.classList.add('custom-cursor-active');
-
-  const dot = document.createElement('div');
-  dot.className = 'cursor-dot';
-  document.body.appendChild(dot);
-
-  const ring = document.createElement('div');
-  ring.className = 'cursor-ring';
-  document.body.appendChild(ring);
-
-  let mx = 0, my = 0, rx = 0, ry = 0;
-
-  document.addEventListener('mousemove', function (e) {
-    mx = e.clientX;
-    my = e.clientY;
-    dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
-  });
-
-  let lastX = 0, lastY = 0;
-
-  function tick() {
-      rx += (mx - rx) * 0.25;
-      ry += (my - ry) * 0.25;
-
-      const dx = mx - lastX;
-      const dy = my - lastY;
-
-      const speed = Math.min(Math.sqrt(dx * dx + dy * dy), 20);
-      const angle = Math.atan2(dy, dx) * 180 / Math.PI;
-
-      const stretch = 1 + speed * 0.025;
-
-      ring.style.transform =
-          'translate(' + rx + 'px,' + ry + 'px) ' +
-          'translate(-50%,-50%) ' +
-          'rotate(' + angle + 'deg) ' +
-          'scale(' + stretch + ',' + (1 / stretch) + ')';
-
-      lastX = mx;
-      lastY = my;
-
-      requestAnimationFrame(tick);
-  }
-  tick();
-
-  // Expand ring on hover over interactive elements
-  document.querySelectorAll('a, button, [role="button"], input, .card, .pill, .contact-card').forEach(function (el) {
-    el.addEventListener('mouseenter', function () { ring.classList.add('cursor-ring--hover'); });
-    el.addEventListener('mouseleave', function () { ring.classList.remove('cursor-ring--hover'); });
-  });
+  var prefix = (document.getElementById('shared-nav') && document.getElementById('shared-nav').dataset.prefix) || '';
+  var s = document.createElement('script');
+  s.src = prefix + 'js/cursor.js';
+  s.defer = true;
+  document.head.appendChild(s);
 })();
 
 
