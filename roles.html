@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/roles.css" />
+  <link rel="stylesheet" href="css/matrix.css" />
   <meta name="theme-color" content="#F8F7F2" />
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
   <script type="application/ld+json">
@@ -192,49 +193,16 @@
       </div>
     </div>
 
-    <!-- ACT II — "the fool's gambit" (scroll-driven scene; 3D build in planning) -->
-    <section id="act2" class="act2-section" aria-label="The fool's gambit — coming soon">
-      <div class="act2-pin">
-        <div class="act2-stage">
-          <div class="act2-inner">
-
-            <p class="act2-mono act2-eyebrow">the fool&rsquo;s gambit</p>
-
-            <div class="act2-eye-wrap">
-              <svg class="act2-eye" viewBox="0 0 200 130" fill="none" stroke="currentColor" aria-hidden="true">
-                <g class="act2-eye-body">
-                  <g transform="translate(0, 30)">
-                    <path d="M 14 52 Q 100 6 186 52" stroke-width="4" stroke-linecap="round"/>
-                    <path d="M 14 52 Q 100 98 186 52" stroke-width="4" stroke-linecap="round"/>
-                    <circle cx="100" cy="52" r="10" stroke-width="2"/>
-                  </g>
-                </g>
-                <g class="act2-bird-wrap">
-                  <g class="act2-bird-pos" transform="translate(100, 82) scale(0.26) translate(-111, -74)">
-                    <path class="act2-sigil" d="M 111,147 C 122,124 131,124 139,120 C 164,110 165,93 161,73 C 158,47 197,25 218,1 L 143,36 C 129,44 132,50 134,60 C 140,79 136,87 129,94 C 123,98 110,107 92,94 C 86,88 83,76 87,60 C 89,49 92,43 79,36 L 4,1 C 28,25 64,50 60,73 C 60,93 53,105 82,120 C 92,125 100,123 110,147 z" fill="currentColor" stroke="rgba(0, 0, 0, 0.35)" stroke-width="1.5"/>
-                  </g>
-                </g>
-              </svg>
-              <p class="act2-mono act2-eye-tag">the eye of the fool</p>
-            </div>
-
-            <div class="act2-copy">
-              <h2 class="act2-title">
-                <span class="act2-t-state act2-t-dormant">every stage needs an audience.</span>
-                <span class="act2-t-state act2-t-active">obey me, world.</span>
-              </h2>
-              <p class="act2-sub">
-                <span class="act2-t-state act2-t-dormant">Act II is in planning.</span>
-                <span class="act2-t-state act2-t-active">&hellip;coming soon. The joker, the Fool&rsquo;s card, a stage of my own &mdash; the 3D models are still in planning.</span>
-              </p>
-              <p class="act2-mono act2-status">
-                <span class="act2-t-state act2-t-dormant">status: in planning <span class="act2-sep">/</span> models: pending</span>
-                <span class="act2-t-state act2-t-active">status: coming soon <span class="act2-sep">/</span> the stage is set</span>
-              </p>
-            </div>
-
-          </div>
-        </div>
+    <!-- MATRIX INVITE — replaces former pinned stage; entry to 0.html -->
+    <section class="matrix-section" aria-label="Invitation">
+      <canvas id="matrix-rain" class="matrix-canvas" aria-hidden="true"></canvas>
+      <div class="matrix-overlay" aria-hidden="true"></div>
+      <div class="matrix-inner">
+        <p class="matrix-eyebrow fade-in">system // backdoor detected</p>
+        <h2 class="matrix-title fade-in">you are invited to <span class="matrix-censor" aria-label="redacted">****</span></h2>
+        <p class="matrix-sub fade-in">A hidden stage exists. Not indexed. Not linked. Follow the signal&nbsp;— if you dare.</p>
+        <a href="0.html" class="matrix-btn fade-in" aria-label="Proceed to hidden page">proceed &rarr;</a>
+        <p class="matrix-hint fade-in">~/roles/0 &middot; no-index &middot; direct access only</p>
       </div>
     </section>
 
@@ -247,57 +215,6 @@
       </div>
     </div>
 
-    <!-- ============================================================
-         ACT II — "THE FOOL'S GAMBIT" (DEFERRED)
-         Idea from Hardik; parked so Act I ships first.
-         Revisit later — these are the steps, not code.
-
-         CONCEPT
-         A jack-of-all-trades theme in the same spirit as the home hero:
-         a 3D joker particle model + a "The Fool" card (Lord of the
-         Mysteries / Tarot 0) held by the joker, plus a Code Geass-style
-         eye moment. Sits BELOW the Field Guide index as a dark,
-         theatrical second act. Copy direction (approved):
-         - section name : "the fool's gambit"
-         - card         : "jack of many trades"
-         - tagline      : "jack of all trades, master of a few."
-         - geass flip   : "obey me, world." -> "hire me, recruiter."
-
-         STATUS (current): a scroll-driven SCENE ships now — the #act2
-         section between "the edges" and the CTA. The stage pins while
-         you scroll a tall track; roles.js writes --act2-p (0..1) on
-         the section and CSS choreographs it: the eye ignites -> the
-         bird flies with scroll (breaks out, scales, fades) -> the eye
-         exits off-screen -> "obey me, world." / "coming soon" fades in
-         where the eye was. Editable source lives in assets/svg/geass-eye.svg.
-         The 3D joker + Fool card build below remains deferred until the
-         models are ready.
-
-         STEPS
-         1) 3D PARTICLE PIECE — two paths (start with A):
-            A) "The Fool" tarot card as a 700k-particle relief.
-               Design the card art (frame + Fool emblem + "0"), convert to
-               a PCL4 .bin with fill_volume.py or img_to_pcl2.py from the
-               3d-particles repo (Hardik-7892/3d-particles). Self-contained.
-            B) A real 3D joker/fool character (like the 6 hero models):
-               source or AI-generate an OBJ (fast3d.io was used before),
-               run mesh_to_pcl4.py -> joker.bin, then mount via
-               ParticleHeroWidget.mount(el, { modelUrls: ['/assets/models/joker.bin'] })
-               matching the home hero widget. Needs a real mesh.
-         2) SECTION BUILD: dark "stage" background (both themes) to contrast
-            the light editorial Act I. Joker/card on the left, copy right.
-         3) GEASS EYE: original red glowing eye sigil (Code Geass inspired,
-            NOT a copy). Auto-activate when the section scrolls into view
-            (decision: auto on scroll). On activation the sigil sharpens and
-            the text flips "obey me, world." -> "hire me, recruiter."
-         4) FALLBACKS: no WebGL2 / prefers-reduced-motion -> static
-            CSS/SVG "The Fool" card + static sigil (no animation). All
-            motion must respect prefers-reduced-motion.
-         5) WIRING NOTES: if using three.js from CDN, follow the 3d-loader.js
-            pattern and update this page's CSP script-src to allow
-            cdn.jsdelivr.net. Register the new JS in service-worker.js.
-         ============================================================ -->
-
   </main>
 
   <div id="shared-footer"></div>
@@ -305,8 +222,9 @@
   <div id="shared-banner"></div>
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
-  <script src="js/shared.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/roles.js"></script>
+  <script defer src="js/shared.js"></script>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/roles.js"></script>
+  <script defer src="js/matrix-rain.js"></script>
 </body>
 </html>

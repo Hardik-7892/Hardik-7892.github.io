@@ -1,0 +1,199 @@
+/* ============================================================
+   MATRIX INVITE — replaces Act II on roles.html
+   Dark band with canvas rain + glitch censored text
+   ============================================================ */
+.matrix-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  background: #050A05;
+  border-block: 1px solid #0F2A0F;
+  text-align: center;
+}
+
+/* canvas rain */
+.matrix-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.55;
+  z-index: 0;
+}
+.matrix-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(5,10,5,0.15) 0%, rgba(5,10,5,0.72) 100%),
+    radial-gradient(90% 100% at 50% 0%, rgba(0,255,65,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* inner copy sits above canvas */
+.matrix-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.matrix-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #00E676;
+  opacity: 0.9;
+}
+.matrix-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: #E8F5E9;
+}
+.matrix-censor {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #00FF41;
+  background: rgba(0,255,65,0.08);
+  border: 1px solid rgba(0,255,65,0.25);
+  border-radius: 4px;
+  padding: 0.08em 0.35em;
+  margin-left: 0.15em;
+  text-shadow: 0 0 10px rgba(0,255,65,0.7), 0 0 24px rgba(0,255,65,0.35);
+  animation: matrix-flicker 2.4s infinite steps(1);
+}
+@keyframes matrix-flicker {
+  0%, 90%, 100% { opacity: 1; }
+  92% { opacity: 0.6; }
+  94% { opacity: 1; }
+  96% { opacity: 0.45; }
+}
+
+/* subtle hover reveal of the hidden word — keeps **** in file but teases */
+.matrix-censor:hover,
+.matrix-censor:focus-visible {
+  color: transparent;
+  position: relative;
+}
+.matrix-censor:hover::after,
+.matrix-censor:focus-visible::after {
+  content: "the other side";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00FF41;
+  font-size: 0.58em;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.matrix-sub {
+  max-width: 46ch;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: #A5D6A7;
+}
+
+.matrix-btn {
+  margin-top: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  padding: 0.72rem 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: #001A05;
+  background: #00FF41;
+  border: 1px solid #00FF41;
+  border-radius: 999px;
+  box-shadow: 0 0 0 rgba(0,255,65,0), 0 0 24px rgba(0,255,65,0.25);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.matrix-btn:hover,
+.matrix-btn:focus-visible {
+  background: transparent;
+  color: #00FF41;
+  box-shadow: 0 0 18px rgba(0,255,65,0.45);
+  transform: translateY(-1px);
+  outline: none;
+}
+.matrix-btn:active {
+  transform: translateY(0);
+}
+
+.matrix-hint {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: rgba(165,214,167,0.55);
+  margin-top: 0.2rem;
+}
+
+/* scanline texture */
+.matrix-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.06;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0,255,65,0.6) 3px
+  );
+}
+
+/* tremor on title when hovering the section (optional delight) */
+.matrix-section:hover .matrix-title {
+  animation: matrix-tremor 0.22s ease;
+}
+@keyframes matrix-tremor {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-0.6px); }
+  75% { transform: translateX(0.6px); }
+}
+
+/* responsive */
+@media (max-width: 640px) {
+  .matrix-section { padding: 3rem 0; }
+  .matrix-title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+  .matrix-censor:hover::after { font-size: 0.55em; }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .matrix-canvas { display: none; }
+  .matrix-section {
+    background: #071207;
+  }
+  .matrix-overlay {
+    background: rgba(5,10,5,0.92);
+  }
+  .matrix-censor { animation: none; }
+  .matrix-section::after { display: none; }
+  .matrix-section:hover .matrix-title { animation: none; }
+  .matrix-btn { transition: none; }
+}
