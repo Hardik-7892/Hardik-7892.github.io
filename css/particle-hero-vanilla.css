@@ -1,0 +1,36 @@
+/* ============================================================
+   VANILLA HERO — lightweight alternative to React hero
+   Same layout as widget, but pure CSS for canvas
+   ============================================================ */
+.hero-3d-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+#particle-hero {
+  position: absolute;
+  inset: 0;
+  left: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  background: transparent;
+  /* nudge: a little up, 2 little left — applies to both React and vanilla */
+  transform: translate(-14px, -8px);
+}
+#particle-hero canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  margin: 0 auto;
+}
+.vanilla-hero-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}

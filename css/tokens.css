@@ -72,6 +72,9 @@
   --max-w: 1400px;
   --radius: 10px;
 
+  /* Particle hero — warm amber-copper (A): dust → embers */
+  --particle-color: #78716C;
+
   /* GitHub language colors */
   --c-python: #3572A5;
   --c-rust: #CE6E00;
@@ -102,6 +105,7 @@
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
   --accent: #F97316;
   --accent-hover: #FB923C;
+  --particle-color: #FBBF24;
 
 }
 [data-theme="dark"] .nav.scrolled {
