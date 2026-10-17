@@ -149,9 +149,9 @@
             </p>
             <ul class="academic-findings">
               <li>Draft support is checked on the wire with <strong>ALPN handshake tiers</strong>. Delivery is checked per subscriber with <strong>byte-hash verification</strong>.</li>
-              <li>Found an <strong>insidious fan-out bug</strong> in a production relay. It logged every subscriber as healthy, yet forwarded data to only one. I confirmed this was version-specific against an earlier pin.</li>
-              <li>Applied per-link loss, delay, bandwidth, and queue limits with Linux <code>tc</code>. Benchmarked MOQT against LL-DASH over HTTP/2 and HTTP/3. H3 gained <strong>&sim;37%</strong> over H2. MOQT reached <strong>&sim;1.95&times;</strong> same-content H3 delivery.</li>
-              <li>Everything reproduces. Pinned commits. YAML test plans. Automatic verdicts. Code: <a href="https://github.com/Hardik-7892/moqt-testbed" target="_blank" rel="noopener">github.com/Hardik-7892/moqt-testbed</a>.</li>
+              <li>Found an <strong>insidious fan-out regression</strong> in the pinned moq-rs relay build. Every subscriber was accepted, yet objects flowed to one connection only, at every size from 2 to 8 viewers. An earlier pin fails differently, and H3 serves all. A pin regression, not a protocol limit.</li>
+              <li>Applied per-link loss, delay, bandwidth, and queue limits with Linux <code>tc</code>. Benchmarked MOQT against LL-DASH over HTTP/2 and HTTP/3. H3 gained <strong>&sim;37%</strong> over H2. MOQT sat <strong>&sim;1.95&times;</strong> above H3 in throughput on the same film, each on its own stop clock (quiet stop against a paced 40-second limit), though byte proof failed on most long rows (see &sect;6.3).</li>
+              <li>Every run is reproducible from pinned commits, YAML test plans, and shaping receipts. Verdicts are automatic. Code: <a href="https://github.com/Hardik-7892/moqt-testbed" target="_blank" rel="noopener">github.com/Hardik-7892/moqt-testbed</a>.</li>
             </ul>
             <ul class="skills-list" aria-label="Methods and tooling">
               <li class="pill">ContainerNet</li>

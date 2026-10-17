@@ -32,12 +32,16 @@ Code: https://github.com/Hardik-7892/moqt-testbed
   imquic, moxygen) across basic, chain and fan-out topologies.
 - Wire-level checks: ALPN handshake tiers for draft support, per-subscriber byte
   hash verification for delivery.
-- Found a fan-out bug in a production relay (all subscribers logged healthy, data
-  forwarded to only one); confirmed version-specific against an earlier pin.
+- Found a fan-out regression in the pinned moq-rs relay build (every subscriber
+  accepted, yet objects flowed to one connection only, at sizes 2 to 8); an
+  earlier pin fails differently and H3 serves all; a pin regression, not a
+  protocol limit. Not yet filed upstream.
 - Impairments via Linux tc (loss, delay, bandwidth, queue); MOQT benchmarked
-  against LL-DASH over HTTP/2 and HTTP/3 (~37% H3-over-H2 gain; MOQT at ~1.95x
-  same-content H3 delivery).
-- Reproducibility: pinned commits, YAML test plans, auto pass/partial/fail verdicts.
+  against LL-DASH over HTTP/2 and HTTP/3 (~37% H3-over-H2 gain; MOQT ~1.95x H3
+  throughput on the same film, each on its own stop clock, byte proof missed on
+  most long rows; see dissertation 6.3).
+- Reproducibility: every run reproducible from pinned commits, YAML test plans,
+  and shaping receipts (logs, qlogs, tc logs); auto pass/partial/fail verdicts.
 - Study design: six research questions (draft negotiation, interop tuples, MoQ vs
   LL-DASH delivery, loss/bandwidth limits, fan-out, working-group conformance
   gaps); same 120-second film with 2-second groups across MoQ, H2 and H3.
