@@ -1,0 +1,515 @@
+/* ============================================================
+   ACADEMIC — warm editorial paper, scoped to .academic
+   Signature: footnote-margin citation keys + index-table pubs.
+   Palette: paper #F7F3EC · ink #1C1917 · olive #7C6B4F ·
+            terracotta #B4532B · panel #E8DCC8
+   ============================================================ */
+
+.academic {
+  --paper: #F7F3EC;
+  --paper-ink: #1C1917;
+  --paper-muted: #7C6B4F;
+  --paper-accent: #B4532B;
+  --paper-panel: #E8DCC8;
+  --paper-rule: #D9CDB4;
+  --paper-serif: Charter, 'Bitstream Charter', Georgia, 'Times New Roman', serif;
+}
+
+/* Header as title page */
+.academic-paper {
+  background: var(--paper);
+  border-bottom: 1px solid var(--paper-rule);
+}
+
+.academic-paper .section-label {
+  color: var(--paper-muted);
+}
+
+.academic-paper .section-title {
+  max-width: 20ch;
+}
+
+.academic-lede {
+  font-family: var(--paper-serif);
+  font-size: clamp(1.125rem, 1.05rem + 0.6vw, 1.375rem);
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.academic-affil {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper-muted);
+  margin-top: 1.25rem;
+}
+
+.academic-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Two-frame: margin column + reading column */
+.academic-two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.academic-margin {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.75rem;
+}
+
+.cite-key {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--paper-accent);
+  border: 1px solid var(--paper-rule);
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  background: rgba(180, 83, 43, 0.07);
+  white-space: nowrap;
+}
+
+.cite-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper-muted);
+}
+
+/* Serif prose lane */
+.academic-prose,
+.academic-findings,
+.academic-questions,
+.edu-detail {
+  font-family: var(--paper-serif);
+  font-size: clamp(1rem, 0.97rem + 0.4vw, 1.125rem);
+  line-height: 1.65;
+  max-width: 68ch;
+  color: var(--text);
+}
+
+.academic-prose a,
+.academic-findings a {
+  color: var(--paper-accent);
+  text-underline-offset: 0.15em;
+}
+
+.academic-question-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper-muted);
+  margin: 1.75rem 0 0.75rem;
+}
+
+.academic-openness {
+  margin: 1.25rem 0 0;
+}
+
+.academic-questions {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.academic-questions li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.25rem;
+}
+
+.academic-questions li::marker {
+  color: var(--paper-accent);
+  font-family: var(--font-mono);
+}
+
+.academic-findings {
+  margin: 1.25rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.academic-findings li {
+  margin-bottom: 0.6rem;
+}
+
+.academic-findings li::marker {
+  color: var(--paper-accent);
+}
+
+.academic .skills-list {
+  margin-top: 1.25rem;
+}
+
+/* Publications index-table */
+.pub-index {
+  border-top: 1px solid var(--paper-rule);
+}
+
+.pub-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.25rem 0.25rem;
+  border-bottom: 1px solid var(--paper-rule);
+  color: inherit;
+}
+
+.pub-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.pub-cite {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper-muted);
+}
+
+.pub-title {
+  font-family: var(--paper-serif);
+  font-size: 1.1rem;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.pub-venue {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.pub-doi {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--paper-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.pub-year {
+  color: var(--paper-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper-accent);
+  border: 1px solid var(--paper-rule);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+
+.pub-arrow {
+  color: var(--paper-accent);
+}
+
+.pub-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.7rem;
+  flex-shrink: 0;
+}
+
+.pub-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pub-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--paper-accent);
+  border: 1px solid var(--paper-rule);
+  border-radius: 4px;
+  padding: 0.35rem 0.7rem;
+  background: transparent;
+  white-space: nowrap;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.pub-btn:hover {
+  background: var(--paper-accent);
+  border-color: var(--paper-accent);
+  color: #FFFDF8;
+}
+
+.pub-btn:focus-visible {
+  outline: 2px solid var(--paper-accent);
+  outline-offset: 2px;
+}
+
+/* Education entries */
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.edu-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.edu-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.edu-degree {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  margin: 0 0 0.4rem;
+}
+
+.edu-detail {
+  margin: 0;
+}
+
+.edu-detail + .edu-detail {
+  margin-top: 0.5rem;
+}
+
+/* Supervision-fit panel */
+.fit-panel {
+  background: var(--paper-panel);
+  border: 1px solid var(--paper-rule);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 1rem + 2vw, 2.25rem);
+}
+
+.fit-panel .academic-prose {
+  margin-top: 0;
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.fit-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper-accent);
+  margin: 0 0 0.6rem;
+}
+
+.fit-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.fit-list li {
+  margin-bottom: 0.45rem;
+}
+
+.fit-list li::marker {
+  color: var(--paper-accent);
+}
+
+/* CV box */
+.academic-cv-box .section-label {
+  margin-bottom: 0.5rem;
+}
+
+.academic-identifiers {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.academic-identifiers a {
+  color: var(--paper-accent);
+  text-underline-offset: 0.15em;
+}
+
+/* Inline links in CTA boxes: unmistakably clickable */
+.academic .currently-text a {
+  color: var(--paper-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color 160ms ease;
+}
+
+.academic .currently-text a:hover {
+  color: var(--accent-hover);
+}
+
+/* Small screens: year/tags and buttons share one line under the title */
+@media (max-width: 640px) {
+  .pub-row {
+    flex-wrap: wrap;
+  }
+
+  .pub-side {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* Tablet and up: real margin column */
+@media (min-width: 1024px) {
+  .academic-two-col {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .academic-two-col .academic-margin {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding-top: 0.3rem;
+    border-top: 1px solid var(--paper-rule);
+  }
+
+  .edu-item {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .edu-item .academic-margin {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .fit-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Dark mode: ink paper, not inverted cream */
+[data-theme="dark"] .academic {
+  --paper: #1A1815;
+  --paper-ink: #E4E4E7;
+  --paper-muted: #A8A29E;
+  --paper-accent: #F97316;
+  --paper-panel: #232019;
+  --paper-rule: #3A352C;
+}
+
+[data-theme="dark"] .academic-prose,
+[data-theme="dark"] .academic-findings,
+[data-theme="dark"] .academic-questions,
+[data-theme="dark"] .edu-detail,
+[data-theme="dark"] .pub-title {
+  color: var(--text);
+}
+
+[data-theme="dark"] .cite-key {
+  background: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="dark"] .pub-row:hover {
+  background: rgba(249, 115, 22, 0.06);
+}
+
+/* Reduced motion: kill transitions */
+@media (prefers-reduced-motion: reduce) {
+  .pub-btn {
+    transition: none;
+  }
+
+  .academic .currently-text a {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   Academic headings — serif, paper-like.
+   Overrides the site-wide Syne display treatment inside .academic:
+   one family for headings and body, modest scale, normal tracking.
+   ============================================================ */
+
+.academic .section-title {
+  font-family: var(--paper-serif);
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 1.2;
+  font-size: clamp(1.5rem, 1.3rem + 1.4vw, 2rem);
+  text-wrap: balance;
+}
+
+.academic-paper .section-title {
+  font-size: clamp(1.75rem, 1.5rem + 2vw, 2.5rem);
+  max-width: 24ch;
+}
+
+.academic .edu-degree,
+.academic .pub-title {
+  font-family: var(--paper-serif);
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.academic .fit-label,
+.academic .academic-question-label {
+  font-size: 0.72rem;
+}
+
+.academic-imprint {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--paper-muted);
+  margin-top: 1.25rem;
+}
+
+.pub-notice {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--paper-muted);
+  border-top: 1px solid var(--paper-rule);
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  max-width: 78ch;
+}
+
+.pub-notice a {
+  color: var(--paper-accent);
+  text-underline-offset: 0.15em;
+}

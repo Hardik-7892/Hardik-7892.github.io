@@ -14,6 +14,7 @@
       { label: 'Home',    href: p + '/',   page: 'home' },
       { label: 'About',   href: p + 'about.html',   page: 'about' },
       { label: 'Experience', href: p + 'experience.html', page: 'experience' },
+      { label: 'Academic', href: p + 'academic.html', page: 'academic' },
       { label: 'Roles',   href: p + 'roles.html',    page: 'roles', dropdown: [
         { label: 'All Roles', href: p + 'roles.html', page: 'roles' },
         { label: 'Software', href: p + 'roles/software.html', page: 'software' },
