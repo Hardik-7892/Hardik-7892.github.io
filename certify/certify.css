@@ -244,6 +244,13 @@ body[data-page="certify"] main a:not(.btn):hover {
     border: 2px solid #000;
   }
 
+  /* layout.css hides all canvases when printing; the certificate QR must survive. */
+  .cert-card canvas {
+    display: block !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   .cert-verify-actions button,
   .cert-form,
   .cert-status {
